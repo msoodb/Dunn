@@ -19,7 +19,8 @@ Contents
 
 .. toctree::
 
+   ready
    usage
    api
 
-Dunn has its documentation hosted on Read the Docs.
+Dunn has its documentation hosted on `Read the Docs <https://dunn.readthedocs.io/en/dunn/.>`
