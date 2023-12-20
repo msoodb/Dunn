@@ -3,12 +3,12 @@ Ready
 
 Process
 ------------
-- Make Coffee
-- vpn connection
-- Prepare Tools    
-- Create Room
-- Play Music
-- Set Timer
+[] Make Coffee
+[] vpn connection
+-[] Prepare Tools    
+-[[]] Create Room
+[[]] Play Music
+[] Set Timer
 
 Tools
 ----------------
