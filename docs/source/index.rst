@@ -5,7 +5,7 @@ Welcome to Dunn's documentation!
 who worked as Old West bounty hunters. 
 They are best known for having killed George "Bittercreek" Newcomb 
 and Charley Pierce, members of the Wild Bunch. 
-Pull it from `Dunn <hhttps://github.com/msoodb/dunn/>`_ .
+Pull it from `Dunn <https://github.com/msoodb/dunn/>`_ .
 
 Check out the :doc:`usage` section for further information, including
 how to :ref:`installation` the project.
