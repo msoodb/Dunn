@@ -5,3 +5,82 @@ Company
 ------------
 - Name
 - History
+- Leaked-info
+    - Document
+    - User:Email:Password
+    - Source-code
+    - Server:IP:Port
+    - [Baidu]
+    - [binsearch.info]
+    - [Bing]
+    - [DuckDuckGo]
+    - [ixquick/Startpage]
+    - [Google]                                             site:example.com filetype:pdf inurl:login cache:example.com
+    - [PunkSpider]
+    - [Framework]       OSINT Framework                    https://osintframework.com
+    - [theHarvester]    OSINT platform                     -
+    - [rocketreach]     Email and phone                    https://rocketreach.co
+    - [GHDB]            Google Hacking Database            https://www.exploit-db.com/google-hacking-database
+    - [alerts]          Set google change alert            https://google.com/alerts
+    - [shodan]          Shodan                             https://shodan.io/dashboard
+    - [SocialMedia]     Linkedin, Instagram, facebook      https://instagram.com/
+    - [censys.io]       censys.io                          https://search.censys.io/
+    - [zoomeye.org]     zoomeye.org                        https://www.zoomeye.org
+    - [github.com]      Code and data leak                 https://github.com
+    - [pastebin]        leaked password                    https://pastebin.com
+    - [haveibeenpwned]  password reuse attack              https://haveibeenpwned.com
+- Website
+    - Contact
+    - Location
+    - Business
+    - Form
+    - Entrypoint
+    - Leaked-data
+- key persons
+    - Email
+    - Social media
+- Business
+    - Payment gateway
+    - Processes
+- Partners
+- Infrastructure
+    - Technology
+        - Database
+        - OS
+        - Programming Language
+        - Code Repository
+        - Cloud
+        - Deployment
+    - Network
+        - Public
+        - Private
+        - Cloud
+        - Firewall
+        - CIDR
+        - [fping]           Ping Sweep                          
+        - [ping]            IP addresses                             
+        - [nmap]            Find Ports and Services            nmap script
+        - [rustscan]        Fast Port Scan
+    - Firewall
+        - IPS
+        - Firewall
+        - WAF
+    - Cloud
+        - IaaS
+        - CaaS
+        - PaaS
+        - FaaS
+        - SaaS
+        - Storage
+    - Applications
+        - Web-servers
+        - Mail-server
+        - CRM
+        - HR
+        - ERP
+        - E-Learning
+        - User-Directory
+    - api
+        - BaseURL
+        - Version
+        - Document
