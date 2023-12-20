@@ -117,3 +117,145 @@ Wildcard
     - [httprobe]
     - [httpx]
     - [fff]
+
+Domain
+------------
+- Network
+    - IP
+    - IP.Reverse
+    - DNS
+    - Location
+    - WAF
+    - IPS
+    - Whois
+    - Port              open, service, vulnerability
+    - [host]            IP addresses                       -
+    - [whois]           Domain information                 -
+    - [dig]             DNS information ANY/MX/TXT         dig +trace example.com
+    - [ip2location]     Geo location                       https://ip2location.com
+    - [reverse-ip]      Find all websites on the ip        https://hackertarget.com/reverse-ip-lookup/
+    - [traceroute]      Displaying possible routes         -     
+    - [nslookup]        DNS information                    -
+    - [dnsrecon]        DNS Passive/Active mode            -
+    - [dnsdumpster]     DNS map information                https://dnsdumpster.com
+    - [dnsleaktest]     DNS leak information               https://dnsleaktest.com
+    - [DNSenum]         DNS information                    -
+    - [wafw00f]         WAF information                    -
+    - [p0f]             TCP/IP stack fingerprinting        -
+- Services
+    - SMB
+    - FTP
+    - telnet
+    - HTTP
+    - NFS
+    - SMTP
+    - RPC
+    - SSH
+    - MySql
+    - MS Sql Server
+    - Redis
+    - [shodan.io]
+    - [nmap]
+- Web server
+    - type              
+    - information leakage
+    - version           
+    - vulnerability
+- Web application
+    - information leakage
+    - Metafiles
+        - robots.txt
+        - sitemap.xml
+        - <meta tag>
+    - Headers
+        - HSTS
+        - X-XSS-Protection
+        - CORS
+        - server
+        - X-Powered-By
+        - X-Frame-Options
+        - Content-Security-Policy
+    - URLs
+        - url
+        - screenshot
+        - fff
+        - [url.sh]          url.sh  <host>
+        - [waybackurl]      URL enumeration                    -
+        - [katana]          Host enumeration
+    - spiderparam
+    - js
+    - Framework/CMS
+        - name
+        - version
+        - default
+            - known vulnerabilities
+            - default  credentials
+            - default settings
+            - defaults and known files
+        - configuration
+        - database
+        - environments
+            - development
+            - sandbox
+            - production
+        - logging
+            - Location
+            - Storage
+            - Rotation
+            - Access Control
+            - Review
+        - File Extensions        .sql, .zip, .bak, .pdf, .txt, .old, .inf, .inc
+        - Backup
+            - js comment
+            - js source code
+            - cache file
+            - .sql
+            - .data
+            - .bak
+        - Admin panel
+        - Identity managemnet
+            - Admin
+            - User
+            - Subscriber
+    - source
+        - comment
+        - HTML version
+        - <meta tag>
+    - Reverse proxy
+    - Cloud storage
+        - aws
+        - gcloud
+        - azure
+    - Architecture
+        - PaaS              aws, azure, wordpress, wix, 
+        - Entrypoints
+            - Login
+            - URL
+            - Form
+            - Admin panel
+            - User panel
+        - api
+        - js library
+        - database
+        - Cookie
+        - Source code
+            - Programming Language
+            - github
+        - Session
+            - JWT
+            - SessionId
+        - Third party services/APIs
+            - apikey
+        - Application paths
+    - [archive]         Website History                    https://archive.org/web     
+    - [netcraft]        Some usefull information           https://sitereport.netcraft.com
+    - [Wappalyzer]      Website technology                 addons.mozilla.org
+    - [BuiltWith]       Website technology                 addons.mozilla.org/
+    - [hackertarget]    WhatWeb & Wappalyzer Scan          https://hackertarget.com
+    - [whatweb]         Website technology                 -
+    - [Firefox]         Browser, Source Code Review        -
+    - [BurpSuite]       Set Scope, Browser and Log         -
+    - [securityheaders] Headers missing                    https://securityheaders.com
+    - [weleakinfo.io]   Info                               https://weleakinfo.io/
+    - [hunter.io]       Info                               https://hunter.io/
+    - [Original-ip]     Find the real IP of websites       https://securitytrails.com, https://zoomeye.org
