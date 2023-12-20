@@ -260,15 +260,20 @@ Domain
     - [hunter.io]       Info                               https://hunter.io/
     - [Original-ip]     Find the real IP of websites       https://securitytrails.com, https://zoomeye.org
 
-iOS Mobile app
+Automated Reconnaissance Framework, and Vulnerability Repositories
 ------------
-- iOS Mobile app
-- iOS Mobile app
-
-Android Mobile app
-------------
-- Android Mobile app
-
-CIDR
-------------
-- CIDR
+- [recon-ng]                https://www.kali.org/tools/recon-ng
+- [maltego]                 https://www.maltego.com
+- [Sn1per]                  https://github.com/1N3/Sn1per
+- [amass]                   https://github.com/OWASP/Amass
+- [centralops]              https://centralops.net
+- [Nessus]                  https://www.tenable.com
+- [Nexpose]                 https://www.rapid7.com/products/nexpose
+- [OpenVAS]                 https://www.openvas.org
+- [ExploitDB]               https://www.exploit-db.com
+- [NVD]                     https://nvd.nist.gov/vuln/search
+- [Mitre]                   https://www.cve.org
+- [OVAL]                    https://oval.cisecurity.org/repository
+- [rapid7]                  https://www.rapid7.com/db/
+- [favicon]                 https://wiki.owasp.org/index.php/OWASP_favicon_database
+- [dencode]                 https://dencode.com
