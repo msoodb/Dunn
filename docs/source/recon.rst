@@ -260,7 +260,8 @@ Domain
     - [hunter.io]       Info                               https://hunter.io/
     - [Original-ip]     Find the real IP of websites       https://securitytrails.com, https://zoomeye.org
 
-Automated
+
+Automated Reconnaissance Framework, and Vulnerability Repositories
 ------------
 - [recon-ng]                https://www.kali.org/tools/recon-ng
 - [maltego]                 https://www.maltego.com
