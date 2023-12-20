@@ -102,6 +102,18 @@ Covenant
 Wildcard
 ------------
 - Subdomain
-    - [sub.sh]    
+    - [sub.sh]
+    - [crtsh]
+    - [subfinder]
+    - [assetfinder]
+    - [subbrute]
+    - [amass]
+    - [ffuf]
+    - [google]
+    - [fierce]
+    - [knockpy]
 - Host
     - [host.sh]
+    - [httprobe]
+    - [httpx]
+    - [fff]
