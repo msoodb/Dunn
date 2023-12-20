@@ -102,18 +102,18 @@ Covenant
 Wildcard
 ------------
 - Subdomain
-     - [sub.sh]          sub.sh wildcard
-     - [crtsh]           Subdomain enumeration              https://crt.sh/
-     - [subfinder]       Subdomain enumeration              -
-     - [assetfinder]     Subdomain enumeration              -
-     - [subbrute]        Subdomain enumeration              -
-     - [amass]           Subdomain enumeration              -
-     - [ffuf]            Subdomain enumeration              -
-     - [google]          site:*.bbc.com -site:www.bbc.com
-     - [fierce]          Subdomain enum brute-force   
-     - [knockpy]         Subdomain enum brute-force
+    - [sub.sh]          sub.sh wildcard
+    - [crtsh]           Subdomain enumeration              https://crt.sh/
+    - [subfinder]       Subdomain enumeration              -
+    - [assetfinder]     Subdomain enumeration              -
+    - [subbrute]        Subdomain enumeration              -
+    - [amass]           Subdomain enumeration              -
+    - [ffuf]            Subdomain enumeration              -
+    - [google]          site:*.bbc.com -site:www.bbc.com
+    - [fierce]          Subdomain enum brute-force   
+    - [knockpy]         Subdomain enum brute-force
 - Host
-     - [host.sh]         host.sh subdomain
-     - [httprobe]        Host enumeration                   -
-     - [httpx]           Host enumeration                   -
-     - [fff]             Host enumeration                   -
+    - [host.sh]         host.sh subdomain
+    - [httprobe]        Host enumeration                   -
+    - [httpx]           Host enumeration                   -
+    - [fff]             Host enumeration                   -
