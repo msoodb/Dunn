@@ -1,4 +1,4 @@
-Welcome to Lumache's documentation!
+Welcome to Dunn's documentation!
 ===================================
 
 **Lumache** (/lu'make/) is a Python library for cooks and food lovers
@@ -21,4 +21,4 @@ Contents
    usage
    api
 
-Lumache has its documentation hosted on Read the Docs.
+Dunn has its documentation hosted on Read the Docs.

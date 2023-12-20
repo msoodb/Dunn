@@ -2,9 +2,9 @@
 
 # -- Project information
 
-project = 'Lumache'
-copyright = '2021, Graziella'
-author = 'Graziella'
+project = 'Dunn'
+copyright = '2023, msoodb'
+author = 'msoodb'
 
 release = '0.1'
 version = '0.1.0'
