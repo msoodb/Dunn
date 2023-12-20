@@ -20,7 +20,7 @@ Tools
     sudo cp ~/Projects/bible/tools/nmap/explore /usr/local/bin 
     code ~/Projects/bible
 
-Operation Room
+Preperation Room
 ----------------
 .. code-block:: console
 

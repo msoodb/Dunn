@@ -1,31 +1,290 @@
+===========
 Recon
-=====
+===========
 
-Process
+Company
+===========
+- Name
+- History
+- Leaked-info
+    - Document
+    - User:Email:Password
+    - Source-code
+    - Server:IP:Port
+    - [Baidu]
+    - [binsearch.info]
+    - [Bing]
+    - [DuckDuckGo]
+    - [ixquick/Startpage]
+    - [Google]                                             site:example.com filetype:pdf inurl:login cache:example.com
+    - [PunkSpider]
+    - [Framework]       OSINT Framework                    https://osintframework.com
+    - [theHarvester]    OSINT platform                     -
+    - [rocketreach]     Email and phone                    https://rocketreach.co
+    - [GHDB]            Google Hacking Database            https://www.exploit-db.com/google-hacking-database
+    - [alerts]          Set google change alert            https://google.com/alerts
+    - [shodan]          Shodan                             https://shodan.io/dashboard
+    - [SocialMedia]     Linkedin, Instagram, facebook      https://instagram.com/
+    - [censys.io]       censys.io                          https://search.censys.io/
+    - [zoomeye.org]     zoomeye.org                        https://www.zoomeye.org
+    - [github.com]      Code and data leak                 https://github.com
+    - [pastebin]        leaked password                    https://pastebin.com
+    - [haveibeenpwned]  password reuse attack              https://haveibeenpwned.com
+- Website
+    - Contact
+    - Location
+    - Business
+    - Form
+    - Entrypoint
+    - Leaked-data
+- key persons
+    - Email
+    - Social media
+- Business
+    - Payment gateway
+    - Processes
+- Partners
+- Infrastructure
+    - Technology
+        - Database
+        - OS
+        - Programming Language
+        - Code Repository
+        - Cloud
+        - Deployment
+    - Network
+        - Public
+        - Private
+        - Cloud
+        - Firewall
+        - CIDR
+        - [fping]           Ping Sweep                          
+        - [ping]            IP addresses                             
+        - [nmap]            Find Ports and Services            nmap script
+        - [rustscan]        Fast Port Scan
+    - Firewall
+        - IPS
+        - Firewall
+        - WAF
+    - Cloud
+        - IaaS
+        - CaaS
+        - PaaS
+        - FaaS
+        - SaaS
+        - Storage
+    - Applications
+        - Web-servers
+        - Mail-server
+        - CRM
+        - HR
+        - ERP
+        - E-Learning
+        - User-Directory
+    - api
+        - BaseURL
+        - Version
+        - Document
+
+Covenant
+===========
+- Bounty                 
+    - type
+    - platform
+    - url
+- Wildcards
+- Domains
+- iOS mobile app
+- Android mobile app
+- CIDR
+- Policy
+- Out of Scope
+
+Wildcard
+===========
+- Subdomain
+     - [sub.sh]          sub.sh <wildcard>
+     - [crtsh]           Subdomain enumeration              https://crt.sh/
+     - [subfinder]       Subdomain enumeration              -
+     - [assetfinder]     Subdomain enumeration              -
+     - [subbrute]        Subdomain enumeration              -
+     - [amass]           Subdomain enumeration              -
+     - [ffuf]            Subdomain enumeration              -
+     - [google]          [site:*.bbc.com -site:www.bbc.com]
+     - [fierce]          Subdomain enum brute-force   
+     - [knockpy]         Subdomain enum brute-force
+- Host
+     - [host.sh]         host.sh <subdomain>
+     - [httprobe]        Host enumeration                   -
+     - [httpx]           Host enumeration                   -
+     - [fff]             Host enumeration                   -
+
+Domain
+===========
+- Network
+    - IP
+    - IP.Reverse
+    - DNS
+    - Location
+    - WAF
+    - IPS
+    - Whois
+    - Port              open, service, vulnerability
+    - [host]            IP addresses                       -
+    - [whois]           Domain information                 -
+    - [dig]             DNS information ANY/MX/TXT         dig +trace example.com
+    - [ip2location]     Geo location                       https://ip2location.com
+    - [reverse-ip]      Find all websites on the ip        https://hackertarget.com/reverse-ip-lookup/
+    - [traceroute]      Displaying possible routes         -     
+    - [nslookup]        DNS information                    -
+    - [dnsrecon]        DNS Passive/Active mode            -
+    - [dnsdumpster]     DNS map information                https://dnsdumpster.com
+    - [dnsleaktest]     DNS leak information               https://dnsleaktest.com
+    - [DNSenum]         DNS information                    -
+    - [wafw00f]         WAF information                    -
+    - [p0f]             TCP/IP stack fingerprinting        -
+- Services
+    - SMB
+    - FTP
+    - telnet
+    - HTTP
+    - NFS
+    - SMTP
+    - RPC
+    - SSH
+    - MySql
+    - MS Sql Server
+    - Redis
+    - [shodan.io]
+    - [nmap]
+- Web server
+    - type              
+    - information leakage
+    - version           
+    - vulnerability
+- Web application
+    - information leakage
+    - Metafiles
+        - robots.txt
+        - sitemap.xml
+        - <meta tag>
+    - Headers
+        - HSTS
+        - X-XSS-Protection
+        - CORS
+        - server
+        - X-Powered-By
+        - X-Frame-Options
+        - Content-Security-Policy
+    - URLs
+        - url
+        - screenshot
+        - fff
+        - [url.sh]          url.sh  <host>
+        - [waybackurl]      URL enumeration                    -
+        - [katana]          Host enumeration
+    - spiderparam
+    - js
+    - Framework/CMS
+        - name
+        - version
+        - default
+            - known vulnerabilities
+            - default  credentials
+            - default settings
+            - defaults and known files
+        - configuration
+        - database
+        - environments
+            - development
+            - sandbox
+            - production
+        - logging
+            - Location
+            - Storage
+            - Rotation
+            - Access Control
+            - Review
+        - File Extensions        .sql, .zip, .bak, .pdf, .txt, .old, .inf, .inc
+        - Backup
+            - js comment
+            - js source code
+            - cache file
+            - .sql
+            - .data
+            - .bak
+        - Admin panel
+        - Identity managemnet
+            - Admin
+            - User
+            - Subscriber
+    - source
+        - comment
+        - HTML version
+        - <meta tag>
+    - Reverse proxy
+    - Cloud storage
+        - aws
+        - gcloud
+        - azure
+    - Architecture
+        - PaaS              aws, azure, wordpress, wix, 
+        - Entrypoints
+            - Login
+            - URL
+            - Form
+            - Admin panel
+            - User panel
+        - api
+        - js library
+        - database
+        - Cookie
+        - Source code
+            - Programming Language
+            - github
+        - Session
+            - JWT
+            - SessionId
+        - Third party services/APIs
+            - apikey
+        - Application paths
+    - [archive]         Website History                    https://archive.org/web     
+    - [netcraft]        Some usefull information           https://sitereport.netcraft.com
+    - [Wappalyzer]      Website technology                 addons.mozilla.org
+    - [BuiltWith]       Website technology                 addons.mozilla.org/
+    - [hackertarget]    WhatWeb & Wappalyzer Scan          https://hackertarget.com
+    - [whatweb]         Website technology                 -
+    - [Firefox]         Browser, Source Code Review        -
+    - [BurpSuite]       Set Scope, Browser and Log         -
+    - [securityheaders] Headers missing                    https://securityheaders.com
+    - [weleakinfo.io]   Info                               https://weleakinfo.io/
+    - [hunter.io]       Info                               https://hunter.io/
+    - [Original-ip]     Find the real IP of websites       https://securitytrails.com, https://zoomeye.org
+
+iOS Mobile app
+===========
+
+Android Mobile app
+===========
+
+CIDR
+===========
+
+
+Automated Reconnaissance Framework, and Vulnerability Repositories
 ------------
-- Make Coffee
-- vpn connection
-- Prepare Tools    
-- Create Room
-- Play Music
-- Set Timer
-
-Tools
-----------------
-.. code-block:: console
-    
-    cp ~/Projects/bible/tools/tmux/.tmux.conf ~    
-    sudo cp ~/Projects/bible/tools/nmap/setip /usr/local/bin
-    sudo cp ~/Projects/bible/tools/nmap/portip /usr/local/bin
-    sudo cp ~/Projects/bible/tools/nmap/explore /usr/local/bin 
-    code ~/Projects/bible
-
-Operation Room
-----------------
-.. code-block:: console
-
-    mkdir -p ~/Operations/<room>
-    cd ~/Operations/<room>
-    touch ~/Operations/<room>/clue.txt
-    tmux; tmux Ctrl+B `
-    cp -r ~/Projects/bible/tools/0box . 
+    - [recon-ng]                https://www.kali.org/tools/recon-ng
+    - [maltego]                 https://www.maltego.com
+    - [Sn1per]                  https://github.com/1N3/Sn1per
+    - [amass]                   https://github.com/OWASP/Amass
+    - [centralops]              https://centralops.net
+    - [Nessus]                  https://www.tenable.com
+    - [Nexpose]                 https://www.rapid7.com/products/nexpose
+    - [OpenVAS]                 https://www.openvas.org
+    - [ExploitDB]               https://www.exploit-db.com
+    - [NVD]                     https://nvd.nist.gov/vuln/search
+    - [Mitre]                   https://www.cve.org
+    - [OVAL]                    https://oval.cisecurity.org/repository
+    - [rapid7]                  https://www.rapid7.com/db/
+    - [favicon]                 https://wiki.owasp.org/index.php/OWASP_favicon_database
+    - [dencode]                 https://dencode.com
