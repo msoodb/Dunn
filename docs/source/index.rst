@@ -28,4 +28,4 @@ Contents
    root
    cover
 
-Dunn has its documentation hosted on `Read the Docs <https://dunn.readthedocs.io/en/dunn/.>_`.
+Dunn has its documentation hosted on `Read the Docs <https://dunn.readthedocs.io/en/dunn/>`_ .
