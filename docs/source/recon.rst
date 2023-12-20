@@ -1,9 +1,8 @@
-===========
 Recon
-===========
+=====
 
 Company
-===========
+------------
 - Name
 - History
 - Leaked-info
@@ -87,7 +86,7 @@ Company
         - Document
 
 Covenant
-===========
+------------
 - Bounty                 
     - type
     - platform
@@ -101,7 +100,7 @@ Covenant
 - Out of Scope
 
 Wildcard
-===========
+------------
 - Subdomain
      - [sub.sh]          sub.sh <wildcard>
      - [crtsh]           Subdomain enumeration              https://crt.sh/
@@ -120,7 +119,7 @@ Wildcard
      - [fff]             Host enumeration                   -
 
 Domain
-===========
+------------
 - Network
     - IP
     - IP.Reverse
@@ -261,21 +260,21 @@ Domain
     - [hunter.io]       Info                               https://hunter.io/
     - [Original-ip]     Find the real IP of websites       https://securitytrails.com, https://zoomeye.org
 
-iOS
-===========
+iOS Mobile app
+------------
 - iOS Mobile app
 - iOS Mobile app
 
-Android
-===========
+Android Mobile app
+------------
 - Android Mobile app
 
 CIDR
-===========
+------------
 - CIDR
 
-Automated
-===========
+Automated Reconnaissance Framework, and Vulnerability Repositories
+------------
 - [recon-ng]                https://www.kali.org/tools/recon-ng
 - [maltego]                 https://www.maltego.com
 - [Sn1per]                  https://github.com/1N3/Sn1per
