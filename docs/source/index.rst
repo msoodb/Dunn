@@ -1,10 +1,11 @@
 Welcome to Dunn's documentation!
 ===================================
 
-**Lumache** (/lu'make/) is a Python library for cooks and food lovers
-that creates recipes mixing random ingredients.
-It pulls data from the `Open Food Facts database <https://world.openfoodfacts.org/>`_
-and offers a *simple* and *intuitive* API.
+**The Dunn Brothers** (/D'unn/) were a group of brothers from Pawnee, Oklahoma, 
+who worked as Old West bounty hunters. 
+They are best known for having killed George "Bittercreek" Newcomb 
+and Charley Pierce, members of the Wild Bunch. 
+Pull it from `Dunn <hhttps://github.com/msoodb/dunn/>`_ .
 
 Check out the :doc:`usage` section for further information, including
 how to :ref:`installation` the project.
