@@ -263,19 +263,18 @@ Domain
 
 iOS Mobile app
 ===========
-iOS Mobile app
+- iOS Mobile app
 
 Android Mobile app
 ===========
-Android Mobile app
+- Android Mobile app
 
 CIDR
 ===========
-CIDR
-
+- CIDR
 
 Automated Reconnaissance Framework, and Vulnerability Repositories
-------------
+===========
 - [recon-ng]                https://www.kali.org/tools/recon-ng
 - [maltego]                 https://www.maltego.com
 - [Sn1per]                  https://github.com/1N3/Sn1per
