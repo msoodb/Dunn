@@ -3,8 +3,8 @@ Ready
 
 Process
 ------------
--|| Make Coffee
--|| vpn connection
+- Make Coffee
+- vpn connection
 - Prepare Tools    
 - Create Room
 - Play Music
