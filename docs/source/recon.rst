@@ -140,7 +140,7 @@ Covenant
 .. code-block:: console
     
     *.example.com Wildcard
-    test*.example.com Wildcard
+    test*.example.com Wildcard 
 
 - Domains
 - iOS mobile app
