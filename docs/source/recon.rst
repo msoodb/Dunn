@@ -212,24 +212,32 @@ Domain
     - IP.Reverse
         - :code:`https://api.hackertarget.com/reverseiplookup/?q=$IP > ip.reverse`
     - DNS
+        - [traceroute]
+        - [nslookup]
+        - [dnsrecon]
+        - [dnsdumpster] :code:`https://dnsdumpster.com`
+        - [dnsleaktest] :code:`https://dnsleaktest.com`
+        - [DNSenum]
+        - [dig.sh]
     - Location
+        - :code:`https://ip2location.com`
     - WAF
+        - [wafw00f]  :code:` wafw00f $TARGET > waf`
+        - [WAF-Detection] :code:`https://www.nmmapper.com/sys/reconnaissance-tools/waf/web-application-firewall-detector/ >> waf` 
+        - [p0f] TCP/IP stack fingerprinting
     - IPS
     - Whois
-    - Port              open, service, vulnerability
-    - [host]            IP addresses                       -
-    - [whois]           Domain information                 -
-    - [dig]             DNS information ANY/MX/TXT         dig +trace example.com
-    - [ip2location]     Geo location                       https://ip2location.com
-    - [reverse-ip]      Find all websites on the ip        https://hackertarget.com/reverse-ip-lookup/
-    - [traceroute]      Displaying possible routes         -     
-    - [nslookup]        DNS information                    -
-    - [dnsrecon]        DNS Passive/Active mode            -
-    - [dnsdumpster]     DNS map information                https://dnsdumpster.com
-    - [dnsleaktest]     DNS leak information               https://dnsleaktest.com
-    - [DNSenum]         DNS information                    -
-    - [wafw00f]         WAF information                    -
-    - [p0f]             TCP/IP stack fingerprinting        -
+        - [whois] :code:`whois $TARGET > whois`
+    - Port
+        - number
+        - service
+        - version
+        - vulnerability
+        - [shodan]
+        - [censys]
+        - [zoomeye]
+        - [nmap]
+        - [portip.sh]
 - Services
     - SMB
     - FTP
