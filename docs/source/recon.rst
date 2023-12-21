@@ -136,9 +136,11 @@ Covenant
     - platform
     - url
 - Wildcards
+
 .. code-block:: bash
     *.example.com           Wildcard
     test*.example.com       Wildcard
+
 - Domains
 - iOS mobile app
 - Android mobile app
