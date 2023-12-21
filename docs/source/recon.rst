@@ -239,6 +239,24 @@ Domain
         - [nmap]
         - [portip.sh]
 - Services
+
+.. csv-table::
+    :widths: 30, 70
+    :header-rows: 1
+
+    **Swagger 2**, **Connexion support**
+    Basic Authentication, |:white_check_mark:|
+    API key, |:white_check_mark:|
+    Oauth2, |:white_check_mark:|
+    **OpenAPI**,
+    HTTP Basic, |:white_check_mark:|
+    HTTP Bearer, |:white_check_mark:|
+    Other HTTP schemes (RFC 7253), "No built-in support, use a `custom security handler <#custom-security-handlers>`_"
+    API key, |:white_check_mark:|
+    Oauth2, |:white_check_mark:|
+    OpenID, "No built-in support, use a `custom security handler <#custom-security-handlers>`_"
+
+
     - SMB
     - FTP
     - telnet
@@ -250,7 +268,7 @@ Domain
     - MySql
     - MS Sql Server
     - Redis
-    - [shodan.io]
+    - [shodan]
     - [nmap]
 - Web server
     - type              
