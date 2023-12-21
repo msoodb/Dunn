@@ -253,20 +253,7 @@ Domain
    * - Row 2, column 1
      - Row 2, column 2
      - Row 2, column 3
-
-    - SMB
-    - FTP
-    - telnet
-    - HTTP
-    - NFS
-    - SMTP
-    - RPC
-    - SSH
-    - MySql
-    - MS Sql Server
-    - Redis
-    - [shodan]
-    - [nmap]
+   
 - Web server
     - type              
     - information leakage
