@@ -138,8 +138,11 @@ Covenant
 - Wildcards
 
 .. code-block:: console
-    *.example.com
-    test*.example.com
+    
+    cp ~/Projects/bible/tools/tmux/.tmux.conf ~    
+    sudo cp ~/Projects/bible/tools/nmap/setip /usr/local/bin
+    sudo cp ~/Projects/bible/tools/nmap/portip /usr/local/bin
+    sudo cp ~/Projects/bible/tools/nmap/explore /usr/local/bin 
     code ~/Projects/bible
 
 - Domains
