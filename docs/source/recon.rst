@@ -245,16 +245,16 @@ Domain
     :header-rows: 1
 
     **Swagger 2**, **Connexion support**
-    Basic Authentication, |:white_check_mark:|
-    API key, |:white_check_mark:|
-    Oauth2, |:white_check_mark:|
+    Basic Authentication,
+    API key,
+    Oauth2,
     **OpenAPI**,
-    HTTP Basic, |:white_check_mark:|
-    HTTP Bearer, |:white_check_mark:|
-    Other HTTP schemes (RFC 7253), "No built-in support, use a"
-    API key, |:white_check_mark:|
-    Oauth2, |:white_check_mark:|
-    OpenID, "No built-in support, use a"
+    HTTP Basic,
+    HTTP Bearer,
+    Other HTTP schemes (RFC 7253),
+    API key,
+    Oauth2,
+    OpenID,
 
     - SMB
     - FTP
