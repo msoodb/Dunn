@@ -24,8 +24,8 @@ Company
         - [shodan] servers and ports
         - [censys] servers and ports
         - [zoomeye] servers and ports
-    
-    - [GHDB]            Google Hacking Database            https://www.exploit-db.com/google-hacking-database
+    .. seealso:: Other tools.
+    - Google Hacking Database            https://www.exploit-db.com/google-hacking-database
     - search engine
         - [Baidu]
         - [binsearch.info]
