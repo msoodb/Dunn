@@ -239,6 +239,12 @@ Domain
         - [nmap]
         - [portip.sh]
 - Services
+
+.. csv-table:: Table Title
+   :file: services.csv
+   :widths: 30, 70
+   :header-rows: 1
+
     - SMB
     - FTP
     - telnet
