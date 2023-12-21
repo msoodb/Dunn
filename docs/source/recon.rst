@@ -3,7 +3,11 @@ Recon
 
 Company
 ------------
-- Name
+.. list-table::
+   :widths: 15 70
+
+   * - Name
+   * - Website
 - History
 - Leaked-info
     - Document
