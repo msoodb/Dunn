@@ -42,9 +42,9 @@ Company
             - [ixquick/Startpage]
         - etc
             - [PunkSpider]
-            - [`OSINT Framework <https://osintframework.com/>`_ .]
+            - [`OSINT Framework <https://osintframework.com/>`_]
             - [theHarvester]    OSINT platform
-            - [`alerts <https://google.com/alerts/>`_ .]          Set google change alert            
+            - [`alerts <https://google.com/alerts/>`_]          Set google change alert            
 - Website
     - Technology
         - Web Server
@@ -74,11 +74,17 @@ Company
         - backup
         - configuration 
 - key persons
-    - Email
-    - User:Pass    - 
-    - Social media
-    - Background
-    - Leaked-info
+
+.. list-table::
+   :widths: 25 25 25 25 25
+   :header-rows: 1
+
+   * - Email
+     - User:Pass
+     - Social media
+     - Background
+     - Leaked-info
+
 - Business
     - Processes
         - online shopping
