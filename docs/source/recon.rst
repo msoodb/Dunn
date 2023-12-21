@@ -137,9 +137,10 @@ Covenant
     - url
 - Wildcards
 
-.. code-block:: bash
-    *.example.com           Wildcard
-    test*.example.com       Wildcard
+.. code-block:: console
+    *.example.com
+    test*.example.com
+    code ~/Projects/bible
 
 - Domains
 - iOS mobile app
