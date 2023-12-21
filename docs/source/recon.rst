@@ -3,15 +3,9 @@ Recon
 
 Company
 ------------
-
-.. list-table::
-    :widths: 15 70
-    :stub-columns: 1
-
-    * - Name
-        - 
-    * - Website
-        - 
+- General
+    - Name
+    - Website 
 - History
 - Leaked-info
     - Document
