@@ -17,17 +17,17 @@ Company
 - History
 - Leaked-info
     - Document
-        - `google <https://giwww.google.com/>`_ . site:example.com filetype:pdf inurl:login cache:example.com
+        - `google <https://www.google.com/>`_ . site:example.com filetype:pdf inurl:login cache:example.com
     - User:Email:Password
-        - [rocketreach] email and phone
-        - [pastebin] leaked password
-        - [haveibeenpwned] password reuse attack
+        - [`rocketreach <https://rocketreach.co/>`_ ] email and phone
+        - [`pastebin <https://pastebin.com/>`_ ] leaked password
+        - [`haveibeenpwned <https://haveibeenpwned.com//>`_ ] password reuse attack
         - SocialMedia
-            - Linkedin
-            - Instagram
-            - facebook
+            - `Linkedin <https://www.linkedin.com/>`_ 
+            - `Instagram <https://www.instagram.com//>`_ 
+            - `facebook <https://www.facebook.com//>`_
     - Source-code
-        - [github] code, api-key and data leak
+        - [`github <https://github.com/>`_ ] code, api-key and data leak
     - Server:IP:Port
         - [shodan] servers and ports
         - [censys] servers and ports
