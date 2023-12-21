@@ -210,6 +210,7 @@ Domain
     - IP
         - [host]  :code:`host $TARGET > ip`
     - IP.Reverse
+        - :code:`https://api.hackertarget.com/reverseiplookup/?q=$IP > ip.reverse`
     - DNS
     - Location
     - WAF
