@@ -139,26 +139,8 @@ Covenant
 
 .. code-block:: console
     
-    cp ~/Projects/bible/tools/tmux/.tmux.conf ~    
-    sudo cp ~/Projects/bible/tools/nmap/setip /usr/local/bin
-    sudo cp ~/Projects/bible/tools/nmap/portip /usr/local/bin
-    sudo cp ~/Projects/bible/tools/nmap/explore /usr/local/bin 
-    code ~/Projects/bible
-    hhhhh dfgsfg sdfg dfgd
-
-.. csv-table::
-    :widths: 30, 70
-    :header-rows: 1
-
-    **Swagger 2**, **Connexion support**
-    Basic Authentication, |:white_check_mark:|
-    API key, |:white_check_mark:|
-    Oauth2, |:white_check_mark:|
-    **OpenAPI**,
-    HTTP Basic, |:white_check_mark:|
-    HTTP Bearer, |:white_check_mark:|
-    API key, |:white_check_mark:|
-    Oauth2, |:white_check_mark:|
+    *.example.com Wildcard
+    test*.example.com Wildcard
 
 - Domains
 - iOS mobile app
