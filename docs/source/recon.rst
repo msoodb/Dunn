@@ -92,6 +92,7 @@ Company
         - Card
         - Bank
 - Partners
+
 .. csv-table::
    :file: partners.csv
    :widths: 30, 30, 30
