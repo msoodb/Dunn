@@ -17,7 +17,7 @@ Company
 - History
 - Leaked-info
     - Document
-        - `google <https://www.google.com/>`_ . site:example.com filetype:pdf inurl:login cache:example.com
+        - `google <https://www.google.com/>`_ site:example.com filetype:pdf inurl:login cache:example.com
     - User:Email:Password
         - [`rocketreach <https://rocketreach.co/>`_ ] email and phone
         - [`pastebin <https://pastebin.com/>`_ ] leaked password
@@ -45,7 +45,7 @@ Company
             - [`OSINT Framework <https://osintframework.com/>`_]
             - [theHarvester]    OSINT platform
             - [`alerts <https://google.com/alerts/>`_]          Set google change alert            
-- Website
+- Website-info
     - Technology
         - Web Server
         - CMS
@@ -193,6 +193,7 @@ Covenant
 
 Wildcard
 ------------
+For each wildcard in scope, find subdomains, and hosts.
 - Subdomain
     - [sub.sh]
     - [crtsh]
@@ -223,7 +224,7 @@ Domain
         - [Original-ip]     https://securitytrails.com
         - [Original-ip]     https://zoomeye.org
     - IP.Reverse
-        - :code:`https://api.hackertarget.com/reverseiplookup/?q=$IP > ip.reverse`
+        - :code:`wget https://api.hackertarget.com/reverseiplookup/?q=$IP > ip.reverse`
     - DNS
         - [traceroute]
         - [nslookup]
