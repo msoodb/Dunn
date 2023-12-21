@@ -136,7 +136,6 @@ Covenant
     - platform
     - url
 - Wildcards
-
 .. code-block:: console
     
     *.example.com
