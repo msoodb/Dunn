@@ -9,9 +9,9 @@ Company
     :stub-columns: 1
 
     * - Name
-        -
+        - 
     * - Website
-        -
+        - 
 - History
 - Leaked-info
     - Document
