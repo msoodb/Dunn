@@ -17,7 +17,7 @@ Company
 - History
 - Leaked-info
     - Document
-        - [`google <https://www.google.com/>_`] site:example.com filetype:pdf inurl:login cache:example.com
+        - `google <https://www.google.com/>_` site:example.com filetype:pdf inurl:login cache:example.com
     - User:Email:Password
         - [rocketreach] email and phone
         - [pastebin] leaked password
