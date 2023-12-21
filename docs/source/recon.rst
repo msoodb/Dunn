@@ -3,6 +3,7 @@ Recon
 
 Company
 ------------
+
 .. list-table::
     :widths: 15 70
     :stub-columns: 1
