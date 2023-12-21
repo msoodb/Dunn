@@ -5,17 +5,19 @@ Company
 ------------
 
 .. list-table::
-   :widths: 25 50
+   :widths: 25 75
 
    * - Name
      -
    * - Website
      - 
+   * - Brands
+     -   
 
 - History
 - Leaked-info
     - Document
-        - [google] site:example.com filetype:pdf inurl:login cache:example.com
+        - [`google <https://www.google.com/>`] site:example.com filetype:pdf inurl:login cache:example.com
     - User:Email:Password
         - [rocketreach] email and phone
         - [pastebin] leaked password
