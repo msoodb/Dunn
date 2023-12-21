@@ -256,7 +256,7 @@ Domain
      
 .. csv-table:: Table Title
    :file: services.csv
-   :widths: 30, 70
+   :widths: 30, 30, 30, 70
    :header-rows: 1
 
 - Web server
