@@ -77,7 +77,7 @@ Company
 
 .. csv-table::
    :file: key-persons.csv
-   :widths: 30, 30, 30, 30, 30
+   :widths: 20, 20, 20, 20, 20
    :header-rows: 1
 
 - Business
