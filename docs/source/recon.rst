@@ -146,6 +146,20 @@ Covenant
     code ~/Projects/bible
     hhhhh dfgsfg sdfg dfgd
 
+.. csv-table::
+    :widths: 30, 70
+    :header-rows: 1
+
+    **Swagger 2**, **Connexion support**
+    Basic Authentication, |:white_check_mark:|
+    API key, |:white_check_mark:|
+    Oauth2, |:white_check_mark:|
+    **OpenAPI**,
+    HTTP Basic, |:white_check_mark:|
+    HTTP Bearer, |:white_check_mark:|
+    API key, |:white_check_mark:|
+    Oauth2, |:white_check_mark:|
+
 - Domains
 - iOS mobile app
 - Android mobile app
