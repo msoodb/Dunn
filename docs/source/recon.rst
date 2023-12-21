@@ -29,11 +29,11 @@ Company
     - Source-code
         - [`github <https://github.com/>`_ ] code, api-key and data leak
     - Server:IP:Port
-        - [shodan] servers and ports
-        - [censys] servers and ports
-        - [zoomeye] servers and ports
+        - [`shodan <https://shodan.io/dashboard/>`_ ]
+        - [`censys <https://search.censys.io/>`_ ]
+        - [`zoomeye <https://www.zoomeye.org/>`_ ]
     - Other tools
-        - Google Hacking Database            https://www.exploit-db.com/google-hacking-database
+        - `Google Hacking Database <https://www.exploit-db.com/google-hacking-database/>`_ 
         - search engine
             - [Baidu]
             - [binsearch.info]
@@ -42,10 +42,9 @@ Company
             - [ixquick/Startpage]
         - etc
             - [PunkSpider]
-            - [Framework]       OSINT Framework                    https://osintframework.com
-            - [theHarvester]    OSINT platform                     -
-            - [rocketreach]     Email and phone                    https://rocketreach.co
-            - [alerts]          Set google change alert            https://google.com/alerts
+            - [`OSINT Framework <https://osintframework.com/>`_ .]
+            - [theHarvester]    OSINT platform
+            - [`alerts <https://google.com/alerts/>`_ .]          Set google change alert            
 - Website
     - Technology
         - Web Server
