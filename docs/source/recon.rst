@@ -251,11 +251,10 @@ Domain
     **OpenAPI**,
     HTTP Basic, |:white_check_mark:|
     HTTP Bearer, |:white_check_mark:|
-    Other HTTP schemes (RFC 7253), "No built-in support, use a `custom security handler <#custom-security-handlers>`_"
+    Other HTTP schemes (RFC 7253), "No built-in support, use a"
     API key, |:white_check_mark:|
     Oauth2, |:white_check_mark:|
-    OpenID, "No built-in support, use a `custom security handler <#custom-security-handlers>`_"
-
+    OpenID, "No built-in support, use a"
 
     - SMB
     - FTP
