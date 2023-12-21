@@ -75,15 +75,10 @@ Company
         - configuration 
 - key persons
 
-.. list-table::
-   :widths: 25 25 25 25 25
+.. csv-table::
+   :file: key-persons.csv
+   :widths: 30, 30, 30, 30, 30
    :header-rows: 1
-
-   * - Email
-     - User:Pass
-     - Social media
-     - Background
-     - Leaked-info
 
 - Business
     - Processes
@@ -253,21 +248,7 @@ Domain
         - [portip.sh]
 - Services
 
-.. list-table:: Title
-   :widths: 25 25 50
-   :header-rows: 1
-
-   * - Heading row 1, column 1
-     - Heading row 1, column 2
-     - Heading row 1, column 3
-   * - Row 1, column 1
-     -
-     - Row 1, column 3
-   * - Row 2, column 1
-     - Row 2, column 2
-     - Row 2, column 3
-     
-.. csv-table:: Table Title
+.. csv-table::
    :file: services.csv
    :widths: 30, 30, 30, 70
    :header-rows: 1
