@@ -24,19 +24,20 @@ Company
         - [shodan] servers and ports
         - [censys] servers and ports
         - [zoomeye] servers and ports
-    - Google Hacking Database            https://www.exploit-db.com/google-hacking-database
-    - search engine
-        - [Baidu]
-        - [binsearch.info]
-        - [Bing]
-        - [DuckDuckGo]
-        - [ixquick/Startpage]
-    - etc
-        - [PunkSpider]
-        - [Framework]       OSINT Framework                    https://osintframework.com
-        - [theHarvester]    OSINT platform                     -
-        - [rocketreach]     Email and phone                    https://rocketreach.co
-        - [alerts]          Set google change alert            https://google.com/alerts
+    - Other tools
+        - Google Hacking Database            https://www.exploit-db.com/google-hacking-database
+        - search engine
+            - [Baidu]
+            - [binsearch.info]
+            - [Bing]
+            - [DuckDuckGo]
+            - [ixquick/Startpage]
+        - etc
+            - [PunkSpider]
+            - [Framework]       OSINT Framework                    https://osintframework.com
+            - [theHarvester]    OSINT platform                     -
+            - [rocketreach]     Email and phone                    https://rocketreach.co
+            - [alerts]          Set google change alert            https://google.com/alerts
 - Website
     - Technology
         - Web Server
@@ -67,11 +68,25 @@ Company
         - configuration 
 - key persons
     - Email
+    - User:Pass    - 
     - Social media
+    - Background
+    - Leaked-info
 - Business
-    - Payment gateway
     - Processes
+        - online shopping
+        - user management
+        - single sign on
+        - payment
+        - upload document
+    - Payment-gateway
+        - PayPal
+        - Card
+        - Bank
 - Partners
+    - Name
+    - Partnership
+    - Info
 - Infrastructure
     - Technology
         - Database
@@ -86,10 +101,10 @@ Company
         - Cloud
         - Firewall
         - CIDR
-        - [fping]           Ping Sweep                          
-        - [ping]            IP addresses                             
-        - [nmap]            Find Ports and Services            nmap script
-        - [rustscan]        Fast Port Scan
+        - [fping]
+        - [ping]
+        - [nmap]
+        - [rustscan]
     - Firewall
         - IPS
         - Firewall
@@ -121,6 +136,9 @@ Covenant
     - platform
     - url
 - Wildcards
+.. code-block:: bash
+    *.example.com           Wildcard
+    test*.example.com       Wildcard
 - Domains
 - iOS mobile app
 - Android mobile app
