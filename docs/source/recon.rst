@@ -253,7 +253,12 @@ Domain
    * - Row 2, column 1
      - Row 2, column 2
      - Row 2, column 3
-   
+     
+.. csv-table:: Table Title
+   :file: services.csv
+   :widths: 30, 70
+   :header-rows: 1
+
 - Web server
     - type              
     - information leakage
