@@ -193,7 +193,10 @@ Covenant
 
 Wildcard
 ------------
-For each wildcard in scope, find subdomains, and hosts.
+
+.. note::
+    For each wildcard in scope, find subdomains, and hosts.
+
 - Subdomain
     - [sub.sh]
     - [crtsh]
