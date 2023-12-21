@@ -92,9 +92,12 @@ Company
         - Card
         - Bank
 - Partners
-    - Name
-    - Partnership
-    - Info
+
+.. csv-table::
+   :file: partners.csv
+   :widths: 30, 30, 30
+   :header-rows: 1
+
 - Infrastructure
     - Technology
         - Database
