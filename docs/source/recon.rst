@@ -144,6 +144,7 @@ Covenant
     sudo cp ~/Projects/bible/tools/nmap/portip /usr/local/bin
     sudo cp ~/Projects/bible/tools/nmap/explore /usr/local/bin 
     code ~/Projects/bible
+    hhhhh dfgsfg sdfg dfgd
 
 - Domains
 - iOS mobile app
