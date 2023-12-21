@@ -245,16 +245,16 @@ Domain
     :header-rows: 1
 
     **Swagger 2**, **Connexion support**
-    Basic Authentication,
-    API key,
-    Oauth2,
+    Basic Authentication, Basic
+    API key, API
+    Oauth2, Oauth2
     **OpenAPI**,
-    HTTP Basic,
-    HTTP Bearer,
-    Other HTTP schemes (RFC 7253),
-    API key,
-    Oauth2,
-    OpenID,
+    HTTP Basic, HTTP
+    HTTP Bearer, HTTP
+    Other HTTP schemes (RFC 7253), HTTP
+    API key, HTTP
+    Oauth2, HTTP
+    OpenID, HTTP
 
     - SMB
     - FTP
