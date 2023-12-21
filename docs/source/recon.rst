@@ -4,12 +4,18 @@ Recon
 Company
 ------------
 .. list-table::
-   :widths: 15 70
+   :widths: 15 15 70
+   :header-rows: 1
 
-   * - Name
-     -
-   * - Website
-     -
+   * - First Name
+     - Last Name
+     - Residence
+   * - Elizabeth
+     - Bennett
+     - Longbourne
+   * - Fitzwilliam
+     - Darcy
+     - Pemberley
 - History
 - Leaked-info
     - Document
