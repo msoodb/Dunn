@@ -219,7 +219,9 @@ Domain
 
 - Network
     - IP
-        - [host]  :code:`host $TARGET > ip`
+        - [host] :code:`host $TARGET > ip`
+        - [Original-ip]     https://securitytrails.com
+        - [Original-ip]     https://zoomeye.org
     - IP.Reverse
         - :code:`https://api.hackertarget.com/reverseiplookup/?q=$IP > ip.reverse`
     - DNS
@@ -233,8 +235,8 @@ Domain
     - Location
         - :code:`https://ip2location.com`
     - WAF
-        - [wafw00f]  :code:` wafw00f $TARGET > waf`
-        - [WAF-Detection] :code:`https://www.nmmapper.com/sys/reconnaissance-tools/waf/web-application-firewall-detector/ >> waf` 
+        - [wafw00f]  :code:`wafw00f $TARGET > waf`
+        - [`WAF-Detection <https://www.nmmapper.com/sys/reconnaissance-tools/waf/web-application-firewall-detector/>`_]
         - [p0f] TCP/IP stack fingerprinting
     - IPS
     - Whois
@@ -275,6 +277,7 @@ Domain
         - X-Powered-By
         - X-Frame-Options
         - Content-Security-Policy
+        - [`securityheaders <https://securityheaders.com/>`_]
     - URLs
         - url
         - screenshot
@@ -355,10 +358,9 @@ Domain
     - [whatweb]         Website technology                 -
     - [Firefox]         Browser, Source Code Review        -
     - [BurpSuite]       Set Scope, Browser and Log         -
-    - [securityheaders] Headers missing                    https://securityheaders.com
     - [weleakinfo.io]   Info                               https://weleakinfo.io/
     - [hunter.io]       Info                               https://hunter.io/
-    - [Original-ip]     Find the real IP of websites       https://securitytrails.com, https://zoomeye.org
+    - 
 
 iOS Mobile app
 ---------------
