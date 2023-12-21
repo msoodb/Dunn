@@ -201,8 +201,14 @@ Wildcard
 
 Domain
 ------------
+
+.. code-block:: console
+    
+    export $TARGET=www.example.com
+
 - Network
     - IP
+        - [host]  :code:`host $TARGET > ip`
     - IP.Reverse
     - DNS
     - Location
