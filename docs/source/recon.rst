@@ -9,35 +9,63 @@ Company
 - History
 - Leaked-info
     - Document
+        - [google] site:example.com filetype:pdf inurl:login cache:example.com
     - User:Email:Password
+        - [rocketreach] email and phone
+        - [pastebin] leaked password
+        - [haveibeenpwned] password reuse attack
+        - SocialMedia
+            - Linkedin
+            - Instagram
+            - facebook
     - Source-code
+        - [github] code, api-key and data leak
     - Server:IP:Port
-    - [Baidu]
-    - [binsearch.info]
-    - [Bing]
-    - [DuckDuckGo]
-    - [ixquick/Startpage]
-    - [Google]                                             site:example.com filetype:pdf inurl:login cache:example.com
-    - [PunkSpider]
-    - [Framework]       OSINT Framework                    https://osintframework.com
-    - [theHarvester]    OSINT platform                     -
-    - [rocketreach]     Email and phone                    https://rocketreach.co
+        - [shodan] servers and ports
+        - [censys] servers and ports
+        - [zoomeye] servers and ports
+    
     - [GHDB]            Google Hacking Database            https://www.exploit-db.com/google-hacking-database
-    - [alerts]          Set google change alert            https://google.com/alerts
-    - [shodan]          Shodan                             https://shodan.io/dashboard
-    - [SocialMedia]     Linkedin, Instagram, facebook      https://instagram.com/
-    - [censys.io]       censys.io                          https://search.censys.io/
-    - [zoomeye.org]     zoomeye.org                        https://www.zoomeye.org
-    - [github.com]      Code and data leak                 https://github.com
-    - [pastebin]        leaked password                    https://pastebin.com
-    - [haveibeenpwned]  password reuse attack              https://haveibeenpwned.com
+    - search engine
+        - [Baidu]
+        - [binsearch.info]
+        - [Bing]
+        - [DuckDuckGo]
+        - [ixquick/Startpage]
+    - etc
+        - [PunkSpider]
+        - [Framework]       OSINT Framework                    https://osintframework.com
+        - [theHarvester]    OSINT platform                     -
+        - [rocketreach]     Email and phone                    https://rocketreach.co
+        - [alerts]          Set google change alert            https://google.com/alerts
 - Website
+    - Technology
+        - Web Server
+        - CMS
+        - DBMS
+        - Operation System
     - Contact
+        - Name
+        - Role
+        - Contact
     - Location
+        - Name
+        - Location
     - Business
-    - Form
-    - Entrypoint
+        - Registration
+        - Authentication
+        - Online shopping
+        - Payment
+        - Checkout
+        - Search
+    - Form and Entrypoint
+        - Form
+        - url
+        - api
     - Leaked-data
+        - file: pdf, txt, xls, sql, conf
+        - backup
+        - configuration 
 - key persons
     - Email
     - Social media
