@@ -92,7 +92,6 @@ Company
         - Card
         - Bank
 - Partners
-
 .. csv-table::
    :file: partners.csv
    :widths: 30, 30, 30
@@ -226,8 +225,8 @@ Domain
         - [traceroute]
         - [nslookup]
         - [dnsrecon]
-        - [dnsdumpster] :code:`https://dnsdumpster.com`
-        - [dnsleaktest] :code:`https://dnsleaktest.com`
+        - [`dnsdumpster <https://dnsdumpster.com/>`_]
+        - [`dnsleaktest <https://dnsleaktest.com/>`_]
         - [DNSenum]
         - [dig.sh]
     - Location
@@ -244,9 +243,9 @@ Domain
         - service
         - version
         - vulnerability
-        - [shodan]
-        - [censys]
-        - [zoomeye]
+        - [`shodan <https://shodan.io/dashboard/>`_ ]
+        - [`censys <https://search.censys.io/>`_ ]
+        - [`zoomeye <https://www.zoomeye.org/>`_ ]
         - [nmap]
         - [portip.sh]
 - Services
@@ -280,7 +279,7 @@ Domain
         - screenshot
         - fff
         - [url.sh]          url.sh  <host>
-        - [waybackurl]      URL enumeration                    -
+        - [waybackurl]      URL enumeration
         - [katana]          Host enumeration
     - spiderparam
     - js
