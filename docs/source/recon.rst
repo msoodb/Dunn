@@ -190,7 +190,7 @@ Wildcard
     - [subbrute]
     - [amass]
     - [ffuf]
-    - [google]  site:*.example.com -site:www.example.com
+    - [google]
     - [fierce]
     - [knockpy]
 - Host
