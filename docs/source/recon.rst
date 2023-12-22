@@ -538,8 +538,8 @@ Web application
         - [katana]          Host enumeration    
         - ZAP
         - Burp Suite
-    - **Framework/CMS**
-        - name / version
+    - Framework/CMS
+        - Name / Version
             - HTTP headers                      
                 - X-Powered-By: Mono
                 - X-Generator: Swiftlet
@@ -583,24 +583,25 @@ Web application
                 - DotNetNuke        DNN Platform - http://www.dnnsoftware.com
             - Specific files and folders
                 - Wordpress         /wp-includes/, /wp-admin/ and /wp-content/
-        - default
+        - Defaults
             - known vulnerabilities
             - default  credentials
             - default settings
             - defaults and known files
-        - configuration
-        - database
-        - environments
+        - Configuration
+        - Database
+        - Environments
             - development
             - sandbox
             - production
-        - logging
+        - Logging
             - Location
             - Storage
             - Rotation
             - Access Control
             - Review
-        - File Extensions        .sql, .zip, .bak, .pdf, .txt, .old, .inf, .inc
+        - File Extensions        
+            - .sql, .zip, .bak, .pdf, .txt, .old, .inf, .inc
         - Backup
             - js comment
             - js source code
@@ -622,17 +623,18 @@ Web application
         - aws
         - gcloud
         - azure
-    - **Architecture**
-        - PaaS              aws, azure, wordpress, wix, 
+    - Architecture
+        - PaaS              
+            - aws, azure, wordpress, wix, 
         - Entrypoints
             - Login
             - URL
             - Form
             - Admin panel
             - User panel
-        - api
+        - API
         - js library
-        - database
+        - Database
         - Cookie
         - Source code
             - Programming Language
