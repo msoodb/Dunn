@@ -489,8 +489,8 @@ Web application
 -----------------
     - information leakage
     - Metafiles
-        - robots.txt
-        - sitemap.xml
+        - :code:`wget https://$TARGET/robots.txt`
+        - :code:`wget https://$TARGET/sitemap.xml`
         - <meta tag>
     - Headers
         - HSTS
@@ -500,6 +500,7 @@ Web application
         - X-Powered-By
         - X-Frame-Options
         - Content-Security-Policy
+        - :code:`curl -I https://$TARGET > response.headers`
         - [`securityheaders <https://securityheaders.com/>`_]
     - URLs
         - url
