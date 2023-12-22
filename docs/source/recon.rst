@@ -179,13 +179,13 @@ Domain
     - IP.Reverse
         - :code:`wget https://api.hackertarget.com/reverseiplookup/?q=$IP > ip.reverse`
     - DNS
+        - [dig.sh]
         - [traceroute]
         - [nslookup]
         - [dnsrecon]
         - [`dnsdumpster <https://dnsdumpster.com/>`_]
         - [`dnsleaktest <https://dnsleaktest.com/>`_]
-        - [DNSenum]
-        - [dig.sh]
+        - [DNSenum]        
     - Location
         - :code:`https://ip2location.com`
     - WAF
@@ -200,11 +200,12 @@ Domain
         - service
         - version
         - vulnerability
+        - [portip.sh]
+        - [nmap]
         - [`shodan <https://shodan.io/dashboard/>`_ ]
         - [`censys <https://search.censys.io/>`_ ]
-        - [`zoomeye <https://www.zoomeye.org/>`_ ]
-        - [nmap]
-        - [portip.sh]
+        - [`zoomeye <https://www.zoomeye.org/>`_ ]        
+        
 - Services
 
 .. csv-table::

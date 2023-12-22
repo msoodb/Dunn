@@ -1,4 +1,231 @@
 Services
 =========
 
-- service1
+- SMB
+    - [Enum4Linux]
+    - [smbclient]
+    - [nmap] <nmap --script smb-enum-shares.nse -p445 target.ip>
+    - [VULNERABILITIES]
+        - [CVE-2017-0143] [ms17-010]
+            - Remote Code Execution vulnerability in Microsoft SMBv1 servers
+            - https://www.exploit-db.com/exploits/43970
+            - https://www.exploit-db.com/exploits/42315
+- FTP
+    - [ftp]
+        - ftp user/anonymous to remote server 
+        - put php-reverse-shell.php
+    - [hydra]: bruteforce the password of the FTP Server
+- Telnet
+    - [telnet]
+    - [netcat]
+- HTTP
+    - [whatweb]
+    - [BurpSuite]
+        - Setup and log everything
+    - [Browser]
+        - /robots.txt
+        - /sitemap.xml
+        - View Source
+            - serach for path, redirect, script, href <a>, src=""
+            - check all `*.js`
+            - check the source of js library. are they safe?
+            - diff between local js library and original from cdn    
+        - View DOM very carefully
+            - serach for path, redirect, script, href <a>, src=""
+            - search for any query-string parameter
+            - search for any search parameter
+        - Analyz Network and API
+            - Find endpoint
+            - Find parameter
+            - Watch Request/Response
+            - Check statuscode
+        - Read javascript code
+        - Storage
+            - Cookie
+            - Session
+        - Utelize Debugger
+        - Search for any Error or Messages
+            - [github.com]
+            - [google.com]
+        - Find Admin panel
+        - Manual Analyze Code for Vulnerabilities        
+            - Client-side Source Code
+            - Reverse engineering mobile and desktop application
+            - Leak code via vulnerability
+                - Path Traversal
+            - OSINT 
+                - github repos
+                - pastebin
+            - Fast hunting
+                - Find Sources
+                - Find Sinks
+                - Find data flow from Sources to Sinks
+                - Search for known dangerous function
+                    - eval()
+                    - get()
+                - Sensitive Data Exposure
+                    - API key
+                    - Database password
+                    - Encryption key
+                    - Username
+                    - Framework
+                    - Serach in comment
+                    - Sensitive url
+                    - [gf] find pattern in code
+                    - Dependencies and third-party module and packages
+                - Focus on critical methods
+                    - Authentication()
+                    - Payment()
+                    - Checkout()
+                    - Request
+                    - Response
+                - Follow logs
+                - Attack to test what you find.
+            - Utelize Atatic Analysis Security Test, SAST tools
+    - Directory fuzzing
+        - [dirb]
+        - [dirbuster]
+        - [gobuster]
+        - [wfuzz]
+        - [ffuf]
+        - [feroxbuster]
+        - [waybackurl]
+        - [katana]
+    - API fuzzing
+        - [ffuf]
+        - [wfuzz]
+        - [BurpSuite]
+        - [postman]
+            - Set proxy to send postman request to BurpSuit
+        - Log every traffic
+        - Visit all resources in [Browesr]
+        - Do 
+            - Signup
+            - Singin
+            - Verification
+            - Change password
+            - Forgot password
+            - Delete account
+            - Oath login
+        - Use differnet services in web application
+        - Check all Request/Response
+        - Check headers
+        - Repeater
+        - Intruder
+    - [wpscan]:             Wordpress CMS scan
+    - [nikto]:              Vulnerability scanning
+    - [searchsploit]:       Finding web application vulnerabilities
+    - [metasploit]:         Finding and exploiting web application vulnerabilities
+    - [nuclei]:             Vulnerability Scanner
+    - [Manual]: Find Web Applicatin Vulnerability, OWASP Top 10 
+        - IDOR: Insecure Direct Object Reference
+            - plain
+            - base64
+            - hash https://crackstation.net
+            - Unpredictable
+        - FI: File inclusion
+            - Local File Inclusion: Attacker can include a malicious file only from the same server
+            - Remote File Inclusion
+        - PT: Path Traversal
+        - SSRF: Server-Side Request Forgery
+            - regular SSRF
+            - Blind SSRF
+        - XSS: Cross-site Scripting
+            - Proof Of Concept
+            - Session Stealing
+            - Key Logger
+            - Business Logic
+        - RCE: Remote Code Execution
+        - SQLi: SQL Injection
+            - GET and POST parameters
+            - Headers
+            - Accept-Language
+            - Host
+            - referer
+            - User-Agent
+            - Forms/Inputs
+            - REST paths /api/users/:id
+            - Cookies
+            - Utelize [sqlmap]
+                - In-Band SQL Injection
+                - Blind SQLi
+            - Fetch data with 'UNION'
+            - Update data in database
+            - https://www.websec.ca/kb/sql_injection
+        - Authentication Attack
+        - Brute Force:
+            - [JtR]:                Single Mode / Wordlist / Brute-Force
+            - [hydra]:              Wordlist Attack, Brute Force Login
+            - [crunch]:             Hybrid Dictionary Attack [crunch]
+            - [RainbowCrack]:       Rainbow Tables http://project-rainbowcrack.com/table.htm
+            - [wfuzz]
+            - [ffuf]
+        - Script
+            - [2to3]:           Convert pythonRecon2 to python3
+            - [python]          Run python expolit file again
+    - API
+        1. Determine the API to be used.
+            - [Fuzzing]
+        2. Go through the API documentation.
+            - [Swagger]
+            - [Stoplight]
+            - [Readme]
+            - [Redocly]
+        3. Setup environments.
+            - [BurpSuite]
+                - scope
+                - proxy
+            - [Postman]
+                - import api docs into postman
+                - setup proxy to burpsuite
+        3. Determine the attack surface includes all of the inputs and outputs of the API. 
+            - API calls
+            - URL parameters
+            - Headers
+            - Cookies
+            - Web responses
+            - File uploads
+            - API keys
+        4. Identify the inputs and outputs of the API.
+        5. Choose an authentication method.
+        6. Determine the API’s vulnerabilities.
+- NFS
+    - [mount]:              Mounting NFS shares <sudo mount -t nfs IP:share /tmp/mount/ -nolock>
+- SMTP
+    - [msfconsole]
+- RPC
+    - [nmap]            <nmap -p 111 --script=nfs-ls,nfs-statfs,nfs-showmount target.ip>
+    - [rpcinfo]         <rpcinfo target.ip>
+    - [showmount]       <showmount -e target.ip>
+    - [mount]           <sudo mount -t nfs target.ip:/share /mnt/nfs>
+    - [umount]          <sudo umount -f -l /mnt/nfs>
+- SSH
+    - [ssh]:
+        - <ssh user@target.ip -p 22>
+        - <ssh -i id_rsa user@target.ip -p 1337>
+        - <ssh -i id_rsa -T user@target.ip -p 1337>
+    - [hydra]
+        - Brute Force Login
+    - [nmap] <nmap --script ssh-auth-methods target.ip>
+    - [john]
+        - ssh2john id_rsa > id_rsa.hash
+        - john -w=/usr/share/wordlists/rockyou.txt id_rsa.hash
+- MySql
+    - [mysql]
+        - connet with root:root <mysql -u root -h target.ip -p>
+    - [msfconsole]
+    - [hydra]
+        - Brute Force Login
+- Redis
+    - [namp] <nmap --script redis-info -sV -p 6379 target.ip>
+    - [nc] 
+        - <nc -vn 10.10.10.10 6379>
+        - INFO
+    - [redis-cli]
+        - <redis-cli -h target.ip>
+        - INFO
+        - set password for redis 
+            - <config set requirepass p@ss$12E45>
+            - SAVE
+- POP3
+    - [telnet] <telnet target.ip 110>
