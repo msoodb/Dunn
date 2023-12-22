@@ -571,7 +571,7 @@ Recon
 ------------
 - ...to be completed.
 
-Automated Reconnaissance Framework, and Vulnerability Repositories
+Automated Reconnaissance and Vulnerability Repos.
 ------------------------------------------------------------------------
 - [recon-ng]                https://www.kali.org/tools/recon-ng
 - [maltego]                 https://www.maltego.com
