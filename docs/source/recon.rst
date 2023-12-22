@@ -1,8 +1,9 @@
+======
 Recon
-=====
+======
 
 **Company**
-------------
+======
 
 .. list-table::
    :widths: 25 75
@@ -14,131 +15,145 @@ Recon
    * - Brands
      -   
 
-- History
-- Leaked-info
-    - Document
-        - `google <https://www.google.com/>`_ site:example.com filetype:pdf inurl:login cache:example.com
-    - User:Email:Password
-        - [`rocketreach <https://rocketreach.co/>`_ ] email and phone
-        - [`pastebin <https://pastebin.com/>`_ ] leaked password
-        - [`haveibeenpwned <https://haveibeenpwned.com//>`_ ] password reuse attack
-        - SocialMedia
-            - `Linkedin <https://www.linkedin.com/>`_ 
-            - `Instagram <https://www.instagram.com//>`_ 
-            - `facebook <https://www.facebook.com//>`_
-    - Source-code
-        - [`github <https://github.com/>`_ ] code, api-key and data leak
-    - Server:IP:Port
-        - [`shodan <https://shodan.io/dashboard/>`_ ]
-        - [`censys <https://search.censys.io/>`_ ]
-        - [`zoomeye <https://www.zoomeye.org/>`_ ]
-    - Other tools
-        - `Google Hacking Database <https://www.exploit-db.com/google-hacking-database/>`_ 
-        - search engine
-            - [Baidu]
-            - [binsearch.info]
-            - [Bing]
-            - [DuckDuckGo]
-            - [ixquick/Startpage]
-        - etc
-            - [PunkSpider]
-            - [`OSINT Framework <https://osintframework.com/>`_]
-            - [theHarvester]    OSINT platform
-            - [`alerts <https://google.com/alerts/>`_]          Set google change alert            
-- Website-info
-    - Technology
-        - Web Server
-        - CMS
-        - DBMS
-        - Operation System
-    - Contact
-        - Name
-        - Role
-        - Contact
-    - Location
-        - Name
-        - Location
-    - Business
-        - Registration
-        - Authentication
-        - Online shopping
-        - Payment
-        - Checkout
-        - Search
-    - Form and Entrypoint
-        - Form
-        - url
-        - api
-    - Leaked-data
-        - file: pdf, txt, xls, sql, conf
-        - backup
-        - configuration 
-- key persons
+History
+----------
 
+- History
+
+Leaked-info
+----------
+
+- Document
+    - `google <https://www.google.com/>`_ site:example.com filetype:pdf inurl:login cache:example.com
+- User:Email:Password
+    - [`rocketreach <https://rocketreach.co/>`_ ] email and phone
+    - [`pastebin <https://pastebin.com/>`_ ] leaked password
+    - [`haveibeenpwned <https://haveibeenpwned.com//>`_ ] password reuse attack
+    - SocialMedia
+        - `Linkedin <https://www.linkedin.com/>`_ 
+        - `Instagram <https://www.instagram.com//>`_ 
+        - `facebook <https://www.facebook.com//>`_
+- Source-code
+    - [`github <https://github.com/>`_ ] code, api-key and data leak
+- Server:IP:Port
+    - [`shodan <https://shodan.io/dashboard/>`_ ]
+    - [`censys <https://search.censys.io/>`_ ]
+    - [`zoomeye <https://www.zoomeye.org/>`_ ]
+- Other tools
+    - `Google Hacking Database <https://www.exploit-db.com/google-hacking-database/>`_ 
+    - search engine
+        - [Baidu]
+        - [binsearch.info]
+        - [Bing]
+        - [DuckDuckGo]
+        - [ixquick/Startpage]
+    - etc
+        - [PunkSpider]
+        - [`OSINT Framework <https://osintframework.com/>`_]
+        - [theHarvester]    OSINT platform
+        - [`alerts <https://google.com/alerts/>`_]          Set google change alert            
+
+Website-info
+-------------
+- Technology
+    - Web Server
+    - CMS
+    - DBMS
+    - Operation System
+- Contact
+    - Name
+    - Role
+    - Contact
+- Location
+    - Name
+    - Location
+- Business
+    - Registration
+    - Authentication
+    - Online shopping
+    - Payment
+    - Checkout
+    - Search
+- Form and Entrypoint
+    - Form
+    - url
+    - api
+- Leaked-data
+    - file: pdf, txt, xls, sql, conf
+    - backup
+    - configuration 
+
+key persons
+------------
 .. csv-table::
    :file: key-persons.csv
    :widths: 20, 20, 20, 20, 20
    :header-rows: 1
 
-- Business
-    - Processes
-        - online shopping
-        - user management
-        - single sign on
-        - payment
-        - upload document
-    - Payment-gateway
-        - PayPal
-        - Card
-        - Bank
-- Partners
+Business
+---------
+- Processes
+    - online shopping
+    - user management
+    - single sign on
+    - payment
+    - upload document
+- Payment-gateway
+    - PayPal
+    - Card
+    - Bank
+
+Partners
+-----------
 
 .. csv-table::
    :file: partners.csv
    :widths: 30, 30, 30
    :header-rows: 1
 
-- Infrastructure
-    - Technology
-        - Database
-        - OS
-        - Programming Language
-        - Code Repository
-        - Cloud
-        - Deployment
-    - Network
-        - Public
-        - Private
-        - Cloud
-        - Firewall
-        - CIDR
-        - [fping]
-        - [ping]
-        - [nmap]
-        - [rustscan]
-    - Firewall
-        - IPS
-        - Firewall
-        - WAF
+Infrastructure
+-----------------
+
+- Technology
+    - Database
+    - OS
+    - Programming Language
+    - Code Repository
     - Cloud
-        - IaaS
-        - CaaS
-        - PaaS
-        - FaaS
-        - SaaS
-        - Storage
-    - Applications
-        - Web-servers
-        - Mail-server
-        - CRM
-        - HR
-        - ERP
-        - E-Learning
-        - User-Directory
-    - api
-        - BaseURL
-        - Version
-        - Document
+    - Deployment
+- Network
+    - Public
+    - Private
+    - Cloud
+    - Firewall
+    - CIDR
+    - [fping]
+    - [ping]
+    - [nmap]
+    - [rustscan]
+- Firewall
+    - IPS
+    - Firewall
+    - WAF
+- Cloud
+    - IaaS
+    - CaaS
+    - PaaS
+    - FaaS
+    - SaaS
+    - Storage
+- Applications
+    - Web-servers
+    - Mail-server
+    - CRM
+    - HR
+    - ERP
+    - E-Learning
+    - User-Directory
+- api
+    - BaseURL
+    - Version
+    - Document
 
 **Wildcard**
 ------------
