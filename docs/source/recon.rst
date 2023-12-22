@@ -81,7 +81,8 @@ Website-info
 - Leaked-data
     - file: pdf, txt, xls, sql, conf
     - backup
-    - configuration 
+    - configuration
+    - web archive
 
 Key persons
 ------------
@@ -592,11 +593,11 @@ Web application
 - ...to be completed.
 
 **CIDR**
-===================
+=========
 - ...to be completed.
 
 Automated Reconnaissance and Vulnerability Repos.
-------------------------------------------------------------------------
+=========================================================
 - [recon-ng]                https://www.kali.org/tools/recon-ng
 - [maltego]                 https://www.maltego.com
 - [Sn1per]                  https://github.com/1N3/Sn1per
