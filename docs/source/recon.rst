@@ -83,7 +83,7 @@ Website-info
     - backup
     - configuration 
 
-key persons
+Key persons
 ------------
 .. csv-table::
    :file: key-persons.csv
@@ -150,7 +150,7 @@ Infrastructure
     - ERP
     - E-Learning
     - User-Directory
-- api
+- API
     - BaseURL
     - Version
     - Document
@@ -477,15 +477,15 @@ Services
     - [favicon] <https://wiki.owasp.org/index.php/OWASP_favicon_database>
     - [dencode] <https://dencode.com>
 
-**Web server**
-=================
+Web server
+-----------
 - type              
 - information leakage
 - version           
 - vulnerability
 
-**Web application**
-=======================
+Web application
+-----------------
     - information leakage
     - Metafiles
         - robots.txt
