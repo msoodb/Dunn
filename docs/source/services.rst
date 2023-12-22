@@ -164,21 +164,21 @@ Services
             - [2to3]:           Convert pythonRecon2 to python3
             - [python]          Run python expolit file again
     - API
-        1. Determine the API to be used.
+        - Determine the API to be used.
             - [Fuzzing]
-        2. Go through the API documentation.
+        - Go through the API documentation.
             - [Swagger]
             - [Stoplight]
             - [Readme]
             - [Redocly]
-        3. Setup environments.
+        - Setup environments.
             - [BurpSuite]
                 - scope
                 - proxy
             - [Postman]
                 - import api docs into postman
                 - setup proxy to burpsuite
-        3. Determine the attack surface includes all of the inputs and outputs of the API. 
+        - Determine the attack surface includes all of the inputs and outputs of the API.
             - API calls
             - URL parameters
             - Headers
@@ -186,9 +186,9 @@ Services
             - Web responses
             - File uploads
             - API keys
-        4. Identify the inputs and outputs of the API.
-        5. Choose an authentication method.
-        6. Determine the API’s vulnerabilities.
+        - Identify the inputs and outputs of the API.
+        - Choose an authentication method.
+        - Determine the API’s vulnerabilities.
 - NFS
     - [mount]:              Mounting NFS shares <sudo mount -t nfs IP:share /tmp/mount/ -nolock>
 - SMTP
