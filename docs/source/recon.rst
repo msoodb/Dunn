@@ -484,36 +484,105 @@ Web server
 - information leakage
 - version           
 - vulnerability
+- Metafiles
+    - :code:`wget https://$TARGET/robots.txt`
+    - :code:`wget https://$TARGET/sitemap.xml`
+    - <meta tag>
+        - <META NAME="ROBOTS">
+        - Burpsuite <META> Tags
+        - Browser (View Source function)
+- Headers
+    - HSTS
+    - X-XSS-Protection
+    - CORS
+    - server
+    - X-Powered-By
+    - X-Frame-Options
+    - Content-Security-Policy
+    - :code:`curl -I https://$TARGET > response.headers`
+        - Server
+            - Server: Apache/1.3.23
+            - Server: Microsoft-IIS/5.0
+            - Server: Sun-ONE-Web-Server/6.1
+        - Headers ordering
+    - [`securityheaders <https://securityheaders.com/>`_]
+ - https://www.netcraft.com/
+ - https://www.wappalyzer.com
+ - https://net-square.com/httprint.html
 
 Web application
 -----------------
     - information leakage
-    - Metafiles
-        - :code:`wget https://$TARGET/robots.txt`
-        - :code:`wget https://$TARGET/sitemap.xml`
-        - <meta tag>
-    - Headers
-        - HSTS
-        - X-XSS-Protection
-        - CORS
-        - server
-        - X-Powered-By
-        - X-Frame-Options
-        - Content-Security-Policy
-        - :code:`curl -I https://$TARGET > response.headers`
-        - [`securityheaders <https://securityheaders.com/>`_]
-    - URLs
+        - Browser view source comment
+            - `<!--      -->`
+            - `/*     */`
+            - `//`      
+        - HTML version information <!DOCTYPE HTML>
+            - “strict.dtd” -- default strict DTD
+            - “loose.dtd” -- loose DTD
+            - “frameset.dtd” -- DTD 
+        - Burpsuite <META> Tags
+            - <META name=”Author” content=”Andrew Muller”>
+            - <META http-equiv=”Expires” content=”Fri, 21 Dec 201212:34:56 GMT”>
+            - <META http-equiv=”Cache-Control” content=”no-cache”>
+            - <META http-equiv=”Refresh” content=”15;URL=https://www.owasp.org/index.html”>
+            - <META name=”robots” content=”none”>
+    - Entry-points
         - url
         - screenshot
         - fff
+        - spiderparam
+        - js
         - [url.sh]          url.sh  <host>
         - [waybackurl]      URL enumeration
-        - [katana]          Host enumeration
-    - spiderparam
-    - js
-    - Framework/CMS
-        - name
-        - version
+        - [katana]          Host enumeration    
+        - ZAP
+        - Burp Suite
+    - **Framework/CMS**
+        - name / version
+            - HTTP headers                      
+                - X-Powered-By: Mono
+                - X-Generator: Swiftlet
+            - Cookies
+                - CAKEPHP=rm72kprivgmau5fmjdesbuqi71
+            - HTML source code
+            - Specific files and folders
+            - :code:`whatweb -v -a 3 https://$TARGET --log-verbose=whatweb --color=never    # https://morningstarsecurity.com/research/whatweb`
+            - Wappalyzer                                                             # wappalyzer_varonis-com
+            - https://whatcms.org/?s=www.example.com
+            - Cookies
+                - phpBB             phpbb3_
+                - Wordpress         wp-settings
+                - 1C-Bitrix         BITRIX_
+                - AMPcms            AMP
+                - Django CMS        django
+                - DotNetNuke        DotNetNukeAnonymous
+                - e107              e107
+                - EPiServer         EPiTrace, EPiServer
+                - Graffiti CMS      graffitibot
+                - Hotaru CMS        hotaru_mobile
+                - ImpressCMS        ICMSession
+                - Indico            MAKACSESSION
+                - InstantCMS        InstantCMS[logdate]
+                - Kentico CMS       CMSPreferredCulture
+                - MODx              SN4[12symb]
+                - TYPO3             fe_typo_user
+                - Dynamicweb        Dynamicweb
+                - LEPTON            lep[some_numeric_value]+sessionid
+                - Wix               Domain=.wix.com
+                - VIVVO             VivvoSessionId        
+            - WhatWeb
+            - BlindElephant.py
+            - Wappalyzer
+            - HTML source code
+                - Wordpress         <meta name=”generator” content=”WordPress 3.9.2” />
+                - phpBB             <body id=”phpbb”
+                - Mediawiki         <meta name=”generator” content=”MediaWiki 1.21.9” />
+                - Joomla            <meta name=”generator” content=”Joomla! - Open Source Content Management” />
+                - Drupal            <meta name=”Generator” content=”Drupal 7 (http://drupal.org)” />
+                - DotNetNuke        DNN Platform - http://www.dnnsoftware.com
+            - Specific files and folders
+                - Wordpress         /wp-includes/, /wp-admin/ and /wp-content/
         - default
             - known vulnerabilities
             - default  credentials
@@ -553,7 +622,7 @@ Web application
         - aws
         - gcloud
         - azure
-    - Architecture
+    - **Architecture**
         - PaaS              aws, azure, wordpress, wix, 
         - Entrypoints
             - Login
