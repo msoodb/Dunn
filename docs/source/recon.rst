@@ -506,9 +506,9 @@ Web server
             - Server: Sun-ONE-Web-Server/6.1
         - Headers ordering
     - [`securityheaders <https://securityheaders.com/>`_]
- - https://www.netcraft.com/
- - https://www.wappalyzer.com
- - https://net-square.com/httprint.html
+- https://www.netcraft.com/
+- https://www.wappalyzer.com
+- https://net-square.com/httprint.html
 
 Web application
 -----------------
@@ -551,9 +551,9 @@ Web application
             - Wappalyzer                                                             # wappalyzer_varonis-com
             - https://whatcms.org/?s=www.example.com
             - Cookies
-                - phpBB             phpbb3_
+                - phpBB             `phpbb3_`
                 - Wordpress         wp-settings
-                - 1C-Bitrix         BITRIX_
+                - 1C-Bitrix         `BITRIX_`
                 - AMPcms            AMP
                 - Django CMS        django
                 - DotNetNuke        DotNetNukeAnonymous
