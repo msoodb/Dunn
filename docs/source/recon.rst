@@ -173,6 +173,7 @@ Subdomain
 - [google]
 - [fierce]
 - [knockpy]
+
 Host
 -----------
 - [host.sh]
@@ -476,7 +477,7 @@ Services
     - [favicon] <https://wiki.owasp.org/index.php/OWASP_favicon_database>
     - [dencode] <https://dencode.com>
 
-- **Web server**
+**Web server**
 =================
 - type              
 - information leakage
