@@ -263,6 +263,8 @@ Domain
    :widths: 30, 30, 30, 70
    :header-rows: 1
 
+Check out the :doc:`services` section for further information,
+
 - ...to be completed.
 
 - Web server
