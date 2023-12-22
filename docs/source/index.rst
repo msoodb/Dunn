@@ -19,8 +19,6 @@ Contents
 
 .. toctree::
 
-   usage
-   api
    ready
    covenant
    recon
