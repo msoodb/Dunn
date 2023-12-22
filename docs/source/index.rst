@@ -7,9 +7,6 @@ They are best known for having killed George "Bittercreek" Newcomb
 and Charley Pierce, members of the Wild Bunch. 
 Pull it from `Dunn <https://github.com/msoodb/dunn/>`_ .
 
-Check out the :doc:`usage` section for further information, including
-how to :ref:`installation` the project.
-
 .. note::
 
    This project is under active development.
