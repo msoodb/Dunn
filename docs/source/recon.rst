@@ -215,8 +215,6 @@ Domain
 
 Check out the :doc:`services` section for further information,
 
-- ...to be completed.
-
 - Web server
     - type              
     - information leakage

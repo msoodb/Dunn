@@ -230,16 +230,14 @@ Services
 - POP3
     - [telnet] <telnet target.ip 110>
 
-- **References**
-[//]: # (References)
-Vulnerability Scanning Tools and Public Repositories
-- [Nessus]
-- [Nexpose]
-- [OpenVAS]
-- [ExploitDB] https://www.exploit-db.com
-- [NVD] <https://nvd.nist.gov/vuln/search>
-- [Mitre] <https://www.cve.org>
-- [OVAL] <https://oval.cisecurity.org/repository>
-- [rapid7] <https://www.rapid7.com/db/>
-- [favicon] <https://wiki.owasp.org/index.php/OWASP_favicon_database>
-- [dencode] <https://dencode.com>
+- Vulnerability Scanning Tools and Public Repositories
+    - [Nessus]
+    - [Nexpose]
+    - [OpenVAS]
+    - [ExploitDB] https://www.exploit-db.com
+    - [NVD] <https://nvd.nist.gov/vuln/search>
+    - [Mitre] <https://www.cve.org>
+    - [OVAL] <https://oval.cisecurity.org/repository>
+    - [rapid7] <https://www.rapid7.com/db/>
+    - [favicon] <https://wiki.owasp.org/index.php/OWASP_favicon_database>
+    - [dencode] <https://dencode.com>
