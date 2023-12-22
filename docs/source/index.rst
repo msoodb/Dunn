@@ -19,7 +19,6 @@ Contents
    ready
    covenant
    recon
-   services
    scan
    shell
    root
