@@ -23,6 +23,7 @@ Contents
    api
    ready
    recon
+   services
    scan
    shell
    root
