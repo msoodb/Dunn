@@ -22,6 +22,7 @@ Contents
    usage
    api
    ready
+   covenant
    recon
    services
    scan
