@@ -3,7 +3,7 @@ Recon
 ======
 
 **Company**
-======
+============
 
 .. list-table::
    :widths: 25 75
@@ -21,7 +21,7 @@ History
 - History
 
 Leaked-info
-----------
+-------------
 
 - Document
     - `google <https://www.google.com/>`_ site:example.com filetype:pdf inurl:login cache:example.com
