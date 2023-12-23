@@ -3,7 +3,8 @@ Scan
 =====
 
 **Auto Scan**
-==========
+=============
+
 General
 ----------------
 - :code:`nuclei -u https://$TARGET  -nc -o nuclei`
@@ -20,18 +21,18 @@ Joomla
 - :code:`joomscan -u https://$TARGET`
 
 **Analyze urls**
-==========
+===================
 
 URLs
 ----------------
 - :code:`gf [awskey | base64 | json-sec | idor]`
 
 Subdomain Takover
-----------------
+--------------------
 - :code:`subzy run --target urls`
 
 Broken Link Hijacking, BLH  
-----------------
+----------------------------
 
 - :code:`socialhunter -f urls`
 
