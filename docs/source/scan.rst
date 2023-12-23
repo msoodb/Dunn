@@ -15,8 +15,6 @@ scanning can identify a potential threat but cannot determine the level at which
 hackers can gain access (Agio, 2022). So, while scanning is essential for cybersecurity, 
 it also needs human intervention in the form of penetration testers to reach its full potential. 
 
----
-
 Analyze urls
 ----------------
 - URLs
@@ -38,7 +36,19 @@ Auto Scan
 - Joomla
     - :code:`joomscan -u https://$TARGET`
 
----
+-----
+
+.. note::
+    Scan phase designed based on WSTG OWASP Test Guide.
+
+**Information**
+=================
+Information gathered in reconnaissance phase.
+- Company
+- Network
+- Web Server
+- Web Application
+
 
 **Configuration and Deploy**
 =============================
@@ -58,30 +68,72 @@ Test all defaluts information which gathered in reconnaissance phase.
     - default settings
     - defaults and known files
 
+Configuration
+--------------
+Test all Configuration which gathered in reconnaissance phase.
+
+
 **Identity Management**
 =========================
+
+Configuration
+--------------
+Test all Configuration which gathered in reconnaissance phase.
 
 **Authentication**
 ===================
 
+Configuration
+--------------
+Test all Configuration which gathered in reconnaissance phase.
+
 **Authorization**
 ===================
+
+Configuration
+--------------
+Test all Configuration which gathered in reconnaissance phase.
 
 **Session**
 ===================
 
+Configuration
+--------------
+Test all Configuration which gathered in reconnaissance phase.
+
 **Data Validation**
 ===================
+
+Configuration
+--------------
+Test all Configuration which gathered in reconnaissance phase.
 
 **Error Handling**
 ===================
 
+Configuration
+--------------
+Test all Configuration which gathered in reconnaissance phase.
+
 **Cryptography**
 ===================
+
+Configuration
+--------------
+Test all Configuration which gathered in reconnaissance phase.
 
 **Business Logic**
 ===================
 
+Configuration
+--------------
+Test all Configuration which gathered in reconnaissance phase.
+
 **Client Side**
 ===================
 
+Configuration
+--------------
+Test all Configuration which gathered in reconnaissance phase.
+
+-----
