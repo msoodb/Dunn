@@ -16,7 +16,7 @@ hackers can gain access (Agio, 2022). So, while scanning is essential for cybers
 it also needs human intervention in the form of penetration testers to reach its full potential. 
 
 Analyze urls
-----------------
+=================
 - URLs
     - :code:`gf [awskey | base64 | json-sec | idor]`
 - Subdomain Takover
@@ -25,7 +25,7 @@ Analyze urls
     - :code:`socialhunter -f urls`
 
 Auto Scan
-----------------
+=================
 - General
     - :code:`nuclei -u https://$TARGET  -nc -o nuclei`
     - :code:`nikto -h https://$TARGET -o nikto.output -Format txt`
@@ -116,7 +116,7 @@ Configuration
 Test all Configuration which gathered in reconnaissance phase.
 
 **Cryptography**
-===================
+=================== 
 
 Configuration
 --------------
