@@ -15,7 +15,16 @@ scanning can identify a potential threat but cannot determine the level at which
 hackers can gain access (Agio, 2022). So, while scanning is essential for cybersecurity, 
 it also needs human intervention in the form of penetration testers to reach its full potential. 
 
-|
+---
+
+Analyze urls
+----------------
+- URLs
+    - :code:`gf [awskey | base64 | json-sec | idor]`
+- Subdomain Takover
+    - :code:`subzy run --target urls`
+- Broken Link Hijacking, BLH
+    - :code:`socialhunter -f urls`
 
 Auto Scan
 ----------------
@@ -29,11 +38,50 @@ Auto Scan
 - Joomla
     - :code:`joomscan -u https://$TARGET`
 
-Analyze urls
-----------------
-- URLs
-    - :code:`gf [awskey | base64 | json-sec | idor]`
-- Subdomain Takover
-    - :code:`subzy run --target urls`
-- Broken Link Hijacking, BLH
-    - :code:`socialhunter -f urls`
+---
+
+**Configuration and Deploy**
+=============================
+
+Defaults
+-----------
+Test all defaluts information which gathered in reconnaissance phase.
+    - known vulnerabilities
+        - [metasploit]
+        - [nmap]
+        - [exploit-db]
+        - [wpscan]
+    - default credentials
+        - [Browser]
+        - [curl]
+        - [hydra]
+    - default settings
+    - defaults and known files
+
+**Identity Management**
+=========================
+
+**Authentication**
+===================
+
+**Authorization**
+===================
+
+**Session**
+===================
+
+**Data Validation**
+===================
+
+**Error Handling**
+===================
+
+**Cryptography**
+===================
+
+**Business Logic**
+===================
+
+**Client Side**
+===================
+
