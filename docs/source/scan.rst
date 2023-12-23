@@ -43,96 +43,150 @@ Auto Scan
 
 **Information**
 =================
-Information gathered in reconnaissance phase.
-- Company
-- Network
-- Web Server
-- Web Application
+
+Conduct Search Engine Discovery Reconnaissance for Information Leakage
+Fingerprint Web Server
+Review Webserver Metafiles for Information Leakage
+Enumerate Applications on Webserver
+Review Webpage Content for Information Leakage
+Identify Application Entry Points
+Map Execution Paths Through Application
+Fingerprint Web Application Framework
+Fingerprint Web Application
+Map Application Architecture
 
 
 **Configuration and Deploy**
 =============================
 
-Defaults
------------
-Test all defaluts information which gathered in reconnaissance phase.
-    - known vulnerabilities
-        - [metasploit]
-        - [nmap]
-        - [exploit-db]
-        - [wpscan]
-    - default credentials
-        - [Browser]
-        - [curl]
-        - [hydra]
-    - default settings
-    - defaults and known files
-
-Configuration
---------------
-Test all Configuration which gathered in reconnaissance phase.
-
+Test Network Infrastructure Configuration
+Test Application Platform Configuration
+Test File Extensions Handling for Sensitive Information
+Review Old Backup and Unreferenced Files for Sensitive Information
+Enumerate Infrastructure and Application Admin Interfaces
+Test HTTP Methods
+Test HTTP Strict Transport Security
+Test RIA Cross Domain Policy
+Test File Permission
+Test for Subdomain Takeover
+Test Cloud Storage
+Testing for Content Security Policy
+Test Path Confusion
 
 **Identity Management**
 =========================
 
-Configuration
---------------
-Test all Configuration which gathered in reconnaissance phase.
+Test Role Definitions
+Test User Registration Process
+Test Account Provisioning Process
+Testing for Account Enumeration and Guessable User Account
+Testing for Weak or Unenforced Username Policy
 
 **Authentication**
 ===================
 
-Configuration
---------------
-Test all Configuration which gathered in reconnaissance phase.
+Testing for Credentials Transported over an Encrypted Channel
+Testing for Default Credentials
+Testing for Weak Lock Out Mechanism
+Testing for Bypassing Authentication Schema
+Testing for Vulnerable Remember Password
+Testing for Browser Cache Weaknesses
+Testing for Weak Password Policy
+Testing for Weak Security Question Answer
+Testing for Weak Password Change or Reset Functionalities
+Testing for Weaker Authentication in Alternative Channel
+Testing Multi-Factor Authentication (MFA)
 
 **Authorization**
 ===================
 
-Configuration
---------------
-Test all Configuration which gathered in reconnaissance phase.
+Testing Directory Traversal File Include
+Testing for Bypassing Authorization Schema
+Testing for Privilege Escalation
+Testing for Insecure Direct Object References
+Testing for OAuth Weaknesses
 
 **Session**
 ===================
 
-Configuration
---------------
-Test all Configuration which gathered in reconnaissance phase.
+Testing for Session Management Schema
+Testing for Cookies Attributes
+Testing for Session Fixation
+Testing for Exposed Session Variables
+Testing for Cross Site Request Forgery
+Testing for Logout Functionality
+Testing Session Timeout
+Testing for Session Puzzling
+Testing for Session Hijacking
+Testing JSON Web Tokens
 
 **Data Validation**
 ===================
 
-Configuration
---------------
-Test all Configuration which gathered in reconnaissance phase.
+Testing for Reflected Cross Site Scripting
+Testing for Stored Cross Site Scripting
+Testing for HTTP Verb Tampering
+Testing for HTTP Parameter Pollution
+Testing for SQL Injection
+Testing for LDAP Injection
+Testing for XML Injection
+Testing for SSI Injection
+Testing for XPath Injection
+Testing for IMAP SMTP Injection
+Testing for Code Injection
+Testing for Command Injection
+Testing for Format String Injection
+Testing for Incubated Vulnerability
+Testing for HTTP Splitting Smuggling
+Testing for HTTP Incoming Requests
+Testing for Host Header Injection
+Testing for Server-side Template Injection
+Testing for Server-Side Request Forgery
+Testing for Mass Assignment
 
 **Error Handling**
 ===================
 
-Configuration
---------------
-Test all Configuration which gathered in reconnaissance phase.
+Testing for Improper Error Handling
+Testing for Stack Traces
 
 **Cryptography**
-=================== 
+=================
 
-Configuration
---------------
-Test all Configuration which gathered in reconnaissance phase.
+Testing for Weak Transport Layer Security
+Testing for Padding Oracle
+Testing for Sensitive Information Sent via Unencrypted Channels
+Testing for Weak Encryption
 
 **Business Logic**
 ===================
 
-Configuration
---------------
-Test all Configuration which gathered in reconnaissance phase.
+Test Business Logic Data Validation
+Test Ability to Forge Requests
+Test Integrity Checks
+Test for Process Timing
+Test Number of Times a Function Can Be Used Limits
+Testing for the Circumvention of Work Flows
+Test Defenses Against Application Misuse
+Test Upload of Unexpected File Types
+Test Upload of Malicious Files
+Test Payment Functionality
 
 **Client Side**
 ===================
 
-Configuration
---------------
-Test all Configuration which gathered in reconnaissance phase.
+Testing for DOM-Based Cross Site Scripting
+Testing for JavaScript Execution
+Testing for HTML Injection
+Testing for Client-side URL Redirect
+Testing for CSS Injection
+Testing for Client-side Resource Manipulation
+Testing Cross Origin Resource Sharing
+Testing for Cross Site Flashing
+Testing for Clickjacking
+Testing WebSockets
+Testing Web Messaging
+Testing Browser Storage
+Testing for Cross Site Script Inclusion
+Testing for Reverse Tabnabbing
 
