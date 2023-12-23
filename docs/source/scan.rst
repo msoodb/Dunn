@@ -1,31 +1,37 @@
+=====
 Scan
 =====
 
-Process
-------------
-- Make Coffee
-- vpn connection
-- Prepare Tools    
-- Create Room
-- Play Music
-- Set Timer
-
-Tools
+**Auto Scan**
+==========
+General
 ----------------
-.. code-block:: console
-    
-    cp ~/Projects/bible/tools/tmux/.tmux.conf ~    
-    sudo cp ~/Projects/bible/tools/nmap/setip /usr/local/bin
-    sudo cp ~/Projects/bible/tools/nmap/portip /usr/local/bin
-    sudo cp ~/Projects/bible/tools/nmap/explore /usr/local/bin 
-    code ~/Projects/bible
+- :code:`nuclei -u https://$TARGET  -nc -o nuclei`
+- :code:`nikto -h https://$TARGET -o nikto.output -Format txt`
+- :code:`nmap $TARGET`
 
-Operation Room
+Wordpress
 ----------------
-.. code-block:: console
+- :code:`wpscan --url https://$TARGET --random-user-agent --wp-content-dir -e --output wpscan.token --format cli-no-color --api-token $WP_TOKEN`
+- :code:`POST https://press.priceline.com/xmlrpc.php`
 
-    mkdir -p ~/Operations/<room>
-    cd ~/Operations/<room>
-    touch ~/Operations/<room>/clue.txt
-    tmux; tmux Ctrl+B `
-    cp -r ~/Projects/bible/tools/0box . 
+Joomla
+----------------
+- :code:`joomscan -u https://$TARGET`
+
+**Analyze urls**
+==========
+
+URLs
+----------------
+- :code:`gf [awskey | base64 | json-sec | idor]`
+
+Subdomain Takover
+----------------
+- :code:`subzy run --target urls`
+
+Broken Link Hijacking, BLH  
+----------------
+
+- :code:`socialhunter -f urls`
+
