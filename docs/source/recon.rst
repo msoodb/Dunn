@@ -670,7 +670,6 @@ Web application
         - Burpsuite
     - Application Architecture - WSTG-INFO-10
         - Generate a map of the application at hand based on the research conducted.
-|
     - [archive]         Website History                    https://archive.org/web     
     - [netcraft]        Some usefull information           https://sitereport.netcraft.com
     - [Wappalyzer]      Website technology                 addons.mozilla.org
