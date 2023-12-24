@@ -197,8 +197,8 @@ Host
 
 .. code-block:: console
     
-    export $TARGET=www.example.com
-    export $IP=x.x.x.x
+    export TARGET=www.example.com
+    export IP=x.x.x.x
 
 Network
 -----------
