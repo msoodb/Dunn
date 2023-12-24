@@ -20,12 +20,21 @@ History
 
 - History
 
-Leaked-info
--------------
+Leaked-Information - WSTG-INFO-01
+----------------------------------
 
 - Document
-    - `google <https://www.google.com/>`_ site:example.com filetype:pdf inurl:login cache:example.com
+    - `google <https://www.google.com/>`_ 
+        - site:example.com
+        - inurl:login
+        - intitle:
+        - intext: 
+        - inbody:
+        - filetype:pdf,conf,txt,xls
+        - cache:example.com
 - User:Email:Password
+    - username format
+    - private key
     - [`rocketreach <https://rocketreach.co/>`_ ] email and phone
     - [`pastebin <https://pastebin.com/>`_ ] leaked password
     - [`haveibeenpwned <https://haveibeenpwned.com//>`_ ] password reuse attack
@@ -35,6 +44,7 @@ Leaked-info
         - `facebook <https://www.facebook.com//>`_
 - Source-code
     - [`github <https://github.com/>`_ ] code, api-key and data leak
+    - configuration files
 - Server:IP:Port
     - [`shodan <https://shodan.io/dashboard/>`_ ]
     - [`censys <https://search.censys.io/>`_ ]
@@ -53,8 +63,8 @@ Leaked-info
         - [theHarvester]    OSINT platform
         - [`alerts <https://google.com/alerts/>`_]          Set google change alert            
 
-Website-info
--------------
+Website-Information
+--------------------
 - Technology
     - Web Server
     - CMS
@@ -478,19 +488,22 @@ Services
     - [favicon] <https://wiki.owasp.org/index.php/OWASP_favicon_database>
     - [dencode] <https://dencode.com>
 
-Web server
------------
+Web server - WSTG-INFO-02
+--------------------------
 - type              
 - information leakage
 - version           
 - vulnerability
-- Metafiles
+- Metafiles - WSTG-INFO-03
     - :code:`wget https://$TARGET/robots.txt`
     - :code:`wget https://$TARGET/sitemap.xml`
     - <meta tag>
         - <META NAME="ROBOTS">
         - Burpsuite <META> Tags
         - Browser (View Source function)
+    - :code:`wget https://$TARGET/security.txt`
+    - :code:`wget https://$TARGET/.well-known/security.txt`
+    - :code:`wget https://$TARGET/humans.txt`
 - Headers
     - HSTS
     - X-XSS-Protection
@@ -506,13 +519,23 @@ Web server
             - Server: Sun-ONE-Web-Server/6.1
         - Headers ordering
     - [`securityheaders <https://securityheaders.com/>`_]
-- https://www.netcraft.com/
+- Applications - WSTG-INFO-04
+    - Different Base URL
+    - Non-standard Ports
+    - Virtual Hosts - Wildcards    
 - https://www.wappalyzer.com
 - https://net-square.com/httprint.html
+- Netcraft https://toolbar.netcraft.com/site_report
+- Nikto https://github.com/sullo/nikto
+- Nmap https://nmap.org/
+- ZAP
+- Burpsuite
+
 
 Web application
 -----------------
-    - information leakage
+    - Information Leakage - WSTG-INFO-05
+        - Source code
         - Browser view source comment
             - `<!--      -->`
             - `/*     */`
@@ -527,18 +550,23 @@ Web application
             - <META http-equiv=”Cache-Control” content=”no-cache”>
             - <META http-equiv=”Refresh” content=”15;URL=https://www.owasp.org/index.html”>
             - <META name=”robots” content=”none”>
-    - Entry-points
+        - JavaScript files
+            - Gather [js.sh]
+            - Downlaod [js-download.sh]
+            - review
+                - vs code
+                - ZAP
+    - Entry-points - WSTG-INFO-06
         - url
         - screenshot
         - fff
         - spiderparam
-        - js
         - [url.sh]          url.sh  <host>
         - [waybackurl]      URL enumeration
         - [katana]          Host enumeration    
         - ZAP
         - Burp Suite
-    - Framework/CMS
+    - Framework - WSTG-INFO-08
         - Name / Version
             - HTTP headers                      
                 - X-Powered-By: Mono
@@ -609,42 +637,40 @@ Web application
             - .sql
             - .data
             - .bak
-        - Admin panel
-        - Identity managemnet
-            - Admin
-            - User
-            - Subscriber
-    - source
-        - comment
-        - HTML version
-        - <meta tag>
-    - Reverse proxy
-    - Cloud storage
-        - aws
-        - gcloud
-        - azure
-    - Architecture
         - PaaS              
             - aws, azure, wordpress, wix, 
+        - Session
+            - JWT
+            - SessionId
+        - Cookie
+        - Source code
+            - Programming Language
+            - github        
+        - Third party services/APIs
+            - apikey
+        - js library
+        - API
         - Entrypoints
             - Login
             - URL
             - Form
             - Admin panel
             - User panel
-        - API
-        - js library
-        - Database
-        - Cookie
-        - Source code
-            - Programming Language
-            - github
-        - Session
-            - JWT
-            - SessionId
-        - Third party services/APIs
-            - apikey
-        - Application paths
+        - Identity managemnet
+            - Admin
+            - User
+            - Subscriber
+    - Reverse proxy
+    - Cloud storage
+        - aws
+        - gcloud
+        - azure
+    - Application Map - WSTG-INFO-07
+        - ZAP
+        - Burpsuite
+    - Application Architecture - WSTG-INFO-10
+        - Generate a map of the application at hand based on the research conducted.
+|
     - [archive]         Website History                    https://archive.org/web     
     - [netcraft]        Some usefull information           https://sitereport.netcraft.com
     - [Wappalyzer]      Website technology                 addons.mozilla.org
