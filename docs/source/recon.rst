@@ -207,7 +207,7 @@ Network
         - [Original-ip]     https://securitytrails.com
         - [Original-ip]     https://zoomeye.org
     - IP.Reverse
-        - :code:`wget https://api.hackertarget.com/reverseiplookup/?q=$IP > ip.reverse`
+        - :code:`wget https://api.hackertarget.com/reverseiplookup/?q=$IP -O ip.reverse`
     - DNS
         - [dig.sh]
         - [traceroute]
@@ -558,12 +558,14 @@ Web application
                 - ZAP
     - Entry-points - WSTG-INFO-06
         - url
+            - [url.sh]          :code:`url.sh  <host>`
+            - [waybackurl]      URL enumeration
+            - [katana]          Host enumeration  
         - screenshot
+            - :code:`gowitness file --file $URLS`
         - fff
+            - :code:`cat $URLS | fff -d 1 -S -o fff`
         - spiderparam
-        - [url.sh]          url.sh  <host>
-        - [waybackurl]      URL enumeration
-        - [katana]          Host enumeration    
         - ZAP
         - Burp Suite
     - Framework - WSTG-INFO-08
