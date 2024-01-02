@@ -1,0 +1,4 @@
+
+```sh
+binwalk -e <file>
+```

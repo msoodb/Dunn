@@ -1,0 +1,1 @@
+cewl -m 8 -w clinic.lst https://clinic.thmredteam.com/

