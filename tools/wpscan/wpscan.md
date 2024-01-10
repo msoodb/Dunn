@@ -2,6 +2,7 @@
 - [Scan]             
 wpscan --url https://$TARGET --wp-content-dir -e --output wpscan.80 --format cli-no-color
 wpscan --url https://$TARGET --random-user-agent --wp-content-dir -e --output wpscan.token --format cli-no-color --api-token $WP_TOKEN
+wpscan --url https://$TARGET --random-user-agent --enumerate u --output wpscan.usernames --format cli-no-color --api-token $WP_TOKEN
     
 - [Brute-force]      
     - wpscan --url http://internal.thm/blog --usernames admin --passwords /usr/share/wordlists/rockyou.txt

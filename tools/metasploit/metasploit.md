@@ -1,4 +1,9 @@
 
+# Install via snap
+sudo snap install metasploit-framework
+sudo snap refresh metasploit-framework
+
+
 The main components of the Metasploit Framework can be summarized as follows;
 - msfconsole
 - Modules
