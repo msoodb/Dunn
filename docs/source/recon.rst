@@ -132,11 +132,12 @@ We are looking for **Network Map**
 Technology
 -------------
 - Database
-- OS
+- Operating System
 - Programming Language
 - Code Repository
 - Cloud
 - Deployment
+- Hardware
 
 Network
 ---------
