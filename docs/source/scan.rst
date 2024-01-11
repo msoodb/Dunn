@@ -19,6 +19,8 @@ In the **recon** phase we just gathered information as much as we can, about:
 
 **Company** --> **Infrastructure** --> **Wildcard** --> **Domain**
 
+-----
+
 Analyze urls
 =================
 - URLs

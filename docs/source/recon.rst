@@ -528,9 +528,9 @@ Web server - WSTG-INFO-02
     - :code:`wget https://$TARGET/.well-known/security.txt`
     - :code:`wget https://$TARGET/humans.txt`
 - Headers
-    - HSTS
+    - HSTS, HTTP Strict Transport Security
     - X-XSS-Protection
-    - CORS
+    - CORS, Cross-origin resource sharing
     - server
     - X-Powered-By
     - X-Frame-Options
