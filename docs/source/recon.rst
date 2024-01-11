@@ -185,6 +185,19 @@ API
 - Version
 - Document
 
+Administrative Tools
+--------------------------
+Any infrastructure requires the existence of administrative tools to maintain and update the information used
+by the application.
+
+- KVM over IP
+- iLO
+- cPanel
+- VMware vSphere
+- CMS Admin panel
+- FTP server
+- NFS, CIFS. Network file systems
+
 **Wildcard**
 =============
 We are looking for **Live hosts**
@@ -638,7 +651,7 @@ Web application
                 - Wordpress         /wp-includes/, /wp-admin/ and /wp-content/
         - Defaults
             - known vulnerabilities
-            - default  credentials
+            - default credentials
             - default settings
             - defaults and known files
         - Configuration
@@ -653,8 +666,26 @@ Web application
             - Rotation
             - Access Control
             - Review
-        - File Extensions        
-            - .sql, .zip, .bak, .pdf, .txt, .old, .inf, .inc
+            - Sensitive Information
+        - Server errors
+            - 40X
+            - 50X
+        - File extensions
+            - .asa
+            - .inc
+            - .config
+            - .zip , .tar , .gz , .tgz , .rar , etc.: (Compressed) archive files
+            - .java : No reason to provide access to Java source files
+            - .txt : Text files
+            - .pdf : PDF documents
+            - .docx , .rtf , .xlsx , .pptx , etc.: Office documents
+            - .bak , .old and other extensions indicative of backup files (for example: ~ for Emacs backup files)
+        - Unreferenced Files
+            - login.asp -> login.asp.old
+            - viewdoc.jsp -> viewdoc.old.jsp
+            - /.snapshot/monthly.1/view.php
+            - viewuser.asp -> edituser.asp , adduser.asp and deleteuser.asp
+            - /app/user -> /app/admin, /app/manager
         - Backup
             - js comment
             - js source code
@@ -681,6 +712,54 @@ Web application
             - Form
             - Admin panel
             - User panel
+        - Admin default pages
+            - WebSphere
+                /admin
+                /admin-authz.xml
+                /admin.conf
+                /admin.passwd
+                /admin/*
+                /admin/logon.jsp
+                /admin/secure/logon.jsp
+            - PHP
+                /phpinfo
+                /phpmyadmin/
+                /phpMyAdmin/
+                /mysqladmin/
+                /MySQLadmin
+                /MySQLAdmin
+                /login.php
+                /logon.php
+                /xmlrpc.php
+                /dbadmin
+            - FrontPage
+                /admin.dll
+                /admin.exe
+                /administrators.pwd
+                /author.dll
+                /author.exe
+                /author.log
+                /authors.pwd
+                /cgi-bin
+            - WebLogic
+                /AdminCaptureRootCA
+                /AdminClients
+                /AdminConnections
+                /AdminEvents
+                /AdminJDBC
+                /AdminLicense
+                /AdminMain
+                /AdminProps
+                /AdminRealm
+                /AdminThreads
+            - WordPress
+                wp-admin/
+                wp-admin/about.php
+                wp-admin/admin-ajax.php
+                wp-admin/admin-db.php
+                wp-admin/admin-footer.php
+                wp-admin/admin-functions.php
+                wp-admin/admin-header.php
         - Identity managemnet
             - Admin
             - User

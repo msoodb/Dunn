@@ -59,26 +59,104 @@ Auto Scan
 * WSTG-INFO-06: Identify Application Entry Points
 * WSTG-INFO-07: Map Execution Paths Through Application
 * WSTG-INFO-08: Fingerprint Web Application Framework
-* WSTG-INFO-09: Merged into WSTG-INFO-08
+* WSTG-INFO-09: -
 * WSTG-INFO-10: Map Application Architecture
 
 
 **Configuration and Deploy**
 =============================
 
-* Test Network Infrastructure Configuration
-* Test Application Platform Configuration
-* Test File Extensions Handling for Sensitive Information
-* Review Old Backup and Unreferenced Files for Sensitive Information
-* Enumerate Infrastructure and Application Admin Interfaces
-* Test HTTP Methods
-* Test HTTP Strict Transport Security
-* Test RIA Cross Domain Policy
-* Test File Permission
-* Test for Subdomain Takeover
-* Test Cloud Storage
-* Testing for Content Security Policy
-* Test Path Confusion
+* WSTG-CONF-01: Test Network Infrastructure Configuration
+    - Test Known Infrastructure Vulnerabilities founded in recon phase.
+    - Test Administrative Tools
+    - Test any other vulnerability found in **Infrastructure** recon phase
+    - Scan suspicious asset in Infrastructure and find new vulnerability.
+
+* WSTG-CONF-02: Test Application Platform Configuration
+    - Test known Application Platform vulnerabilities
+    - Test any Defaults found in recon phase        
+        - default credentials
+        - default settings
+        - defaults and known files
+            1. Ensure that defaults and known files have been removed.
+    - Environments
+        1. Looking for debugging code or extensions are left in the production environments.
+    - Logging
+        1. Looking for any Sensitive Information
+    - Test any other vulnerability found in **Web application** recon phase
+
+* WSTG-CONF-03: Test File Extensions Handling for Sensitive Information
+    - Dirbust sensitive file extensions
+        1. looking for raw data (e.g. scripts, raw data, credentials, etc.)
+        2. searching in .well-known
+    - Test File Upload in any suspicious place
+        1. file.phtml gets processed as PHP code.
+        2. FILE~1.PHT is served, but not processed by the PHP ISAPI handler.
+        3. shell.phPWND can be uploaded.
+        4. SHELL~1.PHP will be expanded and returned by the OS shell, then processed by the PHP ISAPI handler.
+    - Test for any system framework bypasses
+
+* WSTG-CONF-04: Review Old Backup and Unreferenced Files for Sensitive Information
+    - Test Unreferenced Files found in **Web application** recon phase
+    - Looking Unreferenced Files in any js, html file.
+    - Looking in /robots.txt
+    - Blind Guessing
+
+* WSTG-CONF-05: Enumerate Infrastructure and Application Admin Interfaces
+    - Identify hidden administrator interfaces.    
+    - Directory and file enumeration, comments and links in source 
+        - /admin, /administrator, /backoffice, /backend, etc, 
+        - alternative server port Tomcat/8080
+    - Test administrator functionality.
+
+* WSTG-CONF-06: Test HTTP Methods
+    - Discover the Supported Methods
+        - :code:`nmap -p 443 --script http-methods --script-args http-methods.url-path='/index.php' localhost`
+        - Burpsuite Intruder
+    - Testing for Access Control Bypass
+        - ?
+    - Testing for Cross-Site Tracing Potential - XST
+        - ?
+    - Testing for HTTP Method Overriding
+        - ?
+
+* WSTG-CONF-07: Test HTTP Strict Transport Security
+    - Review the HSTS header and its validity.
+    - :code:`curl -s -D- https://owasp.org | grep -i strict`
+
+* WSTG-CONF-08: Test RIA Cross Domain Policy
+    - Rich Internet Applications - RIA
+    - Review and validate the policy files.
+        - /crossdomain.xml
+        - /clientaccesspolicy.xml
+    - Testing for RIA Policy Files Weakness
+    - Impact of Abusing Cross-Domain Access
+        - Defeat CSRF protections.
+        - Read data restricted or otherwise protected by cross-origin policies
+
+* WSTG-CONF-09: Test File Permission
+    - Review and identify any rogue file permissions.
+        - Web files/directory
+        - Configuration files/directory
+        - Sensitive files (encrypted data, password, key)/directory
+        - Log files (security logs, operation logs, admin logs)/directory
+        - Executables (scripts, EXE, JAR, class, PHP, ASP)/directory
+        - Database files/directory
+        - Temp files /directory
+        - Upload files/directory
+
+* WSTG-CONF-10: Test for Subdomain Takeover
+    - Enumerate all possible domains (previous and current).
+    - Identify forgotten or misconfigured domains.
+    - :code:`subzy run --target urls`
+    - GitHub
+    - Expired Domain
+
+* WSTG-CONF-11: Test Cloud Storage
+    - Identify the URL to access the data in the storage service
+        - read the unauthorized data :code:`curl -X GET https://<cloud-storage-service>/<object>`
+        - upload a new arbitrary file :code:`curl -X PUT -d 'test' 'https://<cloud-storage-service>/test.txt'`
+    - Testing for Amazon S3 Bucket Misconfiguration
 
 **Identity Management**
 =========================
