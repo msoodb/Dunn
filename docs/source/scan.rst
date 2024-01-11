@@ -17,7 +17,7 @@ it also needs human intervention in the form of penetration testers to reach its
 
 In the **recon** phase we just gathered information as much as we can, about:
 
-**Company** --> **Infrastructure** --> **Wildcard** --> **Domain**
+**Company** --> **Network map** --> **Live hosts** --> **Web-server** --> **Web application**
 
 -----
 

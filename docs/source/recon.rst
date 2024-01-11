@@ -127,7 +127,7 @@ Partners
 
 **Infrastructure**
 ====================
-We are looking for **Network Map**
+We are looking for **Network map**
 
 --------
 
@@ -187,7 +187,7 @@ API
 
 **Wildcard**
 =============
-We are looking for **Live host**
+We are looking for **Live hosts**
 
 --------
 
