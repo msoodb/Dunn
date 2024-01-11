@@ -4,8 +4,9 @@ Recon
 
 **Company**
 ============
-
 We are looking for **Weakest Part of Company**
+
+--------
 
 .. list-table::
    :widths: 25 75
@@ -126,8 +127,9 @@ Partners
 
 **Infrastructure**
 ====================
-
 We are looking for **Network Map**
+
+--------
 
 Technology
 -------------
@@ -185,8 +187,9 @@ API
 
 **Wildcard**
 =============
-
 We are looking for **Live host**
+
+--------
 
 .. note::
     For each wildcard in scope, find subdomains, and hosts.
@@ -213,8 +216,9 @@ Host
 
 **Domain**
 =============
-
 We are looking for **Any kind of vulnerability**
+
+--------
 
 .. code-block:: console
     
@@ -256,8 +260,6 @@ Network
         - [`shodan <https://shodan.io/dashboard/>`_ ]
         - [`censys <https://search.censys.io/>`_ ]
         - [`zoomeye <https://www.zoomeye.org/>`_ ]        
-
------
 
 Services
 -----------
@@ -708,13 +710,19 @@ Web application
 ===================
 - ...to be completed.
 
+--------
+
 **Android Mobile app**
 =======================
 - ...to be completed.
 
+--------
+
 **CIDR**
 =========
 - ...to be completed.
+
+--------
 
 Automated Reconnaissance and Vulnerability Repos.
 =========================================================
