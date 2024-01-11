@@ -5,6 +5,8 @@ Recon
 **Company**
 ============
 
+We are looking for **Weakest Part of Company**
+
 .. list-table::
    :widths: 25 75
 
@@ -122,52 +124,68 @@ Partners
    :widths: 30, 30, 30
    :header-rows: 1
 
-Infrastructure
------------------
+**Infrastructure**
+====================
 
-- Technology
-    - Database
-    - OS
-    - Programming Language
-    - Code Repository
-    - Cloud
-    - Deployment
-- Network
-    - Public
-    - Private
-    - Cloud
-    - Firewall
-    - CIDR
+We are looking for **Network Map**
+
+Technology
+-------------
+- Database
+- OS
+- Programming Language
+- Code Repository
+- Cloud
+- Deployment
+
+Network
+---------
+- Public
+- Private
+- Cloud
+- Firewall
+- CIDR
+- Tools
     - [fping]
     - [ping]
     - [nmap]
     - [rustscan]
-- Firewall
+
+Firewall
+---------
     - IPS
     - Firewall
     - WAF
-- Cloud
-    - IaaS
-    - CaaS
-    - PaaS
-    - FaaS
-    - SaaS
-    - Storage
-- Applications
-    - Web-servers
-    - Mail-server
-    - CRM
-    - HR
-    - ERP
-    - E-Learning
-    - User-Directory
-- API
-    - BaseURL
-    - Version
-    - Document
+
+Cloud
+--------
+- IaaS
+- CaaS
+- PaaS
+- FaaS
+- SaaS
+- Storage
+
+Applications
+-------------
+- Web-servers
+- Mail-server
+- CRM
+- HR
+- ERP
+- E-Learning
+- User-Directory
+
+API
+----
+- BaseURL
+- Version
+- Document
 
 **Wildcard**
 =============
+
+We are looking for **Live host**
 
 .. note::
     For each wildcard in scope, find subdomains, and hosts.
@@ -194,6 +212,8 @@ Host
 
 **Domain**
 =============
+
+We are looking for **Any kind of vulnerability**
 
 .. code-block:: console
     
@@ -490,10 +510,10 @@ Services
 
 Web server - WSTG-INFO-02
 --------------------------
-- type              
-- information leakage
-- version           
-- vulnerability
+- Type              
+- Information Leakage
+- Version           
+- Vulnerability
 - Metafiles - WSTG-INFO-03
     - :code:`wget https://$TARGET/robots.txt`
     - :code:`wget https://$TARGET/sitemap.xml`

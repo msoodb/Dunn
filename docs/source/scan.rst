@@ -15,6 +15,10 @@ scanning can identify a potential threat but cannot determine the level at which
 hackers can gain access (Agio, 2022). So, while scanning is essential for cybersecurity, 
 it also needs human intervention in the form of penetration testers to reach its full potential. 
 
+In the **recon** phase we just gathered information as much as we can, about:
+
+**Company** --> **Infrastructure** --> **Wildcard** --> **Domain**
+
 Analyze urls
 =================
 - URLs
