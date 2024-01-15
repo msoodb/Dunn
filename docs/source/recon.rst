@@ -694,7 +694,7 @@ Web application
             - .data
             - .bak
         - PaaS              
-            - aws, azure, wordpress, wix, 
+            - aws, azure, wordpress, wix
         - Session
             - JWT
             - SessionId
@@ -714,56 +714,69 @@ Web application
             - User panel
         - Admin default pages
             - WebSphere
-                /admin
-                /admin-authz.xml
-                /admin.conf
-                /admin.passwd
-                /admin/*
-                /admin/logon.jsp
-                /admin/secure/logon.jsp
+                - /admin
+                - /admin-authz.xml
+                - /admin.conf
+                - /admin.passwd
+                - /admin/*
+                - /admin/logon.jsp
+                - /admin/secure/logon.jsp
             - PHP
-                /phpinfo
-                /phpmyadmin/
-                /phpMyAdmin/
-                /mysqladmin/
-                /MySQLadmin
-                /MySQLAdmin
-                /login.php
-                /logon.php
-                /xmlrpc.php
-                /dbadmin
+                - /phpinfo
+                - /phpmyadmin/
+                - /phpMyAdmin/
+                - /mysqladmin/
+                - /MySQLadmin
+                - /MySQLAdmin
+                - /login.php
+                - /logon.php
+                - /xmlrpc.php
+                - /dbadmin
             - FrontPage
-                /admin.dll
-                /admin.exe
-                /administrators.pwd
-                /author.dll
-                /author.exe
-                /author.log
-                /authors.pwd
-                /cgi-bin
+                - /admin.dll
+                - /admin.exe
+                - /administrators.pwd
+                - /author.dll
+                - /author.exe
+                - /author.log
+                - /authors.pwd
+                - /cgi-bin
             - WebLogic
-                /AdminCaptureRootCA
-                /AdminClients
-                /AdminConnections
-                /AdminEvents
-                /AdminJDBC
-                /AdminLicense
-                /AdminMain
-                /AdminProps
-                /AdminRealm
-                /AdminThreads
+                - /AdminCaptureRootCA
+                - /AdminClients
+                - /AdminConnections
+                - /AdminEvents
+                - /AdminJDBC
+                - /AdminLicense
+                - /AdminMain
+                - /AdminProps
+                - /AdminRealm
+                - /AdminThreads
             - WordPress
-                wp-admin/
-                wp-admin/about.php
-                wp-admin/admin-ajax.php
-                wp-admin/admin-db.php
-                wp-admin/admin-footer.php
-                wp-admin/admin-functions.php
-                wp-admin/admin-header.php
-        - Identity managemnet
-            - Admin
-            - User
-            - Subscriber
+                - wp-admin/
+                - wp-admin/about.php
+                - wp-admin/admin-ajax.php
+                - wp-admin/admin-db.php
+                - wp-admin/admin-footer.php
+                - wp-admin/admin-functions.php
+                - wp-admin/admin-header.php
+        - Roles Identification
+            - Roles
+                - Super Admin
+                - Administrator
+                - Editor
+                - Author
+                - Contributor
+                - Subscriber
+            - Identification methods:
+                - Application documentation.
+                - Guidance by the developers or administrators of the application.
+                - Application comments.
+                - Fuzz possible roles:
+                    - cookie variable (e.g. role=admin , isAdmin=True )
+                    - account variable (e.g. Role: manager )
+                    - hidden directories or files (e.g. /admin , /mod , /backups )
+                    - switching to well known users (e.g. admin , backups , etc.)
     - Reverse proxy
     - Cloud storage
         - aws

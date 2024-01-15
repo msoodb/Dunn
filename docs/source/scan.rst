@@ -161,35 +161,167 @@ Auto Scan
 **Identity Management**
 =========================
 
-* Test Role Definitions
-* Test User Registration Process
-* Test Account Provisioning Process
-* Testing for Account Enumeration and Guessable User Account
-* Testing for Weak or Unenforced Username Policy
+* WSTG-IDNT-01: Test Role Definitions
+    - Roles Identification
+    - Switching to Available Roles
+    - Review Roles Permissions
+
+* WSTG-IDNT-02: Test User Registration Process
+    1. Can anyone register for access?
+    2. Are registrations vetted by a human prior to provisioning, or are they automatically granted if the criteria are met?
+    3. Can the same person or identity register multiple times?
+    4. Can users register for different roles or permissions?
+    5. What proof of identity is required for a registration to be successful?
+    6. Are registered identities verified?
+    
+    Validate the registration process:
+        1. Can identity information be easily forged or faked?
+        2. Can the exchange of identity information be manipulated during registration?
+
+* WSTG-IDNT-03: Test Account Provisioning Process
+    - The provisioning of accounts presents an opportunity for an attacker to create a valid account without application of the
+       proper identification and authorization process.
+    - Verify which accounts may provision other accounts and of what type.
+    
+* WSTG-IDNT-04: Testing for Account Enumeration and Guessable User Account
+    - Testing for Valid Credentials
+    - Testing for Valid User with Wrong Password
+    - Testing for a Nonexistent Username
+    - Analyzing the Error Code Received on Login Pages
+    - Analyzing URLs and URLs Re-directions
+    - URI Probing
+        - 403 Forbidden error code
+        - 404 Not found error code
+    - Analyzing Web Page Titles
+    - Friendly 404 Error Message
+    - Analyzing Response Times
+    - Testing for Authentication Error Messages
+
+* WSTG-IDNT-05:Testing for Weak or Unenforced Username Policy
+    - Determine the structure of account names.
+    - Evaluate the application’s response to valid and invalid account names.
+    - Use different responses to valid and invalid account names to enumerate valid account names.
+    - Use account name dictionaries to enumerate valid account names
 
 **Authentication**
 ===================
 
-* Testing for Credentials Transported over an Encrypted Channel
-* Testing for Default Credentials
-* Testing for Weak Lock Out Mechanism
-* Testing for Bypassing Authentication Schema
-* Testing for Vulnerable Remember Password
-* Testing for Browser Cache Weaknesses
-* Testing for Weak Password Policy
-* Testing for Weak Security Question Answer
-* Testing for Weak Password Change or Reset Functionalities
-* Testing for Weaker Authentication in Alternative Channel
-* Testing Multi-Factor Authentication (MFA)
+* WSTG-ATHN-1: Testing for Credentials Transported over an Encrypted Channel
+    - Disable any features or plugins that make the web browser favour HTTPS
+    - Set up and start a tool to capture traffic
+        - Passphrases or passwords, usually inside a message body
+        - Tokens, usually inside cookies
+    - For any message containing this sensitive data, verify the exchange occurred using HTTPS (and not HTTP)
+        - Login
+        - Account Creation
+        - Password Reset, Change Password or Other Account Manipulation
+        - Accessing Resources While Logged In
+        - Account or password reset codes
+
+* WSTG-ATHN-2: Testing for Default Credentials
+    - Testing for Default Credentials of Common Applications
+    - Testing for Default Password of New Accounts
+
+* WSTG-ATHN-3: Testing for Weak Lock Out Mechanism
+    - Test Lockout Mechanism
+    - Test CAPTCHA
+    - Test Unlock Mechanism
+
+* WSTG-ATHN-4: Testing for Bypassing Authentication Schema
+    - Direct Page Request
+    - Parameter Modification
+    - Session ID Prediction
+    - SQL Injection (HTML Form Authentication)
+
+* WSTG-ATHN-5: Testing for Vulnerable Remember Password
+    - Validate that the generated session is managed securely and do not put the user’s credentials in danger
+
+* WSTG-ATHN-6: Testing for Browser Cache Weaknesses
+    - Browser History
+    - Browser Cache
+    - Reviewing Cached Information
+    - Check Handling for Mobile Browsers
+
+* WSTG-ATHN-7: Testing for Weak Password Policy
+    - brute force 
+    - password guessing 
+    - using available password dictionaries by evaluating the length, complexity, reuse, and aging requirements of passwords.
+
+* WSTG-ATHN-8: Testing for Weak Security Question Answer
+    - Testing for Weak Pre-generated Questions
+    - Testing for Weak Self-Generated Questions
+    - Testing for Brute-forcible Answers
+
+* WSTG-ATHN-9: Testing for Weak Password Change or Reset Functionalities
+    - Test Password Reset
+    - Test Password Change
+
+* WSTG-ATHN-10: Testing for Weaker Authentication in Alternative Channel
+    - Understand the Primary Mechanism
+    - Identify Other Channels
+    - Enumerate Authentication Functionality
 
 **Authorization**
 ===================
 
-* Testing Directory Traversal File Include
-* Testing for Bypassing Authorization Schema
-* Testing for Privilege Escalation
-* Testing for Insecure Direct Object References
-* Testing for OAuth Weaknesses
+* WSTG-ATHZ-01: Testing Directory Traversal File Include
+    - Input Vectors Enumeration
+    - Testing Techniques
+    - Looking for :code:`../../../../etc/passwd`
+        - URL: http://example.com/getUserProfile.jsp?item=../../../../etc/passwd
+        - URL: http://example.com/index.php?file=http://www.owasp.org/malicioustxt
+        - URL: http://example.com/index.php?file=file:///etc/passwd
+        - Cookie: USER=1826cc8f:PSTYLE=../../../../etc/passwd
+    - Code
+        - PHP: include(), include_once(), require(), require_once(), fopen(), readfile(), ...
+            - (include|require)(_once)?\s*['"(]?\s*\$_(GET|POST|COOKIE)
+        - JSP/Servlet: java.io.File(), java.io.FileReader(), ...
+        - ASP: include file, include virtual, ...
+    
+* WSTG-ATHZ-02: Testing for Bypassing Authorization Schema
+    - Testing for Horizontal Bypassing Authorization Schema
+    - Testing for Vertical Bypassing Authorization Schema
+    - Banking Site Roles Scenario
+    - Administrator Page Access
+        - Testing for Access to Administrative Functions
+        - Testing for Access to Resources Assigned to a Different Role
+        - Testing for Special Request Header Handling
+            1. Send a Normal Request without Any X-Original-Url or X-Rewrite-Url Header
+            2. Send a Request with an X-Original-Url Header Pointing to a Non-Existing Resource
+            3. Send a Request with an X-Rewrite-Url Header Pointing to a Non-Existing Resource
+            4. Other Headers to Consider
+                - X-Forwarded-For
+                - X-Forward-For
+                - X-Remote-IP
+                - X-Originating-IP
+                - X-Remote-Addr
+                - X-Client-IP
+
+* WSTG-ATHZ-03: Testing for Privilege Escalation
+    - Objectives
+        - Identify injection points related to privilege manipulation.
+        - Fuzz or otherwise attempt to bypass security measures.
+    - Testing for Role/Privilege Manipulation
+        1. Manipulation of User Group
+        2. Manipulation of User Profile
+        3. Manipulation of Condition Value
+        4. Manipulation of IP Address
+            - X-Forwarded-For: 8.1.1.1
+    - URL Traversal
+        1. /../.././userInfo.html
+    - Code
+        1. startswith(), endswith(), contains(), indexOf()
+    - SessionID
+        1. decrypt
+        2. manipulate
+
+* WSTG-ATHZ-04: Testing for Insecure Direct Object References
+    - Identify points where object references may occur.
+    - Assess the access control measures and if they’re vulnerable to IDOR.
+        - The Value of a Parameter Is Used Directly to Retrieve a Database Record
+        - The Value of a Parameter Is Used Directly to Perform an Operation in the System
+        - The Value of a Parameter Is Used Directly to Retrieve a File System Resource
+        - The Value of a Parameter Is Used Directly to Access Application Functionality
 
 **Session**
 ===================
