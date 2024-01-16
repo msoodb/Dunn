@@ -23,5 +23,6 @@ Contents
    shell
    root
    cover
+   report
 
 Dunn has its documentation hosted on `Read the Docs <https://dunn.readthedocs.io/>`_ .

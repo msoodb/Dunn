@@ -4,6 +4,9 @@ Recon
 
 **Company**
 ============
+We are looking for **Weakest Part of Company**
+
+--------
 
 .. list-table::
    :widths: 25 75
@@ -20,12 +23,21 @@ History
 
 - History
 
-Leaked-info
--------------
+Leaked-Information - WSTG-INFO-01
+----------------------------------
 
 - Document
-    - `google <https://www.google.com/>`_ site:example.com filetype:pdf inurl:login cache:example.com
+    - `google <https://www.google.com/>`_ 
+        - site:example.com
+        - inurl:login
+        - intitle:
+        - intext: 
+        - inbody:
+        - filetype:pdf,conf,txt,xls
+        - cache:example.com
 - User:Email:Password
+    - username format
+    - private key
     - [`rocketreach <https://rocketreach.co/>`_ ] email and phone
     - [`pastebin <https://pastebin.com/>`_ ] leaked password
     - [`haveibeenpwned <https://haveibeenpwned.com//>`_ ] password reuse attack
@@ -35,6 +47,7 @@ Leaked-info
         - `facebook <https://www.facebook.com//>`_
 - Source-code
     - [`github <https://github.com/>`_ ] code, api-key and data leak
+    - configuration files
 - Server:IP:Port
     - [`shodan <https://shodan.io/dashboard/>`_ ]
     - [`censys <https://search.censys.io/>`_ ]
@@ -53,8 +66,8 @@ Leaked-info
         - [theHarvester]    OSINT platform
         - [`alerts <https://google.com/alerts/>`_]          Set google change alert            
 
-Website-info
--------------
+Website-Information
+--------------------
 - Technology
     - Web Server
     - CMS
@@ -112,52 +125,84 @@ Partners
    :widths: 30, 30, 30
    :header-rows: 1
 
-Infrastructure
------------------
+**Infrastructure**
+====================
+We are looking for **Network map**
 
-- Technology
-    - Database
-    - OS
-    - Programming Language
-    - Code Repository
-    - Cloud
-    - Deployment
-- Network
-    - Public
-    - Private
-    - Cloud
-    - Firewall
-    - CIDR
+--------
+
+Technology
+-------------
+- Database
+- Operating System
+- Programming Language
+- Code Repository
+- Cloud
+- Deployment
+- Hardware
+
+Network
+---------
+- Public
+- Private
+- Cloud
+- Firewall
+- CIDR
+- Tools
     - [fping]
     - [ping]
     - [nmap]
     - [rustscan]
-- Firewall
+
+Firewall
+---------
     - IPS
     - Firewall
     - WAF
-- Cloud
-    - IaaS
-    - CaaS
-    - PaaS
-    - FaaS
-    - SaaS
-    - Storage
-- Applications
-    - Web-servers
-    - Mail-server
-    - CRM
-    - HR
-    - ERP
-    - E-Learning
-    - User-Directory
-- API
-    - BaseURL
-    - Version
-    - Document
+
+Cloud
+--------
+- IaaS
+- CaaS
+- PaaS
+- FaaS
+- SaaS
+- Storage
+
+Applications
+-------------
+- Web-servers
+- Mail-server
+- CRM
+- HR
+- ERP
+- E-Learning
+- User-Directory
+
+API
+----
+- BaseURL
+- Version
+- Document
+
+Administrative Tools
+--------------------------
+Any infrastructure requires the existence of administrative tools to maintain and update the information used
+by the application.
+
+- KVM over IP
+- iLO
+- cPanel
+- VMware vSphere
+- CMS Admin panel
+- FTP server
+- NFS, CIFS. Network file systems
 
 **Wildcard**
 =============
+We are looking for **Live hosts**
+
+--------
 
 .. note::
     For each wildcard in scope, find subdomains, and hosts.
@@ -184,11 +229,14 @@ Host
 
 **Domain**
 =============
+We are looking for **Any kind of vulnerability**
+
+--------
 
 .. code-block:: console
     
-    export $TARGET=www.example.com
-    export $IP=x.x.x.x
+    export TARGET=www.example.com
+    export IP=x.x.x.x
 
 Network
 -----------
@@ -197,7 +245,7 @@ Network
         - [Original-ip]     https://securitytrails.com
         - [Original-ip]     https://zoomeye.org
     - IP.Reverse
-        - :code:`wget https://api.hackertarget.com/reverseiplookup/?q=$IP > ip.reverse`
+        - :code:`wget https://api.hackertarget.com/reverseiplookup/?q=$IP -O ip.reverse`
     - DNS
         - [dig.sh]
         - [traceroute]
@@ -225,8 +273,6 @@ Network
         - [`shodan <https://shodan.io/dashboard/>`_ ]
         - [`censys <https://search.censys.io/>`_ ]
         - [`zoomeye <https://www.zoomeye.org/>`_ ]        
-
------
 
 Services
 -----------
@@ -478,23 +524,26 @@ Services
     - [favicon] <https://wiki.owasp.org/index.php/OWASP_favicon_database>
     - [dencode] <https://dencode.com>
 
-Web server
------------
-- type              
-- information leakage
-- version           
-- vulnerability
-- Metafiles
+Web server - WSTG-INFO-02
+--------------------------
+- Type              
+- Information Leakage
+- Version           
+- Vulnerability
+- Metafiles - WSTG-INFO-03
     - :code:`wget https://$TARGET/robots.txt`
     - :code:`wget https://$TARGET/sitemap.xml`
     - <meta tag>
         - <META NAME="ROBOTS">
         - Burpsuite <META> Tags
         - Browser (View Source function)
+    - :code:`wget https://$TARGET/security.txt`
+    - :code:`wget https://$TARGET/.well-known/security.txt`
+    - :code:`wget https://$TARGET/humans.txt`
 - Headers
-    - HSTS
+    - HSTS, HTTP Strict Transport Security
     - X-XSS-Protection
-    - CORS
+    - CORS, Cross-origin resource sharing
     - server
     - X-Powered-By
     - X-Frame-Options
@@ -506,13 +555,23 @@ Web server
             - Server: Sun-ONE-Web-Server/6.1
         - Headers ordering
     - [`securityheaders <https://securityheaders.com/>`_]
-- https://www.netcraft.com/
+- Applications - WSTG-INFO-04
+    - Different Base URL
+    - Non-standard Ports
+    - Virtual Hosts - Wildcards    
 - https://www.wappalyzer.com
 - https://net-square.com/httprint.html
+- Netcraft https://toolbar.netcraft.com/site_report
+- Nikto https://github.com/sullo/nikto
+- Nmap https://nmap.org/
+- ZAP
+- Burpsuite
+
 
 Web application
 -----------------
-    - information leakage
+    - Information Leakage - WSTG-INFO-05
+        - Source code
         - Browser view source comment
             - `<!--      -->`
             - `/*     */`
@@ -527,18 +586,25 @@ Web application
             - <META http-equiv=”Cache-Control” content=”no-cache”>
             - <META http-equiv=”Refresh” content=”15;URL=https://www.owasp.org/index.html”>
             - <META name=”robots” content=”none”>
-    - Entry-points
+        - JavaScript files
+            - Gather [js.sh]
+            - Downlaod [js-download.sh]
+            - review
+                - vs code
+                - ZAP
+    - Entry-points - WSTG-INFO-06
         - url
+            - [url.sh]          :code:`url.sh  <host>`
+            - [waybackurl]      URL enumeration
+            - [katana]          Host enumeration  
         - screenshot
+            - :code:`gowitness file --file $URLS`
         - fff
+            - :code:`cat $URLS | fff -d 1 -S -o fff`
         - spiderparam
-        - js
-        - [url.sh]          url.sh  <host>
-        - [waybackurl]      URL enumeration
-        - [katana]          Host enumeration    
         - ZAP
         - Burp Suite
-    - Framework/CMS
+    - Framework - WSTG-INFO-08
         - Name / Version
             - HTTP headers                      
                 - X-Powered-By: Mono
@@ -585,7 +651,7 @@ Web application
                 - Wordpress         /wp-includes/, /wp-admin/ and /wp-content/
         - Defaults
             - known vulnerabilities
-            - default  credentials
+            - default credentials
             - default settings
             - defaults and known files
         - Configuration
@@ -600,8 +666,26 @@ Web application
             - Rotation
             - Access Control
             - Review
-        - File Extensions        
-            - .sql, .zip, .bak, .pdf, .txt, .old, .inf, .inc
+            - Sensitive Information
+        - Server errors
+            - 40X
+            - 50X
+        - File extensions
+            - .asa
+            - .inc
+            - .config
+            - .zip , .tar , .gz , .tgz , .rar , etc.: (Compressed) archive files
+            - .java : No reason to provide access to Java source files
+            - .txt : Text files
+            - .pdf : PDF documents
+            - .docx , .rtf , .xlsx , .pptx , etc.: Office documents
+            - .bak , .old and other extensions indicative of backup files (for example: ~ for Emacs backup files)
+        - Unreferenced Files
+            - login.asp -> login.asp.old
+            - viewdoc.jsp -> viewdoc.old.jsp
+            - /.snapshot/monthly.1/view.php
+            - viewuser.asp -> edituser.asp , adduser.asp and deleteuser.asp
+            - /app/user -> /app/admin, /app/manager
         - Backup
             - js comment
             - js source code
@@ -609,42 +693,100 @@ Web application
             - .sql
             - .data
             - .bak
-        - Admin panel
-        - Identity managemnet
-            - Admin
-            - User
-            - Subscriber
-    - source
-        - comment
-        - HTML version
-        - <meta tag>
-    - Reverse proxy
-    - Cloud storage
-        - aws
-        - gcloud
-        - azure
-    - Architecture
         - PaaS              
-            - aws, azure, wordpress, wix, 
+            - aws, azure, wordpress, wix
+        - Session
+            - JWT
+            - SessionId
+        - Cookie
+        - Source code
+            - Programming Language
+            - github        
+        - Third party services/APIs
+            - apikey
+        - js library
+        - API
         - Entrypoints
             - Login
             - URL
             - Form
             - Admin panel
             - User panel
-        - API
-        - js library
-        - Database
-        - Cookie
-        - Source code
-            - Programming Language
-            - github
-        - Session
-            - JWT
-            - SessionId
-        - Third party services/APIs
-            - apikey
-        - Application paths
+        - Admin default pages
+            - WebSphere
+                - /admin
+                - /admin-authz.xml
+                - /admin.conf
+                - /admin.passwd
+                - /admin/*
+                - /admin/logon.jsp
+                - /admin/secure/logon.jsp
+            - PHP
+                - /phpinfo
+                - /phpmyadmin/
+                - /phpMyAdmin/
+                - /mysqladmin/
+                - /MySQLadmin
+                - /MySQLAdmin
+                - /login.php
+                - /logon.php
+                - /xmlrpc.php
+                - /dbadmin
+            - FrontPage
+                - /admin.dll
+                - /admin.exe
+                - /administrators.pwd
+                - /author.dll
+                - /author.exe
+                - /author.log
+                - /authors.pwd
+                - /cgi-bin
+            - WebLogic
+                - /AdminCaptureRootCA
+                - /AdminClients
+                - /AdminConnections
+                - /AdminEvents
+                - /AdminJDBC
+                - /AdminLicense
+                - /AdminMain
+                - /AdminProps
+                - /AdminRealm
+                - /AdminThreads
+            - WordPress
+                - wp-admin/
+                - wp-admin/about.php
+                - wp-admin/admin-ajax.php
+                - wp-admin/admin-db.php
+                - wp-admin/admin-footer.php
+                - wp-admin/admin-functions.php
+                - wp-admin/admin-header.php
+        - Roles Identification
+            - Roles
+                - Super Admin
+                - Administrator
+                - Editor
+                - Author
+                - Contributor
+                - Subscriber
+            - Identification methods:
+                - Application documentation.
+                - Guidance by the developers or administrators of the application.
+                - Application comments.
+                - Fuzz possible roles:
+                    - cookie variable (e.g. role=admin , isAdmin=True )
+                    - account variable (e.g. Role: manager )
+                    - hidden directories or files (e.g. /admin , /mod , /backups )
+                    - switching to well known users (e.g. admin , backups , etc.)
+    - Reverse proxy
+    - Cloud storage
+        - aws
+        - gcloud
+        - azure
+    - Application Map - WSTG-INFO-07
+        - ZAP
+        - Burpsuite
+    - Application Architecture - WSTG-INFO-10
+        - Generate a map of the application at hand based on the research conducted.
     - [archive]         Website History                    https://archive.org/web     
     - [netcraft]        Some usefull information           https://sitereport.netcraft.com
     - [Wappalyzer]      Website technology                 addons.mozilla.org
@@ -660,13 +802,19 @@ Web application
 ===================
 - ...to be completed.
 
+--------
+
 **Android Mobile app**
 =======================
 - ...to be completed.
 
+--------
+
 **CIDR**
 =========
 - ...to be completed.
+
+--------
 
 Automated Reconnaissance and Vulnerability Repos.
 =========================================================

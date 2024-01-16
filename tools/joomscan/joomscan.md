@@ -1,0 +1,1 @@
+joomscan -u target.ip
