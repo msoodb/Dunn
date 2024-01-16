@@ -18,12 +18,11 @@ A list of the team members detailing their expertise and qualifications.
 The boundaries and the needs of the engagement agreed upon with the organization.
 
 5. Limitations
-Limitations can be:
-    - Out-of-bounds areas in relation to testing.
-    - Broken functionality.
-    - Lack of cooperation.
-    - Lack of time.
-    - Lack of access or credentials.
+- Out-of-bounds areas in relation to testing.
+- Broken functionality.
+- Lack of cooperation.
+- Lack of time.
+- Lack of access or credentials.
 
 6. Timeline
 The duration of the engagement.
