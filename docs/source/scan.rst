@@ -461,8 +461,6 @@ Auto Scan
 * WSTG-CLNT-11: Testing Web Messaging
 * WSTG-CLNT-12: Testing Browser Storage
 * WSTG-CLNT-13: Testing for Cross Site Script Inclusion - XSSI
-* Testing for Reverse Tabnabbing
-
 
 **API Testing**
 ==================
