@@ -315,7 +315,7 @@ Auto Scan
         1. decrypt
         2. manipulate
 
-* WSTG-ATHZ-04: Testing for Insecure Direct Object References
+* WSTG-ATHZ-04: Testing for Insecure Direct Object References - IDOR
     - Identify points where object references may occur.
     - Assess the access control measures and if they’re vulnerable to IDOR.
         - The Value of a Parameter Is Used Directly to Retrieve a Database Record
@@ -326,84 +326,151 @@ Auto Scan
 **Session**
 ===================
 
-* Testing for Session Management Schema
-* Testing for Cookies Attributes
-* Testing for Session Fixation
-* Testing for Exposed Session Variables
-* Testing for Cross Site Request Forgery
-* Testing for Logout Functionality
-* Testing Session Timeout
-* Testing for Session Puzzling
-* Testing for Session Hijacking
-* Testing JSON Web Tokens
+* WSTG-SESS-01: Testing for Session Management Schema
+    - Gather session tokens
+    - Analyze
+    - Modify cookies
+
+* WSTG-SESS-02: Testing for Cookies Attributes
+    - Secure Attribute
+    - HttpOnly Attribute
+    - Domain Attribute
+    - Path Attribute
+    - Expires Attribute
+    - SameSite Attribute
+
+* WSTG-SESS-03: Testing for Session Fixation
+    - Analyze the authentication mechanism and its flow.
+    - Force cookies and assess the impact.
+
+* WSTG-SESS-04: Testing for Exposed Session Variables
+    - Testing for Encryption & Reuse of Session Tokens Vulnerabilities
+    - Testing for Proxies & Caching Vulnerabilities
+    - Testing for GET & POST Vulnerabilities
+    - Testing for Transport Vulnerabilities
+
+* WSTG-SESS-05: Testing for Cross Site Request Forgery - CSRF
+    - https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html
+
+* WSTG-SESS-06: Testing for Logout Functionality
+    - Testing for Log Out User Interface
+    - Testing for Server-Side Session Termination
+    - Testing for Session Timeout
+    - Testing for Session Termination in Single Sign-On Environments (Single Sign-Off)
+
+* WSTG-SESS-07: Testing Session Timeout
+    - Validate that a hard session timeout exists
+
+* WSTG-SESS-08: Testing for Session Puzzling
+    - Identify all session variables.
+    - Break the logical flow of session generation.
+
+* WSTG-SESS-09: Testing for Session Hijacking
+    - Identify vulnerable session cookies.
+    - Hijack vulnerable cookies and assess the risk level.
 
 **Data Validation**
 ===================
 
-* Testing for Reflected Cross Site Scripting
-* Testing for Stored Cross Site Scripting
-* Testing for HTTP Verb Tampering
-* Testing for HTTP Parameter Pollution
-* Testing for SQL Injection
-* Testing for LDAP Injection
-* Testing for XML Injection
-* Testing for SSI Injection
-* Testing for XPath Injection
-* Testing for IMAP SMTP Injection
-* Testing for Code Injection
-* Testing for Command Injection
-* Testing for Format String Injection
-* Testing for Incubated Vulnerability
-* Testing for HTTP Splitting Smuggling
-* Testing for HTTP Incoming Requests
-* Testing for Host Header Injection
-* Testing for Server-side Template Injection
-* Testing for Server-Side Request Forgery
-* Testing for Mass Assignment
+* WSTG-INPV-1: Testing for Reflected Cross Site Scripting - XSS
+* WSTG-INPV-2: Testing for Stored Cross Site Scripting - Stored XSS
+* WSTG-INPV-3: Testing for HTTP Parameter Pollution
+* WSTG-INPV-4: Testing for SQL Injection - SQLi
+* WSTG-INPV-5: Testing for LDAP Injection
+* WSTG-INPV-6: Testing for XML Injection
+* WSTG-INPV-7: Testing for SSI Injection
+* WSTG-INPV-8: Testing for XPath Injection
+* WSTG-INPV-9: Testing for IMAP SMTP Injection
+* WSTG-INPV-10: Testing for Code Injection
+* WSTG-INPV-11: Testing for Command Injection
+* WSTG-INPV-13: Testing for Format String Injection
+* WSTG-INPV-14: Testing for Incubated Vulnerability
+* WSTG-INPV-15: Testing for HTTP Splitting Smuggling
+* WSTG-INPV-16: Testing for HTTP Incoming Requests
+* WSTG-INPV-17: Testing for Host Header Injection
+* WSTG-INPV-18: Testing for Server-side Template Injection
+* WSTG-INPV-19: Testing for Server-Side Request Forgery - SSRF
 
 **Error Handling**
 ===================
 
-* Testing for Improper Error Handling
-* Testing for Stack Traces
+* WSTG-ERRH-01: Testing for Improper Error Handling
+    - Identify existing error output.        
+    - Analyze the different output returned.
+    - Test
+        - Web Servers
+        - Applications
 
 **Cryptography**
 =================
 
-* Testing for Weak Transport Layer Security
-* Testing for Padding Oracle
-* Testing for Sensitive Information Sent via Unencrypted Channels
-* Testing for Weak Encryption
+* WSTG-CRYP-01: Testing for Weak Transport Layer Security    
+    - Automated Testing
+        - Nmap (various scripts)
+        - OWASP O-Saft
+        - sslscan
+        - sslyze
+        - SSL Labs
+        - testssl.sh
+    - Manual Testing
+        - openssl
+        - gnutls-cli
+
+* WSTG-CRYP-02: Testing for Padding Oracle
+    - Identify encrypted messages that rely on padding.
+    - Attempt to break the padding of the encrypted messages and analyze the returned error messages for further analysis.
+
+* WSTG-CRYP-03: Testing for Sensitive Information Sent via Unencrypted Channels
+    - Basic Authentication over HTTP
+    - Form-Based Authentication Performed over HTTP
+    - Cookie Containing Session ID Sent over HTTP
+    - Testing Password Sensitive Information in Source Code or Logs
+        - :code:`grep -r –E "Pass | password | pwd |user | guest| admin | encry | key | decrypt | sharekey "./PathToSearch/`
+        - :code:`grep -r " {2\}[0-9]\{6\} " ./PathToSearch/`
+
+* WSTG-CRYP-04: Testing for Weak Encryption
+    - Provide a guideline for the identification weak encryption or hashing uses and implementations.
 
 **Business Logic**
 ===================
+"think outside of conventional wisdom"
 
-* Test Business Logic Data Validation
-* Test Ability to Forge Requests
-* Test Integrity Checks
-* Test for Process Timing
-* Test Number of Times a Function Can Be Used Limits
-* Testing for the Circumvention of Work Flows
-* Test Defenses Against Application Misuse
-* Test Upload of Unexpected File Types
-* Test Upload of Malicious Files
-* Test Payment Functionality
+* WSTG-BUSL-01: Test Business Logic Data Validation
+    - Generic Test Method
+    - Related Test Cases
+
+* WSTG-BUSL-02: Test Ability to Forge Requests
+    - Through Identifying Guessable Values
+    - Through Identifying Hidden Options
+
+* WSTG-BUSL-03: Test Integrity Checks
+* WSTG-BUSL-04: Test for Process Timing
+* WSTG-BUSL-05: Test Number of Times a Function Can Be Used Limits
+* WSTG-BUSL-06: Testing for the Circumvention of Work Flows
+* WSTG-BUSL-07: Test Defenses Against Application Misuse
+* WSTG-BUSL-08: Test Upload of Unexpected File Types
+* WSTG-BUSL-09: Test Upload of Malicious Files
 
 **Client Side**
 ===================
 
-* Testing for DOM-Based Cross Site Scripting
-* Testing for JavaScript Execution
-* Testing for HTML Injection
-* Testing for Client-side URL Redirect
-* Testing for CSS Injection
-* Testing for Client-side Resource Manipulation
-* Testing Cross Origin Resource Sharing
-* Testing for Cross Site Flashing
-* Testing for Clickjacking
-* Testing WebSockets
-* Testing Web Messaging
-* Testing Browser Storage
-* Testing for Cross Site Script Inclusion
+* WSTG-CLNT-01: Testing for DOM-Based Cross Site Scripting - XSS
+* WSTG-CLNT-02: Testing for JavaScript Execution
+* WSTG-CLNT-03: Testing for HTML Injection
+* WSTG-CLNT-04: Testing for Client-side URL Redirect
+* WSTG-CLNT-05: Testing for CSS Injection
+* WSTG-CLNT-06: Testing for Client-side Resource Manipulation
+* WSTG-CLNT-07: Testing Cross Origin Resource Sharing - CORS
+* WSTG-CLNT-08: Testing for Cross Site Flashing - XSF
+* WSTG-CLNT-09: Testing for Clickjacking
+* WSTG-CLNT-10: Testing WebSockets
+* WSTG-CLNT-11: Testing Web Messaging
+* WSTG-CLNT-12: Testing Browser Storage
+* WSTG-CLNT-13: Testing for Cross Site Script Inclusion - XSSI
 * Testing for Reverse Tabnabbing
 
+
+**API Testing**
+==================
+
+* WSTG-APIT-01: Testing GraphQL
