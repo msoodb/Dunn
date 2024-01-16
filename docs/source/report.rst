@@ -1,8 +1,8 @@
 Report
 =======
 
-**Introduction**
----------------------
+Introduction
+---------------
 
 1. Version Control
 Version     Description     Date            Author
@@ -37,26 +37,25 @@ discovered since the tests were run. As such, this report serves as a guiding do
 report provides a full representation of the risks threatening.
 
 
-**Executive Summary**
--------------------------
+Executive Summary
+---------------------
 This is like the elevator pitch of the report, it aims at providing executives with:
     - The objective of the test.
 
-**Findings**
----------------------
+Findings
+-----------
 
 1. Findings Summary
-----------------------
 Ref. ID         Title                           Risk Level
 1               User Authentication Bypass      High
 
 
 2. Findings Details
------------------------
 
 
-**Appendices**
------------------
+
+Appendices
+-------------
 Multiple appendices can be added, such as:
     - Test methodology used.
     - Severity and risk rating explanations.
