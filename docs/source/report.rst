@@ -48,16 +48,7 @@ report provides a full representation of the risks threatening.
 **2. Executive Summary**
 ==========================
 This is like the elevator pitch of the report, it aims at providing executives with:
-    The objective of the test.
-        Describe the business need behind the security test.
-        Describe how the tests helped the organization understand their systems.
-    Key findings in a business context, such as possible compliance issues, reputation damage, etc. Focus on the
-    business impact and leave out technical details for now.
-    The strategic recommendations on how the business can stop the issues from happening again. Describe these in
-    a non-technical context and leave specific technical recommendations out for now.
-The summary should be constructive and meaningful. Avoid jargon and negative speculation. If figures, graphs, or
-illustrations are used, ensure they help deliver a message in a clearer way than text would.
-
+    - The objective of the test.
 
 **3. Findings**
 ================
