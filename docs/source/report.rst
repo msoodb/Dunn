@@ -2,7 +2,7 @@ Report
 =======
 
 **1. Introduction**
-=================
+=====================
 
 1.1 Version Control
 --------------------
@@ -54,7 +54,7 @@ This is like the elevator pitch of the report, it aims at providing executives w
 ================
 
 3.1 Findings Summary
-------------------------------
+----------------------
 Ref. ID         Title                           Risk Level
 1               User Authentication Bypass      High
 
