@@ -436,13 +436,7 @@ Auto Scan
 "think outside of conventional wisdom"
 
 * WSTG-BUSL-01: Test Business Logic Data Validation
-    - Generic Test Method
-    - Related Test Cases
-
 * WSTG-BUSL-02: Test Ability to Forge Requests
-    - Through Identifying Guessable Values
-    - Through Identifying Hidden Options
-
 * WSTG-BUSL-03: Test Integrity Checks
 * WSTG-BUSL-04: Test for Process Timing
 * WSTG-BUSL-05: Test Number of Times a Function Can Be Used Limits
