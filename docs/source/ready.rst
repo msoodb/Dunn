@@ -5,6 +5,7 @@ Process
 ------------
 - Make Coffee
 - vpn connection
+- Launch Tor Browser
 - Prepare Tools    
 - Create Room
 - Play Music
