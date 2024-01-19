@@ -1,32 +1,27 @@
 Ready
-=====
+======
 
 Process
 ------------
-- Make Coffee
+- Make Coffee 
+- Play Music
+- Create Room
 - vpn connection
 - Launch Tor Browser
-- Prepare Tools    
-- Create Room
-- Play Music
-- Set Timer
+- Set Timer 
+- Start
 
 Tools
 ----------------
 .. code-block:: console
     
-    cp ~/Projects/bible/tools/tmux/.tmux.conf ~    
-    sudo cp ~/Projects/bible/tools/nmap/setip /usr/local/bin
-    sudo cp ~/Projects/bible/tools/nmap/portip /usr/local/bin
-    sudo cp ~/Projects/bible/tools/nmap/explore /usr/local/bin 
-    code ~/Projects/bible
+    cp ~/Projects/dunn/config/.tmux.conf ~    
+    code ~/Projects/dunn
 
-Preperation Room
+Room
 ----------------
 .. code-block:: console
 
     mkdir -p ~/Operations/<room>
     cd ~/Operations/<room>
-    touch ~/Operations/<room>/clue.txt
     tmux; tmux Ctrl+B `
-    cp -r ~/Projects/bible/tools/0box . 
