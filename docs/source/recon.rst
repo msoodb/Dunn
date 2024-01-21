@@ -29,7 +29,7 @@ Leaked-Information - WSTG-INFO-01
 - Document
     - `google <https://www.google.com/>`_
         - :code:`FGDS.sh <domain>`
-        .. csv-table::
+        - .. csv-table::
             :file: google-dorks.csv
             :widths: 30, 30
             :header-rows: 1
