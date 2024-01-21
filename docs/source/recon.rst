@@ -27,15 +27,13 @@ Leaked-Information - WSTG-INFO-01
 ----------------------------------
 
 - Document
-    - `google <https://www.google.com/>`_ 
-        - site:example.com
-        - inurl:login
-        - intitle:
-        - intext: 
-        - inbody:
-        - filetype:pdf,conf,txt,xls
-        - cache:example.com
-- User:Email:Password
+    - `google <https://www.google.com/>`_
+        - :code:`FGDS.sh <domain>`
+        .. csv-table::
+            :file: google-dorks.csv
+            :widths: 30, 30
+            :header-rows: 1
+    - User:Email:Password
     - username format
     - private key
     - [`rocketreach <https://rocketreach.co/>`_ ] email and phone
