@@ -11,10 +11,10 @@ We are looking for **Knowing the Company**
 General 
 ---------
 
-.. csv-table::
-    :file: company.csv
-    :widths: 30, 30
-    :header-rows: 0
+- .. csv-table::
+     :file: company.csv
+     :widths: 30, 30
+     :header-rows: 0
 - SocialMedia
     - `Linkedin <https://www.linkedin.com/>`_ 
     - `twitter <https://www.twitter.com/>`_ 
