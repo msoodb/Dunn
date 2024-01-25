@@ -4,19 +4,23 @@ Recon
 
 **Company**
 ============
-We are looking for **Weakest Part of Company**
+We are looking for **Knowing the Company**
 
 --------
+
+General 
+---------
 
 .. csv-table::
     :file: company.csv
     :widths: 30, 30
     :header-rows: 0
-
-History
-----------
-
-- History
+- SocialMedia
+    - `Linkedin <https://www.linkedin.com/>`_ 
+    - `twitter <https://www.twitter.com/>`_ 
+    - `Instagram <https://www.instagram.com//>`_ 
+    - `facebook <https://www.facebook.com//>`_ 
+    - `youtube <https://www.youtube.com//>`_ 
 
 Leaked-Information - WSTG-INFO-01
 ----------------------------------
@@ -33,11 +37,7 @@ Leaked-Information - WSTG-INFO-01
     - private key
     - [`rocketreach <https://rocketreach.co/>`_ ] email and phone
     - [`pastebin <https://pastebin.com/>`_ ] leaked password
-    - [`haveibeenpwned <https://haveibeenpwned.com//>`_ ] password reuse attack
-    - SocialMedia
-        - `Linkedin <https://www.linkedin.com/>`_ 
-        - `Instagram <https://www.instagram.com//>`_ 
-        - `facebook <https://www.facebook.com//>`_
+    - [`haveibeenpwned <https://haveibeenpwned.com//>`_ ] password reuse attack    
 - Source-code
     - [`github <https://github.com/>`_ ] code, api-key and data leak
     - configuration files
@@ -91,7 +91,7 @@ Website-Information
     - web archive
 
 Contacts
-------------
+------------------------
 .. csv-table::
    :file: contacts.csv
    :widths: 20, 20, 20, 20, 20
