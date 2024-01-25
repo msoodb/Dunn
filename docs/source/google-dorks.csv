@@ -1,0 +1,8 @@
+Dork,Examples
+site:,site:google.com
+filetype:,filetype:pdf car design
+ext:,ext:log username
+intitle:,intitle:toy story
+inurl:,inurl:login.php
+intext:,intext:"Index of /" +.htaccess
+cache:,cache:news.yahoo.com
