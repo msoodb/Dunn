@@ -271,7 +271,7 @@ Network
     - service
     - version
     - vulnerability
-    - [Tools]
+- [Tools]
         - [portip.sh]
         - [nmap]
         - [`shodan <https://shodan.io/dashboard/>`_ ]
