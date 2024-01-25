@@ -232,36 +232,46 @@ We are looking for **Any kind of vulnerability**
     export TARGET=www.example.com
     export IP=x.x.x.x
 
+Domain
+-----------
+
+- Whois :code:`whois $TARGET > whois`
+- WAF
+    - [wafw00f]  :code:`wafw00f $TARGET > waf`
+    - [`WAF-Detection <https://www.nmmapper.com/sys/reconnaissance-tools/waf/web-application-firewall-detector/>`_]
+    - [p0f] TCP/IP stack fingerprinting
+- DNS
+    - [dig.sh]
+    - [traceroute]
+    - [nslookup]
+    - [dnsrecon]
+    - [`dnsdumpster <https://dnsdumpster.com/>`_]
+    - [`dnsleaktest <https://dnsleaktest.com/>`_]
+    - [DNSenum]
+- IP
+    - [host] :code:`host $TARGET > host`
+    - [ip]: :code:`ip`
+- Original-IP :code:`original-ip` 
+    - [`shodan <https://shodan.io/dashboard/>`_ ]
+    - [`censys <https://search.censys.io/>`_ ]
+    - [`zoomeye <https://www.zoomeye.org/>`_ ]
+- IP-Reverse
+    - :code:`wget https://api.hackertarget.com/reverseiplookup/?q=$IP -O ip-reverse`
+- IP-Location
+    - :code:`https://ip2location.com`
+
 Network
 -----------
-    - IP
-        - [host] :code:`host $TARGET > ip`
-        - [Original-ip]     https://securitytrails.com
-        - [Original-ip]     https://zoomeye.org
-    - IP.Reverse
-        - :code:`wget https://api.hackertarget.com/reverseiplookup/?q=$IP -O ip.reverse`
-    - DNS
-        - [dig.sh]
-        - [traceroute]
-        - [nslookup]
-        - [dnsrecon]
-        - [`dnsdumpster <https://dnsdumpster.com/>`_]
-        - [`dnsleaktest <https://dnsleaktest.com/>`_]
-        - [DNSenum]        
-    - Location
-        - :code:`https://ip2location.com`
-    - WAF
-        - [wafw00f]  :code:`wafw00f $TARGET > waf`
-        - [`WAF-Detection <https://www.nmmapper.com/sys/reconnaissance-tools/waf/web-application-firewall-detector/>`_]
-        - [p0f] TCP/IP stack fingerprinting
+
+- Security Layer
     - IPS
-    - Whois
-        - [whois] :code:`whois $TARGET > whois`
-    - Port
-        - number
-        - service
-        - version
-        - vulnerability
+    - Firewall
+- Services
+    - port
+    - service
+    - version
+    - vulnerability
+    - [Tools]
         - [portip.sh]
         - [nmap]
         - [`shodan <https://shodan.io/dashboard/>`_ ]
@@ -275,7 +285,6 @@ Services
    :file: services.csv
    :widths: 30, 30, 30, 70
    :header-rows: 1
-
 
 - SMB
     - [Enum4Linux]
