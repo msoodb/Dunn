@@ -8,6 +8,7 @@ Process
 - Create Room
 - vpn connection
 - Launch Tor Browser
+- Launch Burpsuit
 - Set Timer 
 - Start
 

@@ -8,15 +8,10 @@ We are looking for **Weakest Part of Company**
 
 --------
 
-.. list-table::
-   :widths: 25 75
-
-   * - Name
-     -
-   * - Website
-     - 
-   * - Brands
-     -   
+.. csv-table::
+    :file: company.csv
+    :widths: 30, 30
+    :header-rows: 0
 
 History
 ----------
@@ -95,10 +90,10 @@ Website-Information
     - configuration
     - web archive
 
-Key persons
+Contacts
 ------------
 .. csv-table::
-   :file: key-persons.csv
+   :file: contacts.csv
    :widths: 20, 20, 20, 20, 20
    :header-rows: 1
 
@@ -195,6 +190,7 @@ by the application.
 - CMS Admin panel
 - FTP server
 - NFS, CIFS. Network file systems
+- SSH server
 
 **Wildcard**
 =============
@@ -606,15 +602,14 @@ Web application
         - Name / Version
             - HTTP headers                      
                 - X-Powered-By: Mono
-                - X-Generator: Swiftlet
-            - Cookies
-                - CAKEPHP=rm72kprivgmau5fmjdesbuqi71
+                - X-Generator: Swiftlet               
             - HTML source code
             - Specific files and folders
             - :code:`whatweb -v -a 3 https://$TARGET --log-verbose=whatweb --color=never    # https://morningstarsecurity.com/research/whatweb`
             - Wappalyzer                                                             # wappalyzer_varonis-com
             - https://whatcms.org/?s=www.example.com
             - Cookies
+                - CAKEPHP           CAKEPHP=rm72kprivgmau5fmjdesbuqi71
                 - phpBB             `phpbb3_`
                 - Wordpress         wp-settings
                 - 1C-Bitrix         `BITRIX_`
@@ -634,7 +629,8 @@ Web application
                 - Dynamicweb        Dynamicweb
                 - LEPTON            lep[some_numeric_value]+sessionid
                 - Wix               Domain=.wix.com
-                - VIVVO             VivvoSessionId        
+                - VIVVO             VivvoSessionId
+                - Laravel           laravel_session       
             - WhatWeb
             - BlindElephant.py
             - Wappalyzer
