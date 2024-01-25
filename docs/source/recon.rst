@@ -278,7 +278,6 @@ Network
         - [`censys <https://search.censys.io/>`_ ]
         - [`zoomeye <https://www.zoomeye.org/>`_ ]        
 
-Services
 -----------
 
 .. csv-table::
@@ -527,7 +526,7 @@ Services
     - [favicon] <https://wiki.owasp.org/index.php/OWASP_favicon_database>
     - [dencode] <https://dencode.com>
 
-Web server - WSTG-INFO-02
+Webserver - WSTG-INFO-02
 --------------------------
 - Type              
 - Information Leakage
@@ -571,7 +570,7 @@ Web server - WSTG-INFO-02
 - Burpsuite
 
 
-Web application
+Webapplication
 -----------------
     - Information Leakage - WSTG-INFO-05
         - Source code
