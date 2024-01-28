@@ -37,7 +37,8 @@ Leaked-Information - WSTG-INFO-01
     - private key
     - [`rocketreach <https://rocketreach.co/>`_ ] email and phone
     - [`pastebin <https://pastebin.com/>`_ ] leaked password
-    - [`haveibeenpwned <https://haveibeenpwned.com//>`_ ] password reuse attack    
+    - [`haveibeenpwned <https://haveibeenpwned.com//>`_ ] password reuse attack 
+    - https://rasm.io/company
 - Source-code
     - [`github <https://github.com/>`_ ] code, api-key and data leak
     - configuration files
@@ -232,7 +233,7 @@ We are looking for **Any kind of vulnerability**
     export TARGET=www.example.com
     export IP=x.x.x.x
 
-Domain
+1.Domain
 -----------
 
 - Whois :code:`whois $TARGET > whois`
@@ -260,7 +261,7 @@ Domain
 - IP-Location
     - :code:`https://ip2location.com`
 
-Network
+2.Network
 -----------
 
 - Security Layer
@@ -526,7 +527,7 @@ Network
     - [favicon] <https://wiki.owasp.org/index.php/OWASP_favicon_database>
     - [dencode] <https://dencode.com>
 
-Webserver - WSTG-INFO-02
+3.Webserver - WSTG-INFO-02
 --------------------------
 - Type              
 - Information Leakage
@@ -570,7 +571,7 @@ Webserver - WSTG-INFO-02
 - Burpsuite
 
 
-Webapplication
+4.Application
 -----------------
     - Information Leakage - WSTG-INFO-05
         - Source code
