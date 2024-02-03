@@ -255,14 +255,13 @@ We are looking for **Any kind of vulnerability**
 - Original-IP :code:`original-ip`
     - .. code-block:: console
     
-        export TARGET=www.example.com
-        export IP=x.x.x.x 
-    
-    - :code:`censys search $TARGET -o ip-data.json`
-    - :code:`cat ip-data.json | grep -oE "(\b25[0-5]|\b2[0-4][0-9]|\b[01]?[0-9][0-9]?)(\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}" > ip-list`
-    - :code:`host.sh ip-list`
-    - :code:`cat hosts | awk '{print $1}' > hosts.url`
-    - :code:`screenshot.sh hosts.url`
+        censys search $TARGET -o ip-data.json
+        cat ip-data.json | grep -oE "(\b25[0-5]|\b2[0-4][0-9]|\b[01]?[0-9][0-9]?)(\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}" > ip-list
+        host.sh ip-list
+        cat hosts | awk '{print $1}' > hosts.url
+        screenshot.sh hosts.url
+        firefox screenshots/index.html  
+   
     - [`shodan <https://shodan.io/dashboard/>`_ ]
     - [`censys <https://search.censys.io/>`_ ]
     - [`zoomeye <https://www.zoomeye.org/>`_ ]
