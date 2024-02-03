@@ -253,6 +253,11 @@ We are looking for **Any kind of vulnerability**
     - [host] :code:`host $TARGET > host`
     - [ip]: :code:`ip`
 - Original-IP :code:`original-ip`
+    - .. code-block:: console
+    
+        export TARGET=www.example.com
+        export IP=x.x.x.x 
+    
     - :code:`censys search $TARGET -o ip-data.json`
     - :code:`cat ip-data.json | grep -oE "(\b25[0-5]|\b2[0-4][0-9]|\b[01]?[0-9][0-9]?)(\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}" > ip-list`
     - :code:`host.sh ip-list`
