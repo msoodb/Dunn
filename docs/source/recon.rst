@@ -252,7 +252,13 @@ We are looking for **Any kind of vulnerability**
 - IP
     - [host] :code:`host $TARGET > host`
     - [ip]: :code:`ip`
-- Original-IP :code:`original-ip` 
+- Original-IP :code:`original-ip`
+    - .. code-block:: console
+            censys search $TARGET -o ip-data.json
+            cat ip-data.json | grep -oE "(\b25[0-5]|\b2[0-4][0-9]|\b[01]?[0-9][0-9]?)(\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}" > ip-list
+            host.sh ip-list
+            cat hosts | awk '{print $1}' > hosts.url
+            screenshot.sh hosts.url
     - [`shodan <https://shodan.io/dashboard/>`_ ]
     - [`censys <https://search.censys.io/>`_ ]
     - [`zoomeye <https://www.zoomeye.org/>`_ ]
@@ -588,13 +594,7 @@ We are looking for **Any kind of vulnerability**
             - <META http-equiv=”Expires” content=”Fri, 21 Dec 201212:34:56 GMT”>
             - <META http-equiv=”Cache-Control” content=”no-cache”>
             - <META http-equiv=”Refresh” content=”15;URL=https://www.owasp.org/index.html”>
-            - <META name=”robots” content=”none”>
-        - JavaScript files
-            - Gather [js.sh]
-            - Downlaod [js-download.sh]
-            - review
-                - vs code
-                - ZAP
+            - <META name=”robots” content=”none”>       
     - Entry-points - WSTG-INFO-06
         - url
             - [url.sh]          :code:`url.sh  <host>`
@@ -604,6 +604,12 @@ We are looking for **Any kind of vulnerability**
             - :code:`gowitness file --file $URLS`
         - fff
             - :code:`cat $URLS | fff -d 1 -S -o fff`
+        - JavaScript files
+            - Gather [js.sh]
+            - Downlaod [js-download.sh]
+            - review
+                - vs code
+                - ZAP
         - spiderparam
         - ZAP
         - Burp Suite
