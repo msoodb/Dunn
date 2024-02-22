@@ -3,7 +3,7 @@ Test
 =====
 
 Once all the relevant data has been gathered in the reconnaissance phase, 
-it’s time to move on to scanning. In this penetration testing phase, 
+it’s time to move on to Testing. In this penetration testing phase, 
 the tester uses various tools to identify open ports and check network 
 traffic on the target system. Because open ports are potential entry points for attackers, 
 penetration testers need to identify as many open ports as possible for the next penetration testing phase.
@@ -15,17 +15,19 @@ scanning can identify a potential threat but cannot determine the level at which
 hackers can gain access (Agio, 2022). So, while scanning is essential for cybersecurity, 
 it also needs human intervention in the form of penetration testers to reach its full potential. 
 
-In the **recon** phase we just gathered information as much as we can, about:
+In the **recon** and **scan** phases we just gathered information as much as we can, about:
 
-**Company** --> **Network map** --> **Live hosts** --> **Web-server** --> **Web application**
+**Company** --> **Network map** --> **Live hosts** --> **Webserver** --> **Web-applications**
 
 -----
 
 .. note::
-    Scan phase designed based on WSTG OWASP Test Guide.
+    Test phase designed based on WSTG OWASP Test Guide.
 
 **Information**
 =================
+
+This phase hase already done in **recon** and **scan** phases.
 
 * WSTG-INFO-01: Conduct Search Engine Discovery Reconnaissance for Information Leakage
 * WSTG-INFO-02: Fingerprint Web Server

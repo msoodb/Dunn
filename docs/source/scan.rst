@@ -1,10 +1,12 @@
 ======
 Scan
 ======
+We are looking for **Live Host**, **Domain Info**, **Original IPs** and **Services**.
+
 
 **Wildcard**
 =============
-We are looking for **Live hosts**
+We are looking for **Live Host**.
 
 --------
 
@@ -33,7 +35,7 @@ Host
 
 **Domain**
 =============
-We are looking for **Any kind of vulnerability**
+We are looking for **Domain Info** and **Original IPs**.
 
 --------
 
@@ -41,9 +43,6 @@ We are looking for **Any kind of vulnerability**
     
     export TARGET=www.example.com
     export IP=x.x.x.x
-
-1.Domain
------------
 
 - Whois :code:`whois $TARGET > whois`
 - WAF
@@ -79,8 +78,10 @@ We are looking for **Any kind of vulnerability**
 - IP-Location
     - :code:`https://ip2location.com`
 
-2.Network
------------
+
+**Network**
+=============
+We are looking for **Services**.
 
 - Security Layer
     - IPS
@@ -345,8 +346,10 @@ We are looking for **Any kind of vulnerability**
     - [favicon] <https://wiki.owasp.org/index.php/OWASP_favicon_database>
     - [dencode] <https://dencode.com>
 
-3.Webserver - WSTG-INFO-02
---------------------------
+**Webserver** - WSTG-INFO-02
+==========================
+We are looking for **Webserver Info**.
+
 - Type              
 - Information Leakage
 - Version           
@@ -389,244 +392,240 @@ We are looking for **Any kind of vulnerability**
 - Burpsuite
 
 
-4.Application
------------------
-    - Information Leakage - WSTG-INFO-05
-        - Source code
-        - Browser view source comment
-            - `<!--      -->`
-            - `/*     */`
-            - `//`      
-        - HTML version information <!DOCTYPE HTML>
-            - “strict.dtd” -- default strict DTD
-            - “loose.dtd” -- loose DTD
-            - “frameset.dtd” -- DTD 
-        - Burpsuite <META> Tags
-            - <META name=”Author” content=”Andrew Muller”>
-            - <META http-equiv=”Expires” content=”Fri, 21 Dec 201212:34:56 GMT”>
-            - <META http-equiv=”Cache-Control” content=”no-cache”>
-            - <META http-equiv=”Refresh” content=”15;URL=https://www.owasp.org/index.html”>
-            - <META name=”robots” content=”none”>       
-    - Entry-points - WSTG-INFO-06
-        - url
-            - [url.sh]          :code:`url.sh  <host>`
-            - [waybackurl]      URL enumeration
-            - [katana]          Host enumeration  
-        - screenshot
-            - :code:`gowitness file --file $URLS`
-        - fff
-            - :code:`cat $URLS | fff -d 1 -S -o fff`
-        - JavaScript files
-            - Gather [js.sh]
-            - Downlaod [js-download.sh]
-            - review
-                - vs code
-                - ZAP
-        - spiderparam
-        - ZAP
-        - Burp Suite
-    - Framework - WSTG-INFO-08
-        - Name / Version
-            - HTTP headers                      
-                - X-Powered-By: Mono
-                - X-Generator: Swiftlet               
-            - HTML source code
-            - Specific files and folders
-            - :code:`whatweb -v -a 3 https://$TARGET --log-verbose=whatweb --color=never    # https://morningstarsecurity.com/research/whatweb`
-            - Wappalyzer                                                             # wappalyzer_varonis-com
-            - https://whatcms.org/?s=www.example.com
-            - Cookies
-                - CAKEPHP           CAKEPHP=rm72kprivgmau5fmjdesbuqi71
-                - phpBB             `phpbb3_`
-                - Wordpress         wp-settings
-                - 1C-Bitrix         `BITRIX_`
-                - AMPcms            AMP
-                - Django CMS        django
-                - DotNetNuke        DotNetNukeAnonymous
-                - e107              e107
-                - EPiServer         EPiTrace, EPiServer
-                - Graffiti CMS      graffitibot
-                - Hotaru CMS        hotaru_mobile
-                - ImpressCMS        ICMSession
-                - Indico            MAKACSESSION
-                - InstantCMS        InstantCMS[logdate]
-                - Kentico CMS       CMSPreferredCulture
-                - MODx              SN4[12symb]
-                - TYPO3             fe_typo_user
-                - Dynamicweb        Dynamicweb
-                - LEPTON            lep[some_numeric_value]+sessionid
-                - Wix               Domain=.wix.com
-                - VIVVO             VivvoSessionId
-                - Laravel           laravel_session       
-            - WhatWeb
-            - BlindElephant.py
-            - Wappalyzer
-            - HTML source code
-                - Wordpress         <meta name=”generator” content=”WordPress 3.9.2” />
-                - phpBB             <body id=”phpbb”
-                - Mediawiki         <meta name=”generator” content=”MediaWiki 1.21.9” />
-                - Joomla            <meta name=”generator” content=”Joomla! - Open Source Content Management” />
-                - Drupal            <meta name=”Generator” content=”Drupal 7 (http://drupal.org)” />
-                - DotNetNuke        DNN Platform - http://www.dnnsoftware.com
-            - Specific files and folders
-                - Wordpress         /wp-includes/, /wp-admin/ and /wp-content/
-        - Defaults
-            - known vulnerabilities
-            - default credentials
-            - default settings
-            - defaults and known files
-        - Configuration
-        - Database
-        - Environments
-            - development
-            - sandbox
-            - production
-        - Logging
-            - Location
-            - Storage
-            - Rotation
-            - Access Control
-            - Review
-            - Sensitive Information
-        - Server errors
-            - 40X
-            - 50X
-        - File extensions
-            - .asa
-            - .inc
-            - .config
-            - .zip , .tar , .gz , .tgz , .rar , etc.: (Compressed) archive files
-            - .java : No reason to provide access to Java source files
-            - .txt : Text files
-            - .pdf : PDF documents
-            - .docx , .rtf , .xlsx , .pptx , etc.: Office documents
-            - .bak , .old and other extensions indicative of backup files (for example: ~ for Emacs backup files)
-        - Unreferenced Files
-            - login.asp -> login.asp.old
-            - viewdoc.jsp -> viewdoc.old.jsp
-            - /.snapshot/monthly.1/view.php
-            - viewuser.asp -> edituser.asp , adduser.asp and deleteuser.asp
-            - /app/user -> /app/admin, /app/manager
-        - Backup
-            - js comment
-            - js source code
-            - cache file
-            - .sql
-            - .data
-            - .bak
-        - PaaS              
-            - aws, azure, wordpress, wix
-        - Session
-            - JWT
-            - SessionId
-        - Cookie
-        - Source code
-            - Programming Language
-            - github        
-        - Third party services/APIs
-            - apikey
-        - js library
-        - API
-        - Entrypoints
-            - Login
-            - URL
-            - Form
-            - Admin panel
-            - User panel
-        - Admin default pages
-            - WebSphere
-                - /admin
-                - /admin-authz.xml
-                - /admin.conf
-                - /admin.passwd
-                - /admin/*
-                - /admin/logon.jsp
-                - /admin/secure/logon.jsp
-            - PHP
-                - /phpinfo
-                - /phpmyadmin/
-                - /phpMyAdmin/
-                - /mysqladmin/
-                - /MySQLadmin
-                - /MySQLAdmin
-                - /login.php
-                - /logon.php
-                - /xmlrpc.php
-                - /dbadmin
-            - FrontPage
-                - /admin.dll
-                - /admin.exe
-                - /administrators.pwd
-                - /author.dll
-                - /author.exe
-                - /author.log
-                - /authors.pwd
-                - /cgi-bin
-            - WebLogic
-                - /AdminCaptureRootCA
-                - /AdminClients
-                - /AdminConnections
-                - /AdminEvents
-                - /AdminJDBC
-                - /AdminLicense
-                - /AdminMain
-                - /AdminProps
-                - /AdminRealm
-                - /AdminThreads
-            - WordPress
-                - wp-admin/
-                - wp-admin/about.php
-                - wp-admin/admin-ajax.php
-                - wp-admin/admin-db.php
-                - wp-admin/admin-footer.php
-                - wp-admin/admin-functions.php
-                - wp-admin/admin-header.php
-        - Roles Identification
-            - Roles
-                - Super Admin
-                - Administrator
-                - Editor
-                - Author
-                - Contributor
-                - Subscriber
-            - Identification methods:
-                - Application documentation.
-                - Guidance by the developers or administrators of the application.
-                - Application comments.
-                - Fuzz possible roles:
-                    - cookie variable (e.g. role=admin , isAdmin=True )
-                    - account variable (e.g. Role: manager )
-                    - hidden directories or files (e.g. /admin , /mod , /backups )
-                    - switching to well known users (e.g. admin , backups , etc.)
-    - Reverse proxy
-    - Cloud storage
-        - aws
-        - gcloud
-        - azure
-    - Application Map - WSTG-INFO-07
-        - ZAP
-        - Burpsuite
-    - Application Architecture - WSTG-INFO-10
-        - Generate a map of the application at hand based on the research conducted.
-    - [archive]         Website History                    https://archive.org/web     
-    - [netcraft]        Some usefull information           https://sitereport.netcraft.com
-    - [Wappalyzer]      Website technology                 addons.mozilla.org
-    - [BuiltWith]       Website technology                 addons.mozilla.org/
-    - [hackertarget]    WhatWeb & Wappalyzer Scan          https://hackertarget.com
-    - [whatweb]         Website technology                 -
-    - [Firefox]         Browser, Source Code Review        -
-    - [BurpSuite]       Set Scope, Browser and Log         -
-    - [weleakinfo.io]   Info                               https://weleakinfo.io/
-    - [hunter.io]       Info                               https://hunter.io/
+**Web-Application**
+==========================
+We are looking for **Web-Applications Info**.
 
-Analyze urls
------------------
-- URLs
-    - :code:`gf [awskey | base64 | json-sec | idor]`
-- Subdomain Takover
-    - :code:`subzy run --target urls`
-- Broken Link Hijacking, BLH
-    - :code:`socialhunter -f urls`
+- Information Leakage - WSTG-INFO-05
+    - Source code
+    - Browser view source comment
+        - `<!--      -->`
+        - `/*     */`
+        - `//`      
+    - HTML version information <!DOCTYPE HTML>
+        - “strict.dtd” -- default strict DTD
+        - “loose.dtd” -- loose DTD
+        - “frameset.dtd” -- DTD 
+    - Burpsuite <META> Tags
+        - <META name=”Author” content=”Andrew Muller”>
+        - <META http-equiv=”Expires” content=”Fri, 21 Dec 201212:34:56 GMT”>
+        - <META http-equiv=”Cache-Control” content=”no-cache”>
+        - <META http-equiv=”Refresh” content=”15;URL=https://www.owasp.org/index.html”>
+        - <META name=”robots” content=”none”>       
+- Entry-points - WSTG-INFO-06
+    - url
+        - [url.sh]          :code:`url.sh  <host>`
+        - [waybackurl]      URL enumeration
+        - [katana]          Host enumeration  
+    - screenshot
+        - :code:`gowitness file --file $URLS`
+    - fff
+        - :code:`cat $URLS | fff -d 1 -S -o fff`
+    - JavaScript files
+        - Gather [js.sh]
+        - Downlaod [js-download.sh]
+        - review
+            - vs code
+            - ZAP
+    - spiderparam
+    - ZAP
+    - Burp Suite
+- Framework - WSTG-INFO-08
+    - Name / Version
+        - HTTP headers                      
+            - X-Powered-By: Mono
+            - X-Generator: Swiftlet               
+        - HTML source code
+        - Specific files and folders
+        - :code:`whatweb -v -a 3 https://$TARGET --log-verbose=whatweb --color=never    # https://morningstarsecurity.com/research/whatweb`
+        - Wappalyzer                                                             # wappalyzer_varonis-com
+        - https://whatcms.org/?s=www.example.com
+        - Cookies
+            - CAKEPHP           CAKEPHP=rm72kprivgmau5fmjdesbuqi71
+            - phpBB             `phpbb3_`
+            - Wordpress         wp-settings
+            - 1C-Bitrix         `BITRIX_`
+            - AMPcms            AMP
+            - Django CMS        django
+            - DotNetNuke        DotNetNukeAnonymous
+            - e107              e107
+            - EPiServer         EPiTrace, EPiServer
+            - Graffiti CMS      graffitibot
+            - Hotaru CMS        hotaru_mobile
+            - ImpressCMS        ICMSession
+            - Indico            MAKACSESSION
+            - InstantCMS        InstantCMS[logdate]
+            - Kentico CMS       CMSPreferredCulture
+            - MODx              SN4[12symb]
+            - TYPO3             fe_typo_user
+            - Dynamicweb        Dynamicweb
+            - LEPTON            lep[some_numeric_value]+sessionid
+            - Wix               Domain=.wix.com
+            - VIVVO             VivvoSessionId
+            - Laravel           laravel_session       
+        - WhatWeb
+        - BlindElephant.py
+        - Wappalyzer
+        - HTML source code
+            - Wordpress         <meta name=”generator” content=”WordPress 3.9.2” />
+            - phpBB             <body id=”phpbb”
+            - Mediawiki         <meta name=”generator” content=”MediaWiki 1.21.9” />
+            - Joomla            <meta name=”generator” content=”Joomla! - Open Source Content Management” />
+            - Drupal            <meta name=”Generator” content=”Drupal 7 (http://drupal.org)” />
+            - DotNetNuke        DNN Platform - http://www.dnnsoftware.com
+        - Specific files and folders
+            - Wordpress         /wp-includes/, /wp-admin/ and /wp-content/
+    - Defaults
+        - known vulnerabilities
+        - default credentials
+        - default settings
+        - defaults and known files
+    - Configuration
+    - Database
+    - Environments
+        - development
+        - sandbox
+        - production
+    - Logging
+        - Location
+        - Storage
+        - Rotation
+        - Access Control
+        - Review
+        - Sensitive Information
+    - Server errors
+        - 40X
+        - 50X
+    - File extensions
+        - .asa
+        - .inc
+        - .config
+        - .zip , .tar , .gz , .tgz , .rar , etc.: (Compressed) archive files
+        - .java : No reason to provide access to Java source files
+        - .txt : Text files
+        - .pdf : PDF documents
+        - .docx , .rtf , .xlsx , .pptx , etc.: Office documents
+        - .bak , .old and other extensions indicative of backup files (for example: ~ for Emacs backup files)
+    - Unreferenced Files
+        - login.asp -> login.asp.old
+        - viewdoc.jsp -> viewdoc.old.jsp
+        - /.snapshot/monthly.1/view.php
+        - viewuser.asp -> edituser.asp , adduser.asp and deleteuser.asp
+        - /app/user -> /app/admin, /app/manager
+    - Backup
+        - js comment
+        - js source code
+        - cache file
+        - .sql
+        - .data
+        - .bak
+    - PaaS              
+        - aws, azure, wordpress, wix
+    - Session
+        - JWT
+        - SessionId
+    - Cookie
+    - Source code
+        - Programming Language
+        - github        
+    - Third party services/APIs
+        - apikey
+    - js library
+    - API
+    - Entrypoints
+        - Login
+        - URL
+        - Form
+        - Admin panel
+        - User panel
+    - Admin default pages
+        - WebSphere
+            - /admin
+            - /admin-authz.xml
+            - /admin.conf
+            - /admin.passwd
+            - /admin/*
+            - /admin/logon.jsp
+            - /admin/secure/logon.jsp
+        - PHP
+            - /phpinfo
+            - /phpmyadmin/
+            - /phpMyAdmin/
+            - /mysqladmin/
+            - /MySQLadmin
+            - /MySQLAdmin
+            - /login.php
+            - /logon.php
+            - /xmlrpc.php
+            - /dbadmin
+        - FrontPage
+            - /admin.dll
+            - /admin.exe
+            - /administrators.pwd
+            - /author.dll
+            - /author.exe
+            - /author.log
+            - /authors.pwd
+            - /cgi-bin
+        - WebLogic
+            - /AdminCaptureRootCA
+            - /AdminClients
+            - /AdminConnections
+            - /AdminEvents
+            - /AdminJDBC
+            - /AdminLicense
+            - /AdminMain
+            - /AdminProps
+            - /AdminRealm
+            - /AdminThreads
+        - WordPress
+            - wp-admin/
+            - wp-admin/about.php
+            - wp-admin/admin-ajax.php
+            - wp-admin/admin-db.php
+            - wp-admin/admin-footer.php
+            - wp-admin/admin-functions.php
+            - wp-admin/admin-header.php
+    - Roles Identification
+        - Roles
+            - Super Admin
+            - Administrator
+            - Editor
+            - Author
+            - Contributor
+            - Subscriber
+        - Identification methods:
+            - Application documentation.
+            - Guidance by the developers or administrators of the application.
+            - Application comments.
+            - Fuzz possible roles:
+                - cookie variable (e.g. role=admin , isAdmin=True )
+                - account variable (e.g. Role: manager )
+                - hidden directories or files (e.g. /admin , /mod , /backups )
+                - switching to well known users (e.g. admin , backups , etc.)
+- Reverse proxy
+- Cloud storage
+    - aws
+    - gcloud
+    - azure
+- Application Map - WSTG-INFO-07
+    - ZAP
+    - Burpsuite
+- Application Architecture - WSTG-INFO-10
+    - Generate a map of the application at hand based on the research conducted.
+- [archive]         Website History                    https://archive.org/web     
+- [netcraft]        Some usefull information           https://sitereport.netcraft.com
+- [Wappalyzer]      Website technology                 addons.mozilla.org
+- [BuiltWith]       Website technology                 addons.mozilla.org/
+- [hackertarget]    WhatWeb & Wappalyzer Scan          https://hackertarget.com
+- [whatweb]         Website technology                 -
+- [Firefox]         Browser, Source Code Review        -
+- [BurpSuite]       Set Scope, Browser and Log         -
+- [weleakinfo.io]   Info                               https://weleakinfo.io/
+- [hunter.io]       Info                               https://hunter.io/
+
+**Auto Scan**
+==============
 
 Auto Scan
 -----------------
@@ -640,6 +639,16 @@ Auto Scan
     - :code:`POST https://press.priceline.com/xmlrpc.php`
 - Joomla
     - :code:`joomscan -u https://$TARGET`
+
+Analyze urls
+-----------------
+- URLs
+    - :code:`gf [awskey | base64 | json-sec | idor]`
+- Subdomain Takover
+    - :code:`subzy run --target urls`
+- Broken Link Hijacking, BLH
+    - :code:`socialhunter -f urls`
+
 
 **iOS Mobile app**
 ===================
