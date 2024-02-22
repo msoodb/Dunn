@@ -1,5 +1,5 @@
 ======
-Recon
+Scan
 ======
 
 **Wildcard**
