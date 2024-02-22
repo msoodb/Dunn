@@ -4,14 +4,10 @@ Recon
 
 **Company**
 ============
-We are looking for **Information Gathering**
-
+We are looking for **Gathering Public and Leaked Information**
 --------
 
-General 
----------
-
-- .. csv-table::
+.. csv-table::
      :file: company.csv
      :widths: 30, 30
      :header-rows: 0
@@ -21,10 +17,6 @@ General
     - `Instagram <https://www.instagram.com//>`_ 
     - `facebook <https://www.facebook.com//>`_ 
     - `youtube <https://www.youtube.com//>`_ 
-
-Leaked-Information - WSTG-INFO-01
-----------------------------------
-
 - Document
     - `google <https://www.google.com/>`_
         - :code:`FGDS.sh <domain>`
@@ -46,7 +38,7 @@ Leaked-Information - WSTG-INFO-01
     - [`shodan <https://shodan.io/dashboard/>`_ ]
     - [`censys <https://search.censys.io/>`_ ]
     - [`zoomeye <https://www.zoomeye.org/>`_ ]
-- Other tools
+- Some usefull tools
     - `Google Hacking Database <https://www.exploit-db.com/google-hacking-database/>`_ 
     - search engine
         - [Baidu]
@@ -67,11 +59,11 @@ Website-Information
     - CMS
     - DBMS
     - Operation System
-- Contact
+- Contacts
     - Name
     - Role
     - Contact
-- Location
+- Locations
     - Name
     - Location
 - Business
@@ -81,7 +73,7 @@ Website-Information
     - Payment
     - Checkout
     - Search
-- Form and Entrypoint
+- Form and Entrypoints
     - Form
     - url
     - api
@@ -194,7 +186,7 @@ by the application.
 - SSH server
 
 Automated Reconnaissance and Vulnerability Repos.
-=========================================================
+----------------------------------------------------
 - [recon-ng]                https://www.kali.org/tools/recon-ng
 - [maltego]                 https://www.maltego.com
 - [Sn1per]                  https://github.com/1N3/Sn1per
