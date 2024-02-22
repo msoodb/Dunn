@@ -5,12 +5,14 @@ Recon
 **Company**
 ============
 We are looking for **Gathering Public and Leaked Information**
+
 --------
 
 .. csv-table::
      :file: company.csv
      :widths: 30, 30
      :header-rows: 0
+
 - SocialMedia
     - `Linkedin <https://www.linkedin.com/>`_ 
     - `twitter <https://www.twitter.com/>`_ 
