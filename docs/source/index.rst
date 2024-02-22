@@ -20,6 +20,7 @@ Contents
    covenant
    recon
    scan
+   test
    shell
    root
    cover
