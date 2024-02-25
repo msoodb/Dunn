@@ -37,9 +37,7 @@ This phase hase already done in **recon** and **scan** phases.
 * WSTG-INFO-06: Identify Application Entry Points
 * WSTG-INFO-07: Map Execution Paths Through Application
 * WSTG-INFO-08: Fingerprint Web Application Framework
-* WSTG-INFO-09: -
 * WSTG-INFO-10: Map Application Architecture
-
 
 **Configuration and Deploy**
 =============================
