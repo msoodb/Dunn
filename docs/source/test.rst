@@ -133,7 +133,7 @@ In the **recon** and **scan** phases we just gathered information as much as we 
     4. Can users register for different roles or permissions?
     5. What proof of identity is required for a registration to be successful?
     6. Are registered identities verified?
-    Validate the registration process:
+    7. Validate the registration process:
         1. Can identity information be easily forged or faked?
         2. Can the exchange of identity information be manipulated during registration?
 * WSTG-IDNT-03: Test Account Provisioning Process
