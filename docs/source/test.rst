@@ -26,9 +26,6 @@ In the **recon** and **scan** phases we just gathered information as much as we 
 
 **Information**
 =================
-
-This phase hase already done in **recon** and **scan** phases.
-
 * WSTG-INFO-01: Conduct Search Engine Discovery Reconnaissance for Information Leakage
 * WSTG-INFO-02: Fingerprint Web Server
 * WSTG-INFO-03: Review Webserver Metafiles for Information Leakage
