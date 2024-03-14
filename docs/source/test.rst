@@ -48,12 +48,9 @@ In the **recon** and **scan** phases we just gathered information as much as we 
     - Test any Defaults found in recon phase        
         - default credentials
         - default settings
-        - defaults and known files
-            1. Ensure that defaults and known files have been removed.
-    - Environments
-        1. Looking for debugging code or extensions are left in the production environments.
-    - Logging
-        1. Looking for any Sensitive Information
+        - ensure that defaults and known files have been removed.
+    - environments: Looking for debugging code or extensions are left in the production environments.
+    - Logging, Looking for any Sensitive Information
     - Test any other vulnerability found in **Web application** recon phase
 * WSTG-CONF-03: Test File Extensions Handling for Sensitive Information
     - Dirbust sensitive file extensions
@@ -81,11 +78,8 @@ In the **recon** and **scan** phases we just gathered information as much as we 
         - :code:`nmap -p 443 --script http-methods --script-args http-methods.url-path='/index.php' localhost`
         - Burpsuite Intruder
     - Testing for Access Control Bypass
-        - ?
     - Testing for Cross-Site Tracing Potential - XST
-        - ?
     - Testing for HTTP Method Overriding
-        - ?
 * WSTG-CONF-07: Test HTTP Strict Transport Security
     - Review the HSTS header and its validity.
     - :code:`curl -s -D- https://owasp.org | grep -i strict`
@@ -219,7 +213,7 @@ In the **recon** and **scan** phases we just gathered information as much as we 
         - Cookie: USER=1826cc8f:PSTYLE=../../../../etc/passwd
     - Code
         - PHP: include(), include_once(), require(), require_once(), fopen(), readfile(), ...
-            - (include|require)(_once)?\s*['"(]?\s*\$_(GET|POST|COOKIE)
+        - (include|require)(_once)?\s*['"(]?\s*\$_(GET|POST|COOKIE)
         - JSP/Servlet: java.io.File(), java.io.FileReader(), ...
         - ASP: include file, include virtual, ...
 * WSTG-ATHZ-02: Testing for Bypassing Authorization Schema
@@ -328,9 +322,8 @@ In the **recon** and **scan** phases we just gathered information as much as we 
 * WSTG-ERRH-01: Testing for Improper Error Handling
     - Identify existing error output.        
     - Analyze the different output returned.
-    - Test
-        - Web Servers
-        - Applications
+    - Test Webservers
+    - Test Web-applications
 
 **Testing for Weak Cryptography**
 ==================================
