@@ -1,5 +1,8 @@
 Covenant
 ------------
+
+- :code:`touch covenant.md`
+
 .. code-block:: console
 
     Bounty

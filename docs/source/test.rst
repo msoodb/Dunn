@@ -82,7 +82,8 @@ In the **recon** and **scan** phases we just gathered information as much as we 
     - Testing for HTTP Method Overriding
 * WSTG-CONF-07: Test HTTP Strict Transport Security
     - Review the HSTS header and its validity.
-    - :code:`curl -s -D- https://owasp.org | grep -i strict`
+    - :code:`curl -s -D- https://owasp.org | grep -i strict` 
+    - if contain strict-transport-security: max-age=31536000; includeSubDomains; preload the pass the test.
 * WSTG-CONF-08: Test RIA Cross Domain Policy
     - Rich Internet Applications - RIA
     - Review and validate the policy files.

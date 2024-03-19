@@ -14,3 +14,12 @@ hashcat -m 1800 unshadowed.txt rockyou.txt -O
  hashcat -a 0 -m 16500 <YOUR-JWT> /path/to/jwt.secrets.list 
 
  hashcat -a 0 -m 16500 eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJuYXNoZXItcGlzaGtoYW4tYWNjZXNzIiwiaWF0IjoxNzA3NzM2Mzc0LCJleHAiOjE3MDc4MjI3NzQsInVzZXJfaW5mb19lbWFpbCI6Im1zb29kYnJlYWxAZ21haWwuY29tIiwicHVibGlzaGVyX2lzX2tleV9hY2NvdW50IjpmYWxzZX0.sfGTPRkG24dTU5O0RPPPDSJKJyC4uPYJpMC6KvNtNK8 ~/wordlist/jwt.secrets.list
+
+
+ ## Simple md5 hash
+ hashes.txt list of md5 hash
+ hashcat -m 0 hashes.txt ~/wordlist/rockyou.txt
+ hashcat -m 0 --show hashes.txt
+
+
+ 17800
