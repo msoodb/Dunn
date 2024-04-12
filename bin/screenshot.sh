@@ -4,8 +4,8 @@
 #   JS Enumeration
 # ----------------------------------
 
-URLS=$1
-OUTPUT_DIR=$2
+URLS="${1:-urls}"
+OUTPUT_DIR="${2:-screenshot}"
 
 gowitness file --file $URLS --screenshot-path $OUTPUT_DIR
 for I in $(ls $OUTPUT_DIR/); do 
