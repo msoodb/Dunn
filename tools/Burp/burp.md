@@ -52,3 +52,11 @@ Man in the middle proxy
     - Save Burp CA
     - Import CA to Firefox
 - Fix SSL Errors (If Necessary)
+
+# Burp Configuration For Tor Proxy
+https://brezular.com/2020/01/02/how-to-configure-burpsuite-to-use-tor-as-proxy/
+- Configure Burp To Use Tor as Socks Proxy:
+    - Open Burp and navigate to User Option-> Connection-> SOCKS Proxy and click Check button - Use SoCKS proxy. Insert the Tor socket settings (Picture 2).
+    127.0.0.1
+    9050
+

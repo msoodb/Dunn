@@ -4,47 +4,40 @@ Recon
 
 **Company**
 ============
-We are looking for **Weakest Part of Company**
+We are looking for **Knowing the Company**
 
 --------
 
-.. list-table::
-   :widths: 25 75
+General 
+---------
 
-   * - Name
-     -
-   * - Website
-     - 
-   * - Brands
-     -   
-
-History
-----------
-
-- History
+- .. csv-table::
+     :file: company.csv
+     :widths: 30, 30
+     :header-rows: 0
+- SocialMedia
+    - `Linkedin <https://www.linkedin.com/>`_ 
+    - `twitter <https://www.twitter.com/>`_ 
+    - `Instagram <https://www.instagram.com//>`_ 
+    - `facebook <https://www.facebook.com//>`_ 
+    - `youtube <https://www.youtube.com//>`_ 
 
 Leaked-Information - WSTG-INFO-01
 ----------------------------------
 
 - Document
-    - `google <https://www.google.com/>`_ 
-        - site:example.com
-        - inurl:login
-        - intitle:
-        - intext: 
-        - inbody:
-        - filetype:pdf,conf,txt,xls
-        - cache:example.com
-- User:Email:Password
+    - `google <https://www.google.com/>`_
+        - :code:`FGDS.sh <domain>`
+        - .. csv-table::
+            :file: google-dorks.csv
+            :widths: 30, 30
+            :header-rows: 1
+    - User:Email:Password
     - username format
     - private key
     - [`rocketreach <https://rocketreach.co/>`_ ] email and phone
     - [`pastebin <https://pastebin.com/>`_ ] leaked password
-    - [`haveibeenpwned <https://haveibeenpwned.com//>`_ ] password reuse attack
-    - SocialMedia
-        - `Linkedin <https://www.linkedin.com/>`_ 
-        - `Instagram <https://www.instagram.com//>`_ 
-        - `facebook <https://www.facebook.com//>`_
+    - [`haveibeenpwned <https://haveibeenpwned.com//>`_ ] password reuse attack    
 - Source-code
     - [`github <https://github.com/>`_ ] code, api-key and data leak
     - configuration files
@@ -97,10 +90,10 @@ Website-Information
     - configuration
     - web archive
 
-Key persons
-------------
+Contacts
+------------------------
 .. csv-table::
-   :file: key-persons.csv
+   :file: contacts.csv
    :widths: 20, 20, 20, 20, 20
    :header-rows: 1
 
@@ -197,6 +190,7 @@ by the application.
 - CMS Admin panel
 - FTP server
 - NFS, CIFS. Network file systems
+- SSH server
 
 **Wildcard**
 =============
@@ -608,15 +602,14 @@ Web application
         - Name / Version
             - HTTP headers                      
                 - X-Powered-By: Mono
-                - X-Generator: Swiftlet
-            - Cookies
-                - CAKEPHP=rm72kprivgmau5fmjdesbuqi71
+                - X-Generator: Swiftlet               
             - HTML source code
             - Specific files and folders
             - :code:`whatweb -v -a 3 https://$TARGET --log-verbose=whatweb --color=never    # https://morningstarsecurity.com/research/whatweb`
             - Wappalyzer                                                             # wappalyzer_varonis-com
             - https://whatcms.org/?s=www.example.com
             - Cookies
+                - CAKEPHP           CAKEPHP=rm72kprivgmau5fmjdesbuqi71
                 - phpBB             `phpbb3_`
                 - Wordpress         wp-settings
                 - 1C-Bitrix         `BITRIX_`
@@ -636,7 +629,8 @@ Web application
                 - Dynamicweb        Dynamicweb
                 - LEPTON            lep[some_numeric_value]+sessionid
                 - Wix               Domain=.wix.com
-                - VIVVO             VivvoSessionId        
+                - VIVVO             VivvoSessionId
+                - Laravel           laravel_session       
             - WhatWeb
             - BlindElephant.py
             - Wappalyzer
