@@ -1,37 +1,634 @@
-=====
+======
 Scan
-=====
+======
+We are looking for **Live Host**, **Domain Info**, **Original IPs** and **Services**.
 
-Once all the relevant data has been gathered in the reconnaissance phase, 
-it’s time to move on to scanning. In this penetration testing phase, 
-the tester uses various tools to identify open ports and check network 
-traffic on the target system. Because open ports are potential entry points for attackers, 
-penetration testers need to identify as many open ports as possible for the next penetration testing phase.
 
-This step can also be performed outside of penetration testing; in those cases, 
-it’s referred to simply as vulnerability scanning and is usually an automated process. 
-However, there are drawbacks to only performing a scan without a full penetration test—namely, 
-scanning can identify a potential threat but cannot determine the level at which 
-hackers can gain access (Agio, 2022). So, while scanning is essential for cybersecurity, 
-it also needs human intervention in the form of penetration testers to reach its full potential. 
+**Wildcard**
+=============
+We are looking for **Live Host**.
 
-In the **recon** phase we just gathered information as much as we can, about:
+--------
 
-**Company** --> **Network map** --> **Live hosts** --> **Web-server** --> **Web application**
+.. note::
+    For each wildcard in scope, find subdomains, and hosts.
 
------
+Subdomain
+-----------
+- [sub.sh]
+- [crtsh]
+- [subfinder]
+- [assetfinder]
+- [subbrute]
+- [amass]
+- [ffuf]
+- [google]
+- [fierce]
+- [knockpy]
 
-Analyze urls
-=================
-- URLs
-    - :code:`gf [awskey | base64 | json-sec | idor]`
-- Subdomain Takover
-    - :code:`subzy run --target urls`
-- Broken Link Hijacking, BLH
-    - :code:`socialhunter -f urls`
+Host
+-----------
+- [host.sh]
+- [httprobe]
+- [httpx]
+- [fff]
+
+**Domain**
+=============
+We are looking for **Domain Info** and **Original IPs**.
+
+--------
+
+.. code-block:: console
+    
+    export TARGET=www.example.com
+    export IP=x.x.x.x
+
+- Whois :code:`whois $TARGET > whois`
+- WAF
+    - [wafw00f]  :code:`wafw00f $TARGET > waf`
+    - [`WAF-Detection <https://www.nmmapper.com/sys/reconnaissance-tools/waf/web-application-firewall-detector/>`_]
+    - [p0f] TCP/IP stack fingerprinting
+- DNS
+    - [dig.sh]
+    - [traceroute]
+    - [nslookup]
+    - [dnsrecon]
+    - [`dnsdumpster <https://dnsdumpster.com/>`_]
+    - [`dnsleaktest <https://dnsleaktest.com/>`_]
+    - [DNSenum]
+- IP
+    - [host] :code:`host $TARGET > host`
+    - [ip]: :code:`ip`
+- Original-IP :code:`original-ip`
+    - .. code-block:: console
+    
+        censys search $TARGET -o ip-data.json
+        cat ip-data.json | grep -oE "(\b25[0-5]|\b2[0-4][0-9]|\b[01]?[0-9][0-9]?)(\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}" > ip-list
+        host.sh ip-list
+        cat hosts | awk '{print $1}' > hosts.url
+        screenshot.sh hosts.url
+        firefox screenshots/index.html  
+   
+    - [`shodan <https://shodan.io/dashboard/>`_ ]
+    - [`censys <https://search.censys.io/>`_ ]
+    - [`zoomeye <https://www.zoomeye.org/>`_ ]
+- IP-Reverse
+    - :code:`wget https://api.hackertarget.com/reverseiplookup/?q=$IP -O ip-reverse`
+- IP-Location
+    - :code:`https://ip2location.com`
+
+
+**Network**
+=============
+We are looking for **Services**.
+
+- Security Layer
+    - IPS
+    - Firewall
+- Services
+    - port
+    - service
+    - version
+    - vulnerability
+- [Tools]
+        - [portip.sh]
+        - [nmap]
+        - [`shodan <https://shodan.io/dashboard/>`_ ]
+        - [`censys <https://search.censys.io/>`_ ]
+        - [`zoomeye <https://www.zoomeye.org/>`_ ]        
+
+-----------
+
+.. csv-table::
+   :file: services.csv
+   :widths: 30, 30, 30, 70
+   :header-rows: 1
+
+- SMB
+    - [Enum4Linux]
+    - [smbclient]
+    - [nmap] <nmap --script smb-enum-shares.nse -p445 target.ip>
+    - [VULNERABILITIES]
+        - [CVE-2017-0143] [ms17-010]
+            - Remote Code Execution vulnerability in Microsoft SMBv1 servers
+            - https://www.exploit-db.com/exploits/43970
+            - https://www.exploit-db.com/exploits/42315
+- FTP
+    - [ftp]
+        - ftp user/anonymous to remote server 
+        - put php-reverse-shell.php
+    - [hydra]: bruteforce the password of the FTP Server
+- Telnet
+    - [telnet]
+    - [netcat]
+- HTTP
+    - [whatweb]
+    - [BurpSuite]
+        - Setup and log everything
+    - [Browser]
+        - /robots.txt
+        - /sitemap.xml
+        - View Source
+            - serach for path, redirect, script, href <a>, src=""
+            - check all `*.js`
+            - check the source of js library. are they safe?
+            - diff between local js library and original from cdn    
+        - View DOM very carefully
+            - serach for path, redirect, script, href <a>, src=""
+            - search for any query-string parameter
+            - search for any search parameter
+        - Analyz Network and API
+            - Find endpoint
+            - Find parameter
+            - Watch Request/Response
+            - Check statuscode
+        - Read javascript code
+        - Storage
+            - Cookie
+            - Session
+        - Utelize Debugger
+        - Search for any Error or Messages
+            - [github.com]
+            - [google.com]
+        - Find Admin panel
+        - Manual Analyze Code for Vulnerabilities        
+            - Client-side Source Code
+            - Reverse engineering mobile and desktop application
+            - Leak code via vulnerability
+                - Path Traversal
+            - OSINT 
+                - github repos
+                - pastebin
+            - Fast hunting
+                - Find Sources
+                - Find Sinks
+                - Find data flow from Sources to Sinks
+                - Search for known dangerous function
+                    - eval()
+                    - get()
+                - Sensitive Data Exposure
+                    - API key
+                    - Database password
+                    - Encryption key
+                    - Username
+                    - Framework
+                    - Serach in comment
+                    - Sensitive url
+                    - [gf] find pattern in code
+                    - Dependencies and third-party module and packages
+                - Focus on critical methods
+                    - Authentication()
+                    - Payment()
+                    - Checkout()
+                    - Request
+                    - Response
+                - Follow logs
+                - Attack to test what you find.
+            - Utelize Atatic Analysis Security Test, SAST tools
+    - Directory fuzzing
+        - [dirb]
+        - [dirbuster]
+        - [gobuster]
+        - [wfuzz]
+        - [ffuf]
+        - [feroxbuster]
+        - [waybackurl]
+        - [katana]
+    - API fuzzing
+        - [ffuf]
+        - [wfuzz]
+        - [BurpSuite]
+        - [postman]
+            - Set proxy to send postman request to BurpSuit
+        - Log every traffic
+        - Visit all resources in [Browesr]
+        - Do 
+            - Signup
+            - Singin
+            - Verification
+            - Change password
+            - Forgot password
+            - Delete account
+            - Oath login
+        - Use differnet services in web application
+        - Check all Request/Response
+        - Check headers
+        - Repeater
+        - Intruder
+    - [wpscan]:             Wordpress CMS scan
+    - [nikto]:              Vulnerability scanning
+    - [searchsploit]:       Finding web application vulnerabilities
+    - [metasploit]:         Finding and exploiting web application vulnerabilities
+    - [nuclei]:             Vulnerability Scanner
+    - [Manual]: Find Web Applicatin Vulnerability, OWASP Top 10 
+        - IDOR: Insecure Direct Object Reference
+            - plain
+            - base64
+            - hash https://crackstation.net
+            - Unpredictable
+        - FI: File inclusion
+            - Local File Inclusion: Attacker can include a malicious file only from the same server
+            - Remote File Inclusion
+        - PT: Path Traversal
+        - SSRF: Server-Side Request Forgery
+            - regular SSRF
+            - Blind SSRF
+        - XSS: Cross-site Scripting
+            - Proof Of Concept
+            - Session Stealing
+            - Key Logger
+            - Business Logic
+        - RCE: Remote Code Execution
+        - SQLi: SQL Injection
+            - GET and POST parameters
+            - Headers
+            - Accept-Language
+            - Host
+            - referer
+            - User-Agent
+            - Forms/Inputs
+            - REST paths /api/users/:id
+            - Cookies
+            - Utelize [sqlmap]
+                - In-Band SQL Injection
+                - Blind SQLi
+            - Fetch data with 'UNION'
+            - Update data in database
+            - https://www.websec.ca/kb/sql_injection
+        - Authentication Attack
+        - Brute Force:
+            - [JtR]:                Single Mode / Wordlist / Brute-Force
+            - [hydra]:              Wordlist Attack, Brute Force Login
+            - [crunch]:             Hybrid Dictionary Attack [crunch]
+            - [RainbowCrack]:       Rainbow Tables http://project-rainbowcrack.com/table.htm
+            - [wfuzz]
+            - [ffuf]
+        - Script
+            - [2to3]:           Convert pythonRecon2 to python3
+            - [python]          Run python expolit file again
+    - API
+        - Determine the API to be used.
+            - [Fuzzing]
+        - Go through the API documentation.
+            - [Swagger]
+            - [Stoplight]
+            - [Readme]
+            - [Redocly]
+        - Setup environments.
+            - [BurpSuite]
+                - scope
+                - proxy
+            - [Postman]
+                - import api docs into postman
+                - setup proxy to burpsuite
+        - Determine the attack surface includes all of the inputs and outputs of the API.
+            - API calls
+            - URL parameters
+            - Headers
+            - Cookies
+            - Web responses
+            - File uploads
+            - API keys
+        - Identify the inputs and outputs of the API.
+        - Choose an authentication method.
+        - Determine the API’s vulnerabilities.
+- NFS
+    - [mount]:              Mounting NFS shares <sudo mount -t nfs IP:share /tmp/mount/ -nolock>
+- SMTP
+    - [msfconsole]
+- RPC
+    - [nmap]            <nmap -p 111 --script=nfs-ls,nfs-statfs,nfs-showmount target.ip>
+    - [rpcinfo]         <rpcinfo target.ip>
+    - [showmount]       <showmount -e target.ip>
+    - [mount]           <sudo mount -t nfs target.ip:/share /mnt/nfs>
+    - [umount]          <sudo umount -f -l /mnt/nfs>
+- SSH
+    - [ssh]:
+        - <ssh user@target.ip -p 22>
+        - <ssh -i id_rsa user@target.ip -p 1337>
+        - <ssh -i id_rsa -T user@target.ip -p 1337>
+    - [hydra]
+        - Brute Force Login
+    - [nmap] <nmap --script ssh-auth-methods target.ip>
+    - [john]
+        - ssh2john id_rsa > id_rsa.hash
+        - john -w=/usr/share/wordlists/rockyou.txt id_rsa.hash
+- MySql
+    - [mysql]
+        - connet with root:root <mysql -u root -h target.ip -p>
+    - [msfconsole]
+    - [hydra]
+        - Brute Force Login
+- Redis
+    - [namp] <nmap --script redis-info -sV -p 6379 target.ip>
+    - [nc] 
+        - <nc -vn 10.10.10.10 6379>
+        - INFO
+    - [redis-cli]
+        - <redis-cli -h target.ip>
+        - INFO
+        - set password for redis 
+            - <config set requirepass p@ss$12E45>
+            - SAVE
+- POP3
+    - [telnet] <telnet target.ip 110>
+
+- Vulnerability Scanning Tools and Public Repositories
+    - [Nessus]
+    - [Nexpose]
+    - [OpenVAS]
+    - [ExploitDB] https://www.exploit-db.com
+    - [NVD] <https://nvd.nist.gov/vuln/search>
+    - [Mitre] <https://www.cve.org>
+    - [OVAL] <https://oval.cisecurity.org/repository>
+    - [rapid7] <https://www.rapid7.com/db/>
+    - [favicon] <https://wiki.owasp.org/index.php/OWASP_favicon_database>
+    - [dencode] <https://dencode.com>
+
+**Webserver** - WSTG-INFO-02
+=================================
+We are looking for **Webserver Info**.
+
+- Type              
+- Information Leakage
+- Version           
+- Vulnerability
+- Metafiles - WSTG-INFO-03
+    - :code:`wget https://$TARGET/robots.txt`
+    - :code:`wget https://$TARGET/sitemap.xml`
+    - <meta tag>
+        - <META NAME="ROBOTS">
+        - Burpsuite <META> Tags
+        - Browser (View Source function)
+    - :code:`wget https://$TARGET/security.txt`
+    - :code:`wget https://$TARGET/.well-known/security.txt`
+    - :code:`wget https://$TARGET/humans.txt`
+- Headers
+    - HSTS, HTTP Strict Transport Security
+    - X-XSS-Protection
+    - CORS, Cross-origin resource sharing
+    - server
+    - X-Powered-By
+    - X-Frame-Options
+    - Content-Security-Policy
+    - :code:`curl -I https://$TARGET > response.headers`
+        - Server
+            - Server: Apache/1.3.23
+            - Server: Microsoft-IIS/5.0
+            - Server: Sun-ONE-Web-Server/6.1
+        - Headers ordering
+    - [`securityheaders <https://securityheaders.com/>`_]
+- Applications - WSTG-INFO-04
+    - Different Base URL
+    - Non-standard Ports
+    - Virtual Hosts - Wildcards    
+- https://www.wappalyzer.com
+- https://net-square.com/httprint.html
+- Netcraft https://toolbar.netcraft.com/site_report
+- Nikto https://github.com/sullo/nikto
+- Nmap https://nmap.org/
+- ZAP
+- Burpsuite
+
+
+**Web-Application**
+==========================
+We are looking for **Web-Applications Info**.
+
+- Information Leakage - WSTG-INFO-05
+    - Source code
+    - Browser view source comment
+        - `<!--      -->`
+        - `/*     */`
+        - `//`      
+    - HTML version information <!DOCTYPE HTML>
+        - “strict.dtd” -- default strict DTD
+        - “loose.dtd” -- loose DTD
+        - “frameset.dtd” -- DTD 
+    - Burpsuite <META> Tags
+        - <META name=”Author” content=”Andrew Muller”>
+        - <META http-equiv=”Expires” content=”Fri, 21 Dec 201212:34:56 GMT”>
+        - <META http-equiv=”Cache-Control” content=”no-cache”>
+        - <META http-equiv=”Refresh” content=”15;URL=https://www.owasp.org/index.html”>
+        - <META name=”robots” content=”none”>       
+- Entry-points - WSTG-INFO-06
+    - url
+        - [url.sh]          :code:`url.sh  <host>`
+        - [waybackurl]      URL enumeration
+        - [katana]          Host enumeration  
+    - screenshot
+        - :code:`gowitness file --file $URLS`
+    - fff
+        - :code:`cat $URLS | fff -d 1 -S -o fff`
+    - JavaScript files
+        - Gather [js.sh]
+        - Downlaod [js-download.sh]
+        - review
+            - vs code
+            - ZAP
+    - spiderparam
+    - ZAP
+    - Burp Suite
+- Framework - WSTG-INFO-08
+    - Name / Version
+        - HTTP headers                      
+            - X-Powered-By: Mono
+            - X-Generator: Swiftlet               
+        - HTML source code
+        - Specific files and folders
+        - :code:`whatweb -v -a 3 https://$TARGET --log-verbose=whatweb --color=never    # https://morningstarsecurity.com/research/whatweb`
+        - Wappalyzer                                                             # wappalyzer_varonis-com
+        - https://whatcms.org/?s=www.example.com
+        - Cookies
+            - CAKEPHP           CAKEPHP=rm72kprivgmau5fmjdesbuqi71
+            - phpBB             `phpbb3_`
+            - Wordpress         wp-settings
+            - 1C-Bitrix         `BITRIX_`
+            - AMPcms            AMP
+            - Django CMS        django
+            - DotNetNuke        DotNetNukeAnonymous
+            - e107              e107
+            - EPiServer         EPiTrace, EPiServer
+            - Graffiti CMS      graffitibot
+            - Hotaru CMS        hotaru_mobile
+            - ImpressCMS        ICMSession
+            - Indico            MAKACSESSION
+            - InstantCMS        InstantCMS[logdate]
+            - Kentico CMS       CMSPreferredCulture
+            - MODx              SN4[12symb]
+            - TYPO3             fe_typo_user
+            - Dynamicweb        Dynamicweb
+            - LEPTON            lep[some_numeric_value]+sessionid
+            - Wix               Domain=.wix.com
+            - VIVVO             VivvoSessionId
+            - Laravel           laravel_session       
+        - WhatWeb
+        - BlindElephant.py
+        - Wappalyzer
+        - HTML source code
+            - Wordpress         <meta name=”generator” content=”WordPress 3.9.2” />
+            - phpBB             <body id=”phpbb”
+            - Mediawiki         <meta name=”generator” content=”MediaWiki 1.21.9” />
+            - Joomla            <meta name=”generator” content=”Joomla! - Open Source Content Management” />
+            - Drupal            <meta name=”Generator” content=”Drupal 7 (http://drupal.org)” />
+            - DotNetNuke        DNN Platform - http://www.dnnsoftware.com
+        - Specific files and folders
+            - Wordpress         /wp-includes/, /wp-admin/ and /wp-content/
+    - Defaults
+        - known vulnerabilities
+        - default credentials
+        - default settings
+        - defaults and known files
+    - Configuration
+    - Database
+    - Environments
+        - development
+        - sandbox
+        - production
+    - Logging
+        - Location
+        - Storage
+        - Rotation
+        - Access Control
+        - Review
+        - Sensitive Information
+    - Server errors
+        - 40X
+        - 50X
+    - File extensions
+        - .asa
+        - .inc
+        - .config
+        - .zip , .tar , .gz , .tgz , .rar , etc.: (Compressed) archive files
+        - .java : No reason to provide access to Java source files
+        - .txt : Text files
+        - .pdf : PDF documents
+        - .docx , .rtf , .xlsx , .pptx , etc.: Office documents
+        - .bak , .old and other extensions indicative of backup files (for example: ~ for Emacs backup files)
+    - Unreferenced Files
+        - login.asp -> login.asp.old
+        - viewdoc.jsp -> viewdoc.old.jsp
+        - /.snapshot/monthly.1/view.php
+        - viewuser.asp -> edituser.asp , adduser.asp and deleteuser.asp
+        - /app/user -> /app/admin, /app/manager
+    - Backup
+        - js comment
+        - js source code
+        - cache file
+        - .sql
+        - .data
+        - .bak
+    - PaaS              
+        - aws, azure, wordpress, wix
+    - Session
+        - JWT
+        - SessionId
+    - Cookie
+    - Source code
+        - Programming Language
+        - github        
+    - Third party services/APIs
+        - apikey
+    - js library
+    - API
+    - Entrypoints
+        - Login
+        - URL
+        - Form
+        - Admin panel
+        - User panel
+    - Admin default pages
+        - WebSphere
+            - /admin
+            - /admin-authz.xml
+            - /admin.conf
+            - /admin.passwd
+            - /admin/*
+            - /admin/logon.jsp
+            - /admin/secure/logon.jsp
+        - PHP
+            - /phpinfo
+            - /phpmyadmin/
+            - /phpMyAdmin/
+            - /mysqladmin/
+            - /MySQLadmin
+            - /MySQLAdmin
+            - /login.php
+            - /logon.php
+            - /xmlrpc.php
+            - /dbadmin
+        - FrontPage
+            - /admin.dll
+            - /admin.exe
+            - /administrators.pwd
+            - /author.dll
+            - /author.exe
+            - /author.log
+            - /authors.pwd
+            - /cgi-bin
+        - WebLogic
+            - /AdminCaptureRootCA
+            - /AdminClients
+            - /AdminConnections
+            - /AdminEvents
+            - /AdminJDBC
+            - /AdminLicense
+            - /AdminMain
+            - /AdminProps
+            - /AdminRealm
+            - /AdminThreads
+        - WordPress
+            - wp-admin/
+            - wp-admin/about.php
+            - wp-admin/admin-ajax.php
+            - wp-admin/admin-db.php
+            - wp-admin/admin-footer.php
+            - wp-admin/admin-functions.php
+            - wp-admin/admin-header.php
+    - Roles Identification
+        - Roles
+            - Super Admin
+            - Administrator
+            - Editor
+            - Author
+            - Contributor
+            - Subscriber
+        - Identification methods:
+            - Application documentation.
+            - Guidance by the developers or administrators of the application.
+            - Application comments.
+            - Fuzz possible roles:
+                - cookie variable (e.g. role=admin , isAdmin=True )
+                - account variable (e.g. Role: manager )
+                - hidden directories or files (e.g. /admin , /mod , /backups )
+                - switching to well known users (e.g. admin , backups , etc.)
+- Reverse proxy
+- Cloud storage
+    - aws
+    - gcloud
+    - azure
+- Application Map - WSTG-INFO-07
+    - ZAP
+    - Burpsuite
+- Application Architecture - WSTG-INFO-10
+    - Generate a map of the application at hand based on the research conducted.
+- [archive]         Website History                    https://archive.org/web     
+- [netcraft]        Some usefull information           https://sitereport.netcraft.com
+- [Wappalyzer]      Website technology                 addons.mozilla.org
+- [BuiltWith]       Website technology                 addons.mozilla.org/
+- [hackertarget]    WhatWeb & Wappalyzer Scan          https://hackertarget.com
+- [whatweb]         Website technology                 -
+- [Firefox]         Browser, Source Code Review        -
+- [BurpSuite]       Set Scope, Browser and Log         -
+- [weleakinfo.io]   Info                               https://weleakinfo.io/
+- [hunter.io]       Info                               https://hunter.io/
+
+**Auto Scan**
+==============
 
 Auto Scan
-=================
+-----------------
 - General
     - :code:`nuclei -u https://$TARGET  -nc -o nuclei`
     - :code:`nikto -h https://$TARGET -o nikto.output -Format txt`
@@ -43,426 +640,48 @@ Auto Scan
 - Joomla
     - :code:`joomscan -u https://$TARGET`
 
------
-
-.. note::
-    Scan phase designed based on WSTG OWASP Test Guide.
-
-**Information**
-=================
-
-* WSTG-INFO-01: Conduct Search Engine Discovery Reconnaissance for Information Leakage
-* WSTG-INFO-02: Fingerprint Web Server
-* WSTG-INFO-03: Review Webserver Metafiles for Information Leakage
-* WSTG-INFO-04: Enumerate Applications on Webserver
-* WSTG-INFO-05: Review Webpage Content for Information Leakage
-* WSTG-INFO-06: Identify Application Entry Points
-* WSTG-INFO-07: Map Execution Paths Through Application
-* WSTG-INFO-08: Fingerprint Web Application Framework
-* WSTG-INFO-09: -
-* WSTG-INFO-10: Map Application Architecture
-
-
-**Configuration and Deploy**
-=============================
-
-* WSTG-CONF-01: Test Network Infrastructure Configuration
-    - Test Known Infrastructure Vulnerabilities founded in recon phase.
-    - Test Administrative Tools
-    - Test any other vulnerability found in **Infrastructure** recon phase
-    - Scan suspicious asset in Infrastructure and find new vulnerability.
-
-* WSTG-CONF-02: Test Application Platform Configuration
-    - Test known Application Platform vulnerabilities
-    - Test any Defaults found in recon phase        
-        - default credentials
-        - default settings
-        - defaults and known files
-            1. Ensure that defaults and known files have been removed.
-    - Environments
-        1. Looking for debugging code or extensions are left in the production environments.
-    - Logging
-        1. Looking for any Sensitive Information
-    - Test any other vulnerability found in **Web application** recon phase
-
-* WSTG-CONF-03: Test File Extensions Handling for Sensitive Information
-    - Dirbust sensitive file extensions
-        1. looking for raw data (e.g. scripts, raw data, credentials, etc.)
-        2. searching in .well-known
-    - Test File Upload in any suspicious place
-        1. file.phtml gets processed as PHP code.
-        2. FILE~1.PHT is served, but not processed by the PHP ISAPI handler.
-        3. shell.phPWND can be uploaded.
-        4. SHELL~1.PHP will be expanded and returned by the OS shell, then processed by the PHP ISAPI handler.
-    - Test for any system framework bypasses
-
-* WSTG-CONF-04: Review Old Backup and Unreferenced Files for Sensitive Information
-    - Test Unreferenced Files found in **Web application** recon phase
-    - Looking Unreferenced Files in any js, html file.
-    - Looking in /robots.txt
-    - Blind Guessing
-
-* WSTG-CONF-05: Enumerate Infrastructure and Application Admin Interfaces
-    - Identify hidden administrator interfaces.    
-    - Directory and file enumeration, comments and links in source 
-        - /admin, /administrator, /backoffice, /backend, etc, 
-        - alternative server port Tomcat/8080
-    - Test administrator functionality.
-
-* WSTG-CONF-06: Test HTTP Methods
-    - Discover the Supported Methods
-        - :code:`nmap -p 443 --script http-methods --script-args http-methods.url-path='/index.php' localhost`
-        - Burpsuite Intruder
-    - Testing for Access Control Bypass
-        - ?
-    - Testing for Cross-Site Tracing Potential - XST
-        - ?
-    - Testing for HTTP Method Overriding
-        - ?
-
-* WSTG-CONF-07: Test HTTP Strict Transport Security
-    - Review the HSTS header and its validity.
-    - :code:`curl -s -D- https://owasp.org | grep -i strict`
-
-* WSTG-CONF-08: Test RIA Cross Domain Policy
-    - Rich Internet Applications - RIA
-    - Review and validate the policy files.
-        - /crossdomain.xml
-        - /clientaccesspolicy.xml
-    - Testing for RIA Policy Files Weakness
-    - Impact of Abusing Cross-Domain Access
-        - Defeat CSRF protections.
-        - Read data restricted or otherwise protected by cross-origin policies
-
-* WSTG-CONF-09: Test File Permission
-    - Review and identify any rogue file permissions.
-        - Web files/directory
-        - Configuration files/directory
-        - Sensitive files (encrypted data, password, key)/directory
-        - Log files (security logs, operation logs, admin logs)/directory
-        - Executables (scripts, EXE, JAR, class, PHP, ASP)/directory
-        - Database files/directory
-        - Temp files /directory
-        - Upload files/directory
-
-* WSTG-CONF-10: Test for Subdomain Takeover
-    - Enumerate all possible domains (previous and current).
-    - Identify forgotten or misconfigured domains.
+Analyze urls
+-----------------
+- URLs
+    - :code:`gf [awskey | base64 | json-sec | idor]`
+- Subdomain Takover
     - :code:`subzy run --target urls`
-    - GitHub
-    - Expired Domain
+- Broken Link Hijacking, BLH
+    - :code:`socialhunter -f urls`
 
-* WSTG-CONF-11: Test Cloud Storage
-    - Identify the URL to access the data in the storage service
-        - read the unauthorized data :code:`curl -X GET https://<cloud-storage-service>/<object>`
-        - upload a new arbitrary file :code:`curl -X PUT -d 'test' 'https://<cloud-storage-service>/test.txt'`
-    - Testing for Amazon S3 Bucket Misconfiguration
 
-**Identity Management**
-=========================
-
-* WSTG-IDNT-01: Test Role Definitions
-    - Roles Identification
-    - Switching to Available Roles
-    - Review Roles Permissions
-
-* WSTG-IDNT-02: Test User Registration Process
-    1. Can anyone register for access?
-    2. Are registrations vetted by a human prior to provisioning, or are they automatically granted if the criteria are met?
-    3. Can the same person or identity register multiple times?
-    4. Can users register for different roles or permissions?
-    5. What proof of identity is required for a registration to be successful?
-    6. Are registered identities verified?
-    
-    Validate the registration process:
-        1. Can identity information be easily forged or faked?
-        2. Can the exchange of identity information be manipulated during registration?
-
-* WSTG-IDNT-03: Test Account Provisioning Process
-    - The provisioning of accounts presents an opportunity for an attacker to create a valid account without application of the
-       proper identification and authorization process.
-    - Verify which accounts may provision other accounts and of what type.
-    
-* WSTG-IDNT-04: Testing for Account Enumeration and Guessable User Account
-    - Testing for Valid Credentials
-    - Testing for Valid User with Wrong Password
-    - Testing for a Nonexistent Username
-    - Analyzing the Error Code Received on Login Pages
-    - Analyzing URLs and URLs Re-directions
-    - URI Probing
-        - 403 Forbidden error code
-        - 404 Not found error code
-    - Analyzing Web Page Titles
-    - Friendly 404 Error Message
-    - Analyzing Response Times
-    - Testing for Authentication Error Messages
-
-* WSTG-IDNT-05:Testing for Weak or Unenforced Username Policy
-    - Determine the structure of account names.
-    - Evaluate the application’s response to valid and invalid account names.
-    - Use different responses to valid and invalid account names to enumerate valid account names.
-    - Use account name dictionaries to enumerate valid account names
-
-**Authentication**
+**iOS Mobile app**
 ===================
+- ...to be completed.
 
-* WSTG-ATHN-1: Testing for Credentials Transported over an Encrypted Channel
-    - Disable any features or plugins that make the web browser favour HTTPS
-    - Set up and start a tool to capture traffic
-        - Passphrases or passwords, usually inside a message body
-        - Tokens, usually inside cookies
-    - For any message containing this sensitive data, verify the exchange occurred using HTTPS (and not HTTP)
-        - Login
-        - Account Creation
-        - Password Reset, Change Password or Other Account Manipulation
-        - Accessing Resources While Logged In
-        - Account or password reset codes
+--------
 
-* WSTG-ATHN-2: Testing for Default Credentials
-    - Testing for Default Credentials of Common Applications
-    - Testing for Default Password of New Accounts
+**Android Mobile app**
+=======================
+- ...to be completed.
 
-* WSTG-ATHN-3: Testing for Weak Lock Out Mechanism
-    - Test Lockout Mechanism
-    - Test CAPTCHA
-    - Test Unlock Mechanism
+--------
 
-* WSTG-ATHN-4: Testing for Bypassing Authentication Schema
-    - Direct Page Request
-    - Parameter Modification
-    - Session ID Prediction
-    - SQL Injection (HTML Form Authentication)
+**CIDR**
+=========
+- ...to be completed.
 
-* WSTG-ATHN-5: Testing for Vulnerable Remember Password
-    - Validate that the generated session is managed securely and do not put the user’s credentials in danger
+--------
 
-* WSTG-ATHN-6: Testing for Browser Cache Weaknesses
-    - Browser History
-    - Browser Cache
-    - Reviewing Cached Information
-    - Check Handling for Mobile Browsers
-
-* WSTG-ATHN-7: Testing for Weak Password Policy
-    - brute force 
-    - password guessing 
-    - using available password dictionaries by evaluating the length, complexity, reuse, and aging requirements of passwords.
-
-* WSTG-ATHN-8: Testing for Weak Security Question Answer
-    - Testing for Weak Pre-generated Questions
-    - Testing for Weak Self-Generated Questions
-    - Testing for Brute-forcible Answers
-
-* WSTG-ATHN-9: Testing for Weak Password Change or Reset Functionalities
-    - Test Password Reset
-    - Test Password Change
-
-* WSTG-ATHN-10: Testing for Weaker Authentication in Alternative Channel
-    - Understand the Primary Mechanism
-    - Identify Other Channels
-    - Enumerate Authentication Functionality
-
-**Authorization**
-===================
-
-* WSTG-ATHZ-01: Testing Directory Traversal File Include
-    - Input Vectors Enumeration
-    - Testing Techniques
-    - Looking for :code:`../../../../etc/passwd`
-        - URL: http://example.com/getUserProfile.jsp?item=../../../../etc/passwd
-        - URL: http://example.com/index.php?file=http://www.owasp.org/malicioustxt
-        - URL: http://example.com/index.php?file=file:///etc/passwd
-        - Cookie: USER=1826cc8f:PSTYLE=../../../../etc/passwd
-    - Code
-        - PHP: include(), include_once(), require(), require_once(), fopen(), readfile(), ...
-            - (include|require)(_once)?\s*['"(]?\s*\$_(GET|POST|COOKIE)
-        - JSP/Servlet: java.io.File(), java.io.FileReader(), ...
-        - ASP: include file, include virtual, ...
-    
-* WSTG-ATHZ-02: Testing for Bypassing Authorization Schema
-    - Testing for Horizontal Bypassing Authorization Schema
-    - Testing for Vertical Bypassing Authorization Schema
-    - Banking Site Roles Scenario
-    - Administrator Page Access
-        - Testing for Access to Administrative Functions
-        - Testing for Access to Resources Assigned to a Different Role
-        - Testing for Special Request Header Handling
-            1. Send a Normal Request without Any X-Original-Url or X-Rewrite-Url Header
-            2. Send a Request with an X-Original-Url Header Pointing to a Non-Existing Resource
-            3. Send a Request with an X-Rewrite-Url Header Pointing to a Non-Existing Resource
-            4. Other Headers to Consider
-                - X-Forwarded-For
-                - X-Forward-For
-                - X-Remote-IP
-                - X-Originating-IP
-                - X-Remote-Addr
-                - X-Client-IP
-
-* WSTG-ATHZ-03: Testing for Privilege Escalation
-    - Objectives
-        - Identify injection points related to privilege manipulation.
-        - Fuzz or otherwise attempt to bypass security measures.
-    - Testing for Role/Privilege Manipulation
-        1. Manipulation of User Group
-        2. Manipulation of User Profile
-        3. Manipulation of Condition Value
-        4. Manipulation of IP Address
-            - X-Forwarded-For: 8.1.1.1
-    - URL Traversal
-        1. /../.././userInfo.html
-    - Code
-        1. startswith(), endswith(), contains(), indexOf()
-    - SessionID
-        1. decrypt
-        2. manipulate
-
-* WSTG-ATHZ-04: Testing for Insecure Direct Object References - IDOR
-    - Identify points where object references may occur.
-    - Assess the access control measures and if they’re vulnerable to IDOR.
-        - The Value of a Parameter Is Used Directly to Retrieve a Database Record
-        - The Value of a Parameter Is Used Directly to Perform an Operation in the System
-        - The Value of a Parameter Is Used Directly to Retrieve a File System Resource
-        - The Value of a Parameter Is Used Directly to Access Application Functionality
-
-**Session**
-===================
-
-* WSTG-SESS-01: Testing for Session Management Schema
-    - Gather session tokens
-    - Analyze
-    - Modify cookies
-
-* WSTG-SESS-02: Testing for Cookies Attributes
-    - Secure Attribute
-    - HttpOnly Attribute
-    - Domain Attribute
-    - Path Attribute
-    - Expires Attribute
-    - SameSite Attribute
-
-* WSTG-SESS-03: Testing for Session Fixation
-    - Analyze the authentication mechanism and its flow.
-    - Force cookies and assess the impact.
-
-* WSTG-SESS-04: Testing for Exposed Session Variables
-    - Testing for Encryption & Reuse of Session Tokens Vulnerabilities
-    - Testing for Proxies & Caching Vulnerabilities
-    - Testing for GET & POST Vulnerabilities
-    - Testing for Transport Vulnerabilities
-
-* WSTG-SESS-05: Testing for Cross Site Request Forgery - CSRF
-    - https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html
-
-* WSTG-SESS-06: Testing for Logout Functionality
-    - Testing for Log Out User Interface
-    - Testing for Server-Side Session Termination
-    - Testing for Session Timeout
-    - Testing for Session Termination in Single Sign-On Environments (Single Sign-Off)
-
-* WSTG-SESS-07: Testing Session Timeout
-    - Validate that a hard session timeout exists
-
-* WSTG-SESS-08: Testing for Session Puzzling
-    - Identify all session variables.
-    - Break the logical flow of session generation.
-
-* WSTG-SESS-09: Testing for Session Hijacking
-    - Identify vulnerable session cookies.
-    - Hijack vulnerable cookies and assess the risk level.
-
-**Data Validation**
-===================
-
-* WSTG-INPV-1: Testing for Reflected Cross Site Scripting - XSS
-* WSTG-INPV-2: Testing for Stored Cross Site Scripting - Stored XSS
-* WSTG-INPV-3: Testing for HTTP Parameter Pollution
-* WSTG-INPV-4: Testing for SQL Injection - SQLi
-* WSTG-INPV-5: Testing for LDAP Injection
-* WSTG-INPV-6: Testing for XML Injection
-* WSTG-INPV-7: Testing for SSI Injection
-* WSTG-INPV-8: Testing for XPath Injection
-* WSTG-INPV-9: Testing for IMAP SMTP Injection
-* WSTG-INPV-10: Testing for Code Injection
-* WSTG-INPV-11: Testing for Command Injection
-* WSTG-INPV-13: Testing for Format String Injection
-* WSTG-INPV-14: Testing for Incubated Vulnerability
-* WSTG-INPV-15: Testing for HTTP Splitting Smuggling
-* WSTG-INPV-16: Testing for HTTP Incoming Requests
-* WSTG-INPV-17: Testing for Host Header Injection
-* WSTG-INPV-18: Testing for Server-side Template Injection
-* WSTG-INPV-19: Testing for Server-Side Request Forgery - SSRF
-
-**Error Handling**
-===================
-
-* WSTG-ERRH-01: Testing for Improper Error Handling
-    - Identify existing error output.        
-    - Analyze the different output returned.
-    - Test
-        - Web Servers
-        - Applications
-
-**Cryptography**
-=================
-
-* WSTG-CRYP-01: Testing for Weak Transport Layer Security    
-    - Automated Testing
-        - Nmap (various scripts)
-        - OWASP O-Saft
-        - sslscan
-        - sslyze
-        - SSL Labs
-        - testssl.sh
-    - Manual Testing
-        - openssl
-        - gnutls-cli
-
-* WSTG-CRYP-02: Testing for Padding Oracle
-    - Identify encrypted messages that rely on padding.
-    - Attempt to break the padding of the encrypted messages and analyze the returned error messages for further analysis.
-
-* WSTG-CRYP-03: Testing for Sensitive Information Sent via Unencrypted Channels
-    - Basic Authentication over HTTP
-    - Form-Based Authentication Performed over HTTP
-    - Cookie Containing Session ID Sent over HTTP
-    - Testing Password Sensitive Information in Source Code or Logs
-        - :code:`grep -r –E "Pass | password | pwd |user | guest| admin | encry | key | decrypt | sharekey "./PathToSearch/`
-        - :code:`grep -r " {2\}[0-9]\{6\} " ./PathToSearch/`
-
-* WSTG-CRYP-04: Testing for Weak Encryption
-    - Provide a guideline for the identification weak encryption or hashing uses and implementations.
-
-**Business Logic**
-===================
-"think outside of conventional wisdom"
-
-* WSTG-BUSL-01: Test Business Logic Data Validation
-* WSTG-BUSL-02: Test Ability to Forge Requests
-* WSTG-BUSL-03: Test Integrity Checks
-* WSTG-BUSL-04: Test for Process Timing
-* WSTG-BUSL-05: Test Number of Times a Function Can Be Used Limits
-* WSTG-BUSL-06: Testing for the Circumvention of Work Flows
-* WSTG-BUSL-07: Test Defenses Against Application Misuse
-* WSTG-BUSL-08: Test Upload of Unexpected File Types
-* WSTG-BUSL-09: Test Upload of Malicious Files
-
-**Client Side**
-===================
-
-* WSTG-CLNT-01: Testing for DOM-Based Cross Site Scripting - XSS
-* WSTG-CLNT-02: Testing for JavaScript Execution
-* WSTG-CLNT-03: Testing for HTML Injection
-* WSTG-CLNT-04: Testing for Client-side URL Redirect
-* WSTG-CLNT-05: Testing for CSS Injection
-* WSTG-CLNT-06: Testing for Client-side Resource Manipulation
-* WSTG-CLNT-07: Testing Cross Origin Resource Sharing - CORS
-* WSTG-CLNT-08: Testing for Cross Site Flashing - XSF
-* WSTG-CLNT-09: Testing for Clickjacking
-* WSTG-CLNT-10: Testing WebSockets
-* WSTG-CLNT-11: Testing Web Messaging
-* WSTG-CLNT-12: Testing Browser Storage
-* WSTG-CLNT-13: Testing for Cross Site Script Inclusion - XSSI
-
-**API Testing**
-==================
-
-* WSTG-APIT-01: Testing GraphQL
+Automated Reconnaissance and Vulnerability Repos.
+=========================================================
+- [recon-ng]                https://www.kali.org/tools/recon-ng
+- [maltego]                 https://www.maltego.com
+- [Sn1per]                  https://github.com/1N3/Sn1per
+- [amass]                   https://github.com/OWASP/Amass
+- [centralops]              https://centralops.net
+- [Nessus]                  https://www.tenable.com
+- [Nexpose]                 https://www.rapid7.com/products/nexpose
+- [OpenVAS]                 https://www.openvas.org
+- [ExploitDB]               https://www.exploit-db.com
+- [NVD]                     https://nvd.nist.gov/vuln/search
+- [Mitre]                   https://www.cve.org
+- [OVAL]                    https://oval.cisecurity.org/repository
+- [rapid7]                  https://www.rapid7.com/db/
+- [favicon]                 https://wiki.owasp.org/index.php/OWASP_favicon_database
+- [dencode]                 https://dencode.com

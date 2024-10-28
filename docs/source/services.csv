@@ -25,3 +25,4 @@ PORT,ACR,NAME,PROTOCOL
 3306,MySql,mysql,TCP
 3389,RDP,Remote Desktop Protocol,TCP/UDP
 6379,Redis,Redis,TCP
+11211,Memcached port

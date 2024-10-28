@@ -3,8 +3,8 @@
 # -- Project information
 
 project = 'Dunn'
-copyright = '2021, Graziella'
-author = 'Graziella'
+copyright = '2021, Masoud Bolhassani'
+author = 'msoodb'
 
 release = '0.1'
 version = '0.1.0'

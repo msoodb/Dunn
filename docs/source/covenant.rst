@@ -1,50 +1,40 @@
 Covenant
 ------------
-- Bounty                 
-    - type
-    - platform
-    - url
-- Wildcards
+
+- :code:`touch covenant.md`
 
 .. code-block:: console
-    
-    *.example.com
-    test*.example.com 
 
-- Domains
+    Bounty
+    - type:
+    - platform:
+    - url:
 
-.. code-block:: console
-    
-    api.gamma.example.com
-    ftp.example.com 
+    Wildcards
+    - *.example.com,            low
+    - test*.example.com,        high
 
-- iOS mobile app
+    Domains
+    - api.gamma.example.com,    critical
+    - example.com,              critical
+    - ftp.example.com,          critical
 
-.. code-block:: console
-    
-    com.example.app
+    Android mobile app
+    - com.example.app,          critical
 
-- Android mobile app
+    iOS mobile app
+    - com.example.app,          critical
 
-.. code-block:: console
-    
-    com.example.app
+    CIDR
+    - 207.250.125.0/28
+    - 167.104.0.0/16
 
-- CIDR
+    Out of Scope
+    - x.example.com
+    - *.x.example.com
 
-.. code-block:: console
-    
-    207.250.125.0/28
-    167.104.0.0/16 
-
-- Policy
+    Policy
     - Public Disclosure Policy
     - Test Plan
     - Program Rules
     - Legal
-- Out of Scope
-
-.. code-block:: console
-    
-    x.example.com
-    *.x.example.com 
