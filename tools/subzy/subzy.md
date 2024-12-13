@@ -1,3 +1,3 @@
 ```sh
-subzy run --target urls
+subzy run --targets urls
 ```
