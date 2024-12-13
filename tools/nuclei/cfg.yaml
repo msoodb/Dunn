@@ -1,0 +1,24 @@
+header:
+  - 'X-BugBounty-Hacker: h1/nickname'
+
+templates:
+  - cves/
+  - vulnerabilities/
+  - misconfiguration/
+
+tags: exposures,cve
+severity: critical,high,medium
+
+include-templates:
+  - vulnerabilities/xxx
+  - misconfiguration/xxxx
+
+exclude-tags: info,fuzz
+exclude-templates:
+  - vulnerabilities/xxx
+  - misconfiguration/xxxx
+
+# Rate Limit configuration
+rate-limit: 50
+bulk-size: 20
+concurrency: 20
