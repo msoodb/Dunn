@@ -22,7 +22,7 @@ domain=$1 			## Get the domain
 proxyurl=$2			## Proxy URL
 proxyport=$3			## Proxy Port
 gsite="site:$domain" 		## Google Site
-folder="outputs"		## Output folder name
+folder="google_dorks"		## Output folder name
 
 ## Request the repository
 onlinevar=`curl -s https://raw.githubusercontent.com/IvanGlinkin/Fast-Google-Dorks-Scan/master/settings.conf`

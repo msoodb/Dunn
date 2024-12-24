@@ -4,10 +4,10 @@
 #   JS Enumeration
 # ----------------------------------
 
-URLS="${1:-urls}"
-OUTPUT_DIR="${2:-screenshot}"
+FILE="$1"
+OUTPUT_DIR="screenshot_$FILE"
 
-gowitness file --file $URLS --screenshot-path $OUTPUT_DIR
+gowitness file --file $FILE --screenshot-path $OUTPUT_DIR
 for I in $(ls $OUTPUT_DIR/); do 
     echo "$I" >> $OUTPUT_DIR/index.html;
     echo "<br/>" >> $OUTPUT_DIR/index.html;

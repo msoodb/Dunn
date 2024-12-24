@@ -6,14 +6,22 @@
 
 URLS=$1
 
-# js files
-#cat $URLS | subjs | tee -a jss~
+# Check if input file is provided
+if [[ -z "$URLS" ]]; then
+    echo "Usage: $0 <file>"
+    exit 1
+fi
 
-# pipes jss~ in a single file jss
-#cat jss~ | sort -u > url-js.txt && rm jss~
+# Check if the input file exists
+if [[ ! -f "$URLS" ]]; then
+    echo "File not found: $URLS"
+    exit 1
+fi
 
-grep -Ei '\.js(\?.*)?$' $URLS > urls-js.txt
+# Extract JS lines to a separate file
+grep -Ei '\.js(\?.*)?$' "$URLS" > urls-js.txt
 
-grep -vEi '\.js(\?.*)?$' $URLS > urls-njs.txt
+# Remove JS lines from the original file
+grep -vEi '\.js(\?.*)?$' "$URLS" > temp.txt && mv temp.txt "$URLS"
 
-
+echo "JS URLs have been moved to urls-js.txt and removed from $URLS."

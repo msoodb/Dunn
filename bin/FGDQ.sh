@@ -1076,7 +1076,7 @@ else
 	# if [ ! -d "$folder" ]; then mkdir "$folder"; fi
 	## Create an output file
 	# filename=$(date +%Y%m%d_%H%M%S)_$domain.txt
-	filename=google_dork_query_list.txt
+	filename=google_dork_query_list_$domain.txt
 	
 	echo -e "$ORANGE[ ! ] Get information about:   $CLEAR_FONT $RED_BOLD$domain$CLEAR_FONT"
 	

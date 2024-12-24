@@ -7,5 +7,5 @@
 URLS=$1
 
 # fff    
-cat $URLS | fff -d 1 -S -o fff
+cat $URLS | fff -d 1 -S -o fff_$URLS
 
