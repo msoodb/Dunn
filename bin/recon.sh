@@ -1,5 +1,13 @@
 #!/bin/bash
 
+
+figlet Reconnaissance
+# Script Name: recon.sh
+# Description: Automated reconnaissance script.
+# Author: msoodb
+# Usage: recon.sh
+
+
 # Default variables
 TARGETS=""
 SCOPES=""
@@ -121,6 +129,15 @@ if [[ $LEVEL -eq 2 ]]; then
     echo "Running URLs FFF analysis..."
     fff.sh urls.txt
 
+    # Paramspider
+    echo "Running ParamSpider..."
+    paramspider -l $TARGETS
+    mv results/ paramspider/
+    
+fi
+
+if [[ $LEVEL -eq 3 ]]; then
+
     # Screenshot Hosts
     echo "Taking screenshots of Hosts..."
     screenshot.sh hosts.txt
@@ -128,11 +145,6 @@ if [[ $LEVEL -eq 2 ]]; then
      # Screenshot URLs
     echo "Taking screenshots of URLs..."
     screenshot.sh urls.txt
-
-    # Paramspider
-    echo "Running ParamSpider..."
-    paramspider -l $TARGETS
-    mv results/ paramspider/
 
     # Dorking
     echo "Running FGDS.sh on main domains..."

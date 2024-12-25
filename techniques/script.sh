@@ -11,20 +11,17 @@ cat download_csv.csv | grep "WILDCARD|URL" | awk -F , '{print $1}' >> scopes.txt
 
 
 ##                                                  Reconnaissance
-##############################################################################################################################
 recon.sh -t targets.txt -s scopes.txt -l 1
 recon.sh -t targets.txt -s scopes.txt -l 2
+recon.sh -t targets.txt -s scopes.txt -l 3
 
 
 
 ##                                                  Phase Zero Assault
-##############################################################################################################################
-phase-zero-assault.sh
+zero-assault.sh
 
 
 ##                  Looking for any clue to find interest host/api to scan and go deep diving.
-##############################################################################################################################
-
 # sources
 filtered_hosts/
 filtered_urls/
@@ -34,17 +31,21 @@ js/
 screenshot_hosts.txt/
 screenshot_urls.txt/
 nmap
-phase_zero_assault/
-
+zero_assault/
 
 # tools
-cat subzy.hosts.txt | grep -v "NOT VULNERABLE" | grep -v "HTTP ERROR" | tee subzy.hosts.txt.valn
+mkdir assault_alpha
+wcall
 dig .... any
-cat phase_zero_assault/403-hosts.txt.result | grep 200
-gf
+gf s3-buckets >> ../assault_alpha/aws-s3.txt   # fff_hosts.txt/, fff_urls.txt/
+gf http-auth >> ../assault_alpha/info.txt   # fff_hosts.txt/, fff_urls.txt/
+foxopen  dev.txt
+screenshot dev.txt
 nuclei -l accout.txt 
 Burpsuit
-firefox $(cat dev.txt)
+
+
+##                          Find interest host/api/vulnerability/cve to scan and go deep diving.
 
 
 
