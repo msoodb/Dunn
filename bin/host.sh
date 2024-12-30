@@ -10,14 +10,8 @@ SUBDOMAINS=$1
 httpx -l $SUBDOMAINS -sc -ip -probe -title -nc -o hosts-httpx.txt
 
 
-# hosts.txt
-cat hosts-httpx.txt | grep SUCCESS | awk '{print $1}' > hosts.txt
-
-# subdomains-live.txt
-# cat hosts-httpx.txt | awk -F // '{print $2}' > subdomains-live.txt
-
-# hosts-403.txt
-# cat hosts-httpx.txt | grep 403 | awk '{print $1}' > hosts-403.txt
-
-# hosts-404.txt
-# cat hosts-httpx.txt | grep 404 | awk '{print $1}' > hosts-404.txt
+grep "\[SUCCESS\] \[200\]" hosts-httpx.txt | awk '{print $1}' > hosts.txt
+grep "\[SUCCESS\] \[3..\]" hosts-httpx.txt | awk '{print $1}' > hosts-3xx.txt
+grep "\[SUCCESS\] \[403\]" hosts-httpx.txt | awk '{print $1}' > hosts-403.txt
+grep "\[SUCCESS\] \[404\]" hosts-httpx.txt | awk '{print $1}' > hosts-404.txt
+grep "\[SUCCESS\] \[5..\]" hosts-httpx.txt | awk '{print $1}' > hosts-5xx.txt

@@ -37,7 +37,7 @@ echo "Scanning for Broken Link Hijacking (BLH)...done!"
 echo "Scanning for Subdomain Takeovers..."
 nuclei -l hosts.txt -t ~/nuclei-templates/http/takeovers/ -o "$OUTPUT_DIR/nuclei-takeovers-hosts.txt"
 subzy run --targets hosts.txt | tee "$OUTPUT_DIR/subzy.hosts.txt"
-cat subzy.hosts.txt | grep -v "NOT VULNERABLE" | grep -v "HTTP ERROR" | tee subzy.hosts.txt.valn
+cat "$OUTPUT_DIR/subzy.hosts.txt" | grep -v "NOT VULNERABLE" | grep -v "HTTP ERROR" | tee "$OUTPUT_DIR/subzy.hosts.txt.valn"
 echo "Scanning for Subdomain Takeovers...done!"
 
 
@@ -53,10 +53,10 @@ echo "Scanning for XSS vulnerabilities...done!"
 
 # 403 Bypass
 echo "Starting 403 Bypass scans..."
-for LINE in $(cat 403-hosts.txt); do
-    bypass-403.sh "$LINE" | tee -a "$OUTPUT_DIR/403-hosts.txt.result"
+for LINE in $(cat hosts-403.txt); do
+    bypass-403.sh "$LINE" | tee -a "$OUTPUT_DIR/hosts-403.txt.result"
 done
-cat 403-hosts.txt.result | grep 200 > 403-hosts.txt.result.200
+cat hosts-403.txt.result | grep 200 > hosts-403.txt.result.200
 echo "Starting 403 Bypass scans...done!"
 
 

@@ -9,8 +9,8 @@ figlet Reconnaissance
 
 
 # Default variables
-TARGETS=""
 SCOPES=""
+OUT_OF_FSCOPES=""
 LEVEL=0
 
 # Help function
@@ -18,9 +18,9 @@ function show_help {
     echo "Usage: $0 [options]"
     echo
     echo "Options:"
-    echo "  -t FILE   File containing main domains (one per line)."
     echo "  -s FILE   File containing scopes (domains, URLs, and wildcards in scope)."
-    echo "  -l LEVEL  Level of execution (1 to 5)."
+    echo "  -oos FILE File containing out of scopes (optional)."
+    echo "  -l LEVEL  Level of execution (1 to 3)."
     echo "  -h        Show this help message and exit."
     echo
     echo "Description:"
@@ -30,51 +30,44 @@ function show_help {
     echo "  Level 1: FGDS.sh and subdomain enumeration."
     echo "  Level 2: Adds host gathering and filtering."
     echo "  Level 3: Adds screenshots and FFF analysis."
-    echo "  Level 4: Adds URL extraction and JavaScript analysis."
-    echo "  Level 5: Full execution, including nmap and ParamSpider."
     echo
     exit 0
 }
 
 # Parse command-line arguments
-while getopts ":t:s:l:h" opt; do
-    case $opt in
-        t)
-            TARGETS=$OPTARG
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        -s)
+            SCOPES=$2
+            shift 2
             ;;
-        s)
-            SCOPES=$OPTARG
+        -oos)
+            OUT_OF_FSCOPES=$2
+            shift 2
             ;;
-        l)
-            LEVEL=$OPTARG
-            if ! [[ $LEVEL =~ ^[1-5]$ ]]; then
-                echo "Error: Level must be an integer between 1 and 5."
+        -l)
+            LEVEL=$2
+            if ! [[ $LEVEL =~ ^[1-3]$ ]]; then
+                echo "Error: Level must be an integer between 1 and 3."
                 exit 1
             fi
+            shift 2
             ;;
-        h)
+        -h)
             show_help
             ;;
-        \?)
-            echo "Invalid option: -$OPTARG" >&2
-            show_help
-            ;;
-        :)
-            echo "Option -$OPTARG requires an argument." >&2
+        *)
+            echo "Invalid option: $1" >&2
             show_help
             ;;
     esac
 done
 
-# Check if required files are provided
-if [[ -z "$TARGETS" || -z "$SCOPES" ]]; then
-    echo "Error: Both -t (main domains file) and -s (scopes file) are required."
-    show_help
-fi
 
-if [[ ! -f "$TARGETS" ]]; then
-    echo "Error: File '$TARGETS' does not exist."
-    exit 1
+# Check if required arguments are provided
+if [[ -z "$SCOPES" || -z "$LEVEL" ]]; then
+    echo "Error: -s (scopes file) and -l (level) are required."
+    show_help
 fi
 
 if [[ ! -f "$SCOPES" ]]; then
@@ -89,20 +82,17 @@ echo "Starting asset gathering..."
 
 if [[ $LEVEL -eq 1 ]]; then
     
-    # Subdomains
-    echo "Enumerating subdomains..."
-    sub.sh -l "$SCOPES"
-
+    # Subdomanins
+    sub.sh -s "$SCOPES" -oos "$OUT_OF_FSCOPES"
+    
     # Hosts
     echo "Gathering hosts..."
     host.sh subdomains.txt
-    grep 403 hosts-httpx.txt | awk '{print $1}' > 403-hosts.txt
-    grep 404 hosts-httpx.txt | awk '{print $1}' > 404-hosts.txt
     host-filter.sh hosts.txt
 
     # URLs
     echo "Extracting URLs..."
-    url.sh -l "$SCOPES"
+    url.sh -l hosts.txt
     url-filter.sh urls.txt
     url-js.sh urls.txt
 
@@ -112,9 +102,9 @@ if [[ $LEVEL -eq 1 ]]; then
 
     # Port recon
     echo "Running nmap on main domains..."
-    for TARGET in $(cat "$TARGETS"); do
-        nmap "$TARGET" -o nmap."$TARGET"
-        # naabu -host "$TARGET"
+    for SCOPE in $(cat "$SCOPES"); do
+        nmap "$SCOPE" -o nmap."$SCOPE"
+        # naabu -host "$SCOPE"
     done
 
 fi
@@ -131,7 +121,7 @@ if [[ $LEVEL -eq 2 ]]; then
 
     # Paramspider
     echo "Running ParamSpider..."
-    paramspider -l $TARGETS
+    paramspider -l $SCOPES
     mv results/ paramspider/
     
 fi
@@ -147,10 +137,10 @@ if [[ $LEVEL -eq 3 ]]; then
     screenshot.sh urls.txt
 
     # Dorking
-    echo "Running FGDS.sh on main domains..."
-    for TARGET in $(cat "$TARGETS"); do
-        FGDS.sh "$TARGET"
-    done
+    #echo "Running FGDS.sh on main domains..."
+    #for TARGET in $(cat "$TARGETS"); do
+    #    FGDS.sh "$TARGET"
+    #done
     
 fi
 
