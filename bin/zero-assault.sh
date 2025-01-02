@@ -43,8 +43,8 @@ echo "Scanning for Subdomain Takeovers...done!"
 
 # XSS - (Commented out examples, uncomment as needed)
 echo "Scanning for XSS vulnerabilities..."
-cat urls.txt | grep "?" > urls-params.txt
-cat urls-params.txt | kxss | tee "$OUTPUT_DIR/urls-kxss.txt"
+cat urls.txt | grep "?" > "$OUTPUT_DIR/urls-params.txt"
+cat "$OUTPUT_DIR/urls-params.txt" | kxss | tee "$OUTPUT_DIR/urls-kxss.txt"
 cat "$OUTPUT_DIR/urls-kxss.txt" | grep \" | awk '{print $2}' > "$OUTPUT_DIR/urls-kxss-vuln.txt"
 dalfox file "$OUTPUT_DIR/urls-kxss-vuln.txt" -o "$OUTPUT_DIR/dalfox-urls-kxss-vuln.txt"
 nuclei -l urls-params.txt -tags xss -o  "$OUTPUT_DIR/nuclei-xss-urls-params.txt"

