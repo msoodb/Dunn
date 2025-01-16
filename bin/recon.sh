@@ -98,7 +98,7 @@ if [[ $LEVEL -eq 1 ]]; then
 
     # Download JavaScript files
     echo "Downloading JavaScript files..."
-    js-download.sh urls-js.txt
+    download.sh urls-js.txt
 
     # Port recon
     echo "Running nmap on main domains..."

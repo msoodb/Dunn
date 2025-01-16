@@ -38,6 +38,7 @@ Man in the middle proxy
     - regex in scope for domain and all subdomains      
         - [*.example.com]  .*\.example\.com$
         - [*web-security-academy.net]  .*\.web-security-academy\.net$
+        - [*ctf.hacker101.com]  .*\.ctf.hacker101\.com$
     - remove Out of Scope subdomains then.
 
 
