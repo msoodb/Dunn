@@ -11,15 +11,15 @@ if [ "$#" -ne 1 ]; then
 fi
 
 # Input file
-HOST_FILE="$1"
+HTTPS_FILE="$1"
 
-# Output directory for filtered HOSTs
-OUTPUT_DIR="filtered_hosts"
+# Output directory for filtered HTTPSs
+OUTPUT_DIR="filtered_httpx"
 mkdir -p "$OUTPUT_DIR"
 
-# Ensure the HOST file exists
-if [ ! -f "$HOST_FILE" ]; then
-  echo "Error: File $HOST_FILE not found."
+# Ensure the HTTPS file exists
+if [ ! -f "$HTTPS_FILE" ]; then
+  echo "Error: File $HTTPS_FILE not found."
   exit 1
 fi
 
@@ -35,15 +35,15 @@ mapfile -t KEYWORDS < "$CONFIG_FILE"
 # Process each keyword
 for KEYWORD in "${KEYWORDS[@]}"; do
   OUTPUT_FILE="$OUTPUT_DIR/$KEYWORD.txt"
-  grep -i "$KEYWORD" "$HOST_FILE" > "$OUTPUT_FILE"
+  grep -i "$KEYWORD" "$HTTPS_FILE" > "$OUTPUT_FILE"
   
   # Check if the file is empty and remove it if so
   if [ ! -s "$OUTPUT_FILE" ]; then
     rm "$OUTPUT_FILE"
   else
-    echo "Filtered HOSTs for keyword '$KEYWORD' saved to $OUTPUT_FILE."
+    echo "Filtered HTTPSs for keyword '$KEYWORD' saved to $OUTPUT_FILE."
   fi
 done
 
 # Display summary
-echo "Filtered HOSTs have been saved to the $OUTPUT_DIR directory."
+echo "Filtered HTTPSs have been saved to the $OUTPUT_DIR directory."

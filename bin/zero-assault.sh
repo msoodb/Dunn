@@ -36,8 +36,8 @@ echo "Scanning for Broken Link Hijacking (BLH)...done!"
 # Subdomain Takeovers
 echo "Scanning for Subdomain Takeovers..."
 nuclei -l hosts.txt -t ~/nuclei-templates/http/takeovers/ -o "$OUTPUT_DIR/nuclei-takeovers-hosts.txt"
-subzy run --targets hosts.txt | tee "$OUTPUT_DIR/subzy.hosts.txt"
-cat "$OUTPUT_DIR/subzy.hosts.txt" | grep -v "NOT VULNERABLE" | grep -v "HTTP ERROR" | tee "$OUTPUT_DIR/subzy.hosts.txt.valn"
+subzy run --targets hosts.txt | tee "$OUTPUT_DIR/subzy-hosts.txt"
+cat "$OUTPUT_DIR/subzy-hosts.txt" | grep -v "NOT VULNERABLE" | grep -v "HTTP ERROR" | tee "$OUTPUT_DIR/subzy-hosts-vuln.txt"
 echo "Scanning for Subdomain Takeovers...done!"
 
 
@@ -47,16 +47,16 @@ cat urls.txt | grep "?" > "$OUTPUT_DIR/urls-params.txt"
 cat "$OUTPUT_DIR/urls-params.txt" | kxss | tee "$OUTPUT_DIR/urls-kxss.txt"
 cat "$OUTPUT_DIR/urls-kxss.txt" | grep \" | awk '{print $2}' > "$OUTPUT_DIR/urls-kxss-vuln.txt"
 dalfox file "$OUTPUT_DIR/urls-kxss-vuln.txt" -o "$OUTPUT_DIR/dalfox-urls-kxss-vuln.txt"
-nuclei -l urls-params.txt -tags xss -o  "$OUTPUT_DIR/nuclei-xss-urls-params.txt"
+nuclei -l "$OUTPUT_DIR/urls-params.txt" -tags xss -o  "$OUTPUT_DIR/nuclei-xss-urls-params.txt"
 echo "Scanning for XSS vulnerabilities...done!"
 
 
 # 403 Bypass
 echo "Starting 403 Bypass scans..."
 for LINE in $(cat hosts-403.txt); do
-    bypass-403.sh "$LINE" | tee -a "$OUTPUT_DIR/hosts-403.txt.result"
+    bypass-403.sh "$LINE" | tee -a "$OUTPUT_DIR/hosts-403-result.txt"
 done
-cat hosts-403.txt.result | grep 200 > hosts-403.txt.result.200
+cat "$OUTPUT_DIR/hosts-403-result.txt" | grep 200 > "$OUTPUT_DIR/hosts-403-result-200.txt"
 echo "Starting 403 Bypass scans...done!"
 
 

@@ -4,31 +4,37 @@
 #  Subdomains Enumeration
 # ----------------------------------
 
+OUTPUT_FILE="gates.txt"
+
 process_wildcard() {
     local SCOPES=$1
 
     echo "Processing scope: $SCOPES"
 
     # crtsh
-    crtsh -d "$SCOPES" -r >> subdomains~
+    echo "crtsh start for $SCOPES!"
+    crtsh -d "$SCOPES" -r | tee -a subdomains~
     echo "crtsh done for $SCOPES!"
 
     # subfinder
-    subfinder -d "$SCOPES" >> subdomains~
+    echo "subfinder start for $SCOPES!"
+    subfinder -d "$SCOPES" | tee -a subdomains~
     echo "subfinder done for $SCOPES!"
 
     # assetfinder
-    echo "$SCOPES" | assetfinder -subs-only >> subdomains~
+    echo "assetfinder start for $SCOPES!"
+    echo "$SCOPES" | assetfinder -subs-only | tee -a subdomains~
     echo "assetfinder done for $SCOPES!"
 
     # github-subdomains
+    echo "github-subdomains start for $SCOPES!"
     github-subdomains -d "$SCOPES" -t "$GITHUB_TOKEN" -o github-subdomains
     cat github-subdomains >> subdomains~ && rm github-subdomains
     echo "github-subdomains done for $SCOPES!"
 
     # Append unique results to subdomains.txt
-    cat subdomains~ | sort -u >> subdomains.txt && rm subdomains~
-    echo "subdomains done for $SCOPES!"    
+    cat subdomains~ | sort -u | tee -a $OUTPUT_FILE && rm subdomains~
+    echo "subdomains done for $SCOPES!"
 }
 
 # Main script logic
@@ -59,7 +65,7 @@ done
 # Remove out-of-scope entries if specified
 if [ -n "$OUTSCOPES" ] && [ -f "$OUTSCOPES" ]; then
     for LINE in $(cat "$OUTSCOPES"); do
-        sed -i "/$LINE/d" subdomains.txt
+        sed -i "/$LINE/d" $OUTPUT_FILE
     done
     echo "Removed out of scope for $SCOPES"
 fi

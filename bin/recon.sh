@@ -83,16 +83,18 @@ echo "Starting asset gathering..."
 if [[ $LEVEL -eq 1 ]]; then
     
     # Subdomanins
-    sub.sh -s "$SCOPES" -oos "$OUT_OF_FSCOPES"
+    gates.sh -s "$SCOPES" -oos "$OUT_OF_FSCOPES" # gates.txt
+    cat gates.txt | dnsx -resp | tee doors-full.txt
+    cat doors-full.txt | awk '{print $1}' | sort -u | tee doors.txt
     
-    # Hosts
-    echo "Gathering hosts..."
-    host.sh subdomains.txt
-    host-filter.sh hosts.txt
+    # Httpx
+    echo "Gathering httpx..."
+    httpx.sh doors.txt
+    httpx-filter.sh httpx.txt
 
     # URLs
     echo "Extracting URLs..."
-    url.sh -l hosts.txt
+    url.sh -l httpx.txt
     url-filter.sh urls.txt
     url-js.sh urls.txt
 
@@ -100,10 +102,12 @@ if [[ $LEVEL -eq 1 ]]; then
     echo "Downloading JavaScript files..."
     download.sh urls-js.txt
 
+    
     # Port recon
+    mkdir nmaps
     echo "Running nmap on main domains..."
-    for SCOPE in $(cat "$SCOPES"); do
-        nmap "$SCOPE" -o nmap."$SCOPE"
+    for door in $(cat doors.txt); do
+        nmap "$door" -o nmaps/nmap."$door"
         # naabu -host "$SCOPE"
     done
 
@@ -111,9 +115,9 @@ fi
 
 if [[ $LEVEL -eq 2 ]]; then
 
-    # Hosts FFF analysis
+    # httpx FFF analysis
     echo "Running Hosts FFF analysis..."
-    fff.sh hosts.txt
+    fff.sh httpx.txt
 
     # URLs FFF analysis
     echo "Running URLs FFF analysis..."
@@ -128,9 +132,9 @@ fi
 
 if [[ $LEVEL -eq 3 ]]; then
 
-    # Screenshot Hosts
-    echo "Taking screenshots of Hosts..."
-    screenshot.sh hosts.txt
+    # Screenshot httpx
+    echo "Taking screenshots of httpx..."
+    screenshot.sh httpx.txt
 
      # Screenshot URLs
     echo "Taking screenshots of URLs..."
