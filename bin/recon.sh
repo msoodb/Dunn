@@ -107,7 +107,7 @@ if [[ $LEVEL -eq 1 ]]; then
     mkdir nmaps
     echo "Running nmap on main domains..."
     for door in $(cat doors.txt); do
-        nmap "$door" -o nmaps/nmap."$door"
+        nmap "$door" -o nmaps/"$door"
         # naabu -host "$SCOPE"
     done
 
