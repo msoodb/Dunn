@@ -1,12 +1,10 @@
 #!/bin/bash
 
-
 figlet Reconnaissance
 # Script Name: recon.sh
 # Description: Automated reconnaissance script.
 # Author: msoodb
 # Usage: recon.sh
-
 
 # Default variables
 SCOPES=""
@@ -18,18 +16,18 @@ function show_help {
     echo "Usage: $0 [options]"
     echo
     echo "Options:"
-    echo "  -s FILE   File containing scopes (domains, URLs, and wildcards in scope)."
-    echo "  -oos FILE File containing out of scopes (optional)."
-    echo "  -l LEVEL  Level of execution (1 to 3)."
+    echo "  -s FILE   File containing scopes (domains, URLs, and wildcards in scope). Required for Level 1."
+    echo "  -oos FILE File containing out of scopes (optional). Used only in Level 1."
+    echo "  -l LEVEL  Level of execution (1 or 2 or 3)."
     echo "  -h        Show this help message and exit."
     echo
     echo "Description:"
     echo "This script automates asset gathering, including subdomain enumeration, URL extraction, "
     echo "JavaScript analysis, screenshots, and parameter discovery for target domains."
-    echo "The level parameter controls which steps are executed:"
-    echo "  Level 1: FGDS.sh and subdomain enumeration."
-    echo "  Level 2: Adds host gathering and filtering."
-    echo "  Level 3: Adds screenshots and FFF analysis."
+    echo
+    echo "Execution Levels:"
+    echo "  Level 1: Requires SCOPES and optionally OUT_OF_FSCOPES for basic subdomain enumeration."
+    echo "  Level 2/3: Advanced URL and JavaScript analysis without scope requirements."
     echo
     exit 0
 }
@@ -48,7 +46,7 @@ while [[ $# -gt 0 ]]; do
         -l)
             LEVEL=$2
             if ! [[ $LEVEL =~ ^[1-3]$ ]]; then
-                echo "Error: Level must be an integer between 1 and 3."
+                echo "Error: Level must be 1 or 2 or 3."
                 exit 1
             fi
             shift 2
@@ -63,16 +61,20 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
-
-# Check if required arguments are provided
-if [[ -z "$SCOPES" || -z "$LEVEL" ]]; then
-    echo "Error: -s (scopes file) and -l (level) are required."
-    show_help
+# Validation based on LEVEL
+if [[ $LEVEL -eq 1 ]]; then
+    if [[ -z "$SCOPES" ]]; then
+        echo "Error: -s (scopes file) is required for Level 1."
+        show_help
+    fi
+    if [[ ! -f "$SCOPES" ]]; then
+        echo "Error: File '$SCOPES' does not exist."
+        exit 1
+    fi
 fi
 
-if [[ ! -f "$SCOPES" ]]; then
-    echo "Error: File '$SCOPES' does not exist."
-    exit 1
+if [[ $LEVEL -eq 2 && (-n "$SCOPES" || -n "$OUT_OF_FSCOPES") ]]; then
+    echo "Warning: -s and -oos options are not used in Level 2."
 fi
 
 # Asset Gathering
@@ -81,10 +83,11 @@ fi
 echo "Starting asset gathering..."
 
 if [[ $LEVEL -eq 1 ]]; then
+    echo "Level 1: Basic subdomain enumeration and analysis..."
     
-    # Subdomanins
+    # Subdomain enumeration
     gates.sh -s "$SCOPES" -oos "$OUT_OF_FSCOPES" # gates.txt
-    cat gates.txt | dnsx -resp | tee doors-full.txt
+    cat gates.txt | dnsx -resp -nc | tee doors-full.txt
     cat doors-full.txt | awk '{print $1}' | sort -u | tee doors.txt
     
     # Httpx
@@ -92,6 +95,25 @@ if [[ $LEVEL -eq 1 ]]; then
     httpx.sh doors.txt
     httpx-filter.sh httpx.txt
 
+    # httpx FFF analysis
+    echo "Running Hosts FFF analysis..."
+    fff.sh httpx.txt
+
+    # Port recon
+    mkdir nmaps
+    echo "Running nmap on main domains..."
+    for door in $(cat doors.txt); do
+        nmap "$door" -o nmaps/"$door"
+    done
+
+    # Screenshot httpx
+    echo "Taking screenshots of httpx..."
+    screenshot.sh httpx.txt
+fi
+
+if [[ $LEVEL -eq 2 ]]; then
+    echo "Level 2: Advanced URL and JavaScript analysis..."
+    
     # URLs
     echo "Extracting URLs..."
     url.sh -l httpx.txt
@@ -102,51 +124,24 @@ if [[ $LEVEL -eq 1 ]]; then
     echo "Downloading JavaScript files..."
     download.sh urls-js.txt
 
-    
-    # Port recon
-    mkdir nmaps
-    echo "Running nmap on main domains..."
-    for door in $(cat doors.txt); do
-        nmap "$door" -o nmaps/"$door"
-        # naabu -host "$SCOPE"
-    done
-
-fi
-
-if [[ $LEVEL -eq 2 ]]; then
-
-    # httpx FFF analysis
-    echo "Running Hosts FFF analysis..."
-    fff.sh httpx.txt
-
     # URLs FFF analysis
     echo "Running URLs FFF analysis..."
     fff.sh urls.txt
-
-    # Paramspider
-    echo "Running ParamSpider..."
-    paramspider -l $SCOPES
-    mv results/ paramspider/
-    
 fi
 
 if [[ $LEVEL -eq 3 ]]; then
+    echo "Level 3: Advanced URL and JavaScript analysis..."
+    
+    # Paramspider
+    echo "Running ParamSpider..."
+    paramspider -l httpx.txt
+    mv results/ paramspider/
 
-    # Screenshot httpx
-    echo "Taking screenshots of httpx..."
-    screenshot.sh httpx.txt
-
-     # Screenshot URLs
+    # Screenshot URLs
     echo "Taking screenshots of URLs..."
     screenshot.sh urls.txt
-
-    # Dorking
-    #echo "Running FGDS.sh on main domains..."
-    #for TARGET in $(cat "$TARGETS"); do
-    #    FGDS.sh "$TARGET"
-    #done
-    
 fi
+
 
 echo "Asset gathering completed!"
 ##############################################################################################################################

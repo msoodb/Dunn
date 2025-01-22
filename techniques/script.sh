@@ -17,11 +17,10 @@
             │ │   │        ││ │ ││ │     ││                    │
             └─└───┘────────└└─└─┘┘─└─────┘┘────────────────────┘
 
-                    Find all Doors,     Reconnaissance
-                    Touch all Doors,    Phase Zero Assault
-                    Select one Door,    Analysis and Assessment
-                    Scan the Door,      Deep Reconnaissance and Scan
-                    Open the Door,      Engagement
+                    Find all/httpx Doors,       Reconnaissance Wildcards
+                    Select one Door,            Analysis and Assessment
+                    Scan the Door,              Deep Reconnaissance and Scan
+                    Open the Door,              Engagement
 
 
 
@@ -35,21 +34,16 @@
 
 ## Start
     export $(grep -v '^#' ~/Projects/dunn/bin/.env | xargs -d '\n')
-    cat download_csv.csv | grep -E "WILDCARD|URL" | awk -F , '{print $1}' > scopes.txt
+    scope.py download_csv.csv
 
-## 1. Find all Doors
+## 1. Find all/httpx Doors
     : ' Reconnaissance '
-    recon.sh -s scopes.txt -oos out-of-scopes.txt -l 1
-    recon.sh -s scopes.txt -oos out-of-scopes.txt -l 2
-    recon.sh -s scopes.txt -oos out-of-scopes.txt -l 3
-
-## 2. Touch all Doors
-    : ' Phase Zero Assault '
+    recon.sh -l 1 -s scopes.txt -oos out-of-scopes.txt
     zero-assault.sh
 
-## 3. Select one Door
+## 2. Select one Door
 : ' 
-    Analysis and Assessment.
+    Study, Analysis, and Assessment.
     Looking for any clue to find interest host/api to scan and go deep diving.
     Processing Information: Data from reconnaissance is analyzed to understand 
     enemy positions, strengths, weaknesses, and movements.
@@ -92,8 +86,10 @@
     # /Analysis and Assessment Result: Find interest host/api/vulnerability/cve to Deep Reconnaissance and Scan./
     touch reconnaissance-note-operation-[]-Dec2024.md
     
-## 4. Scan the Door
+## 4. Reconnaissance/Scan the Door
     : 'Deep Reconnaissance and Scan'
+    recon.sh -l 2
+    recon.sh -l 3
 
 ## 5. Open the Door
     : 'Engagement'
