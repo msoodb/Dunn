@@ -29,15 +29,15 @@ mkdir -p $OUTPUT_DIR
 
 # Broken Link Hijacking (BLH)
 echo "Scanning for Broken Link Hijacking (BLH)..."
-socialhunter -f scopes.txt | tee "$OUTPUT_DIR/socialhunter.scopes.txt"
+socialhunter -f urls.txt | tee "$OUTPUT_DIR/socialhunter.urls.txt"
 echo "Scanning for Broken Link Hijacking (BLH)...done!"
 
 
 # Subdomain Takeovers
 echo "Scanning for Subdomain Takeovers..."
-nuclei -l hosts.txt -t ~/nuclei-templates/http/takeovers/ -o "$OUTPUT_DIR/nuclei-takeovers-hosts.txt"
-subzy run --targets hosts.txt | tee "$OUTPUT_DIR/subzy-hosts.txt"
-cat "$OUTPUT_DIR/subzy-hosts.txt" | grep -v "NOT VULNERABLE" | grep -v "HTTP ERROR" | tee "$OUTPUT_DIR/subzy-hosts-vuln.txt"
+nuclei -l httpx.txt -t ~/nuclei-templates/http/takeovers/ -o "$OUTPUT_DIR/nuclei-takeovers-httpx.txt"
+subzy run --targets httpx.txt | tee "$OUTPUT_DIR/subzy-httpx.txt"
+cat "$OUTPUT_DIR/subzy-httpx.txt" | grep -v "NOT VULNERABLE" | grep -v "HTTP ERROR" | tee "$OUTPUT_DIR/subzy-httpx-vuln.txt"
 echo "Scanning for Subdomain Takeovers...done!"
 
 
@@ -53,21 +53,21 @@ echo "Scanning for XSS vulnerabilities...done!"
 
 # 403 Bypass
 echo "Starting 403 Bypass scans..."
-for LINE in $(cat hosts-403.txt); do
-    bypass-403.sh "$LINE" | tee -a "$OUTPUT_DIR/hosts-403-result.txt"
+for LINE in $(cat httpx-403.txt); do
+    bypass-403.sh "$LINE" | tee -a "$OUTPUT_DIR/httpx-403-result.txt"
 done
-cat "$OUTPUT_DIR/hosts-403-result.txt" | grep 200 > "$OUTPUT_DIR/hosts-403-result-200.txt"
+cat "$OUTPUT_DIR/httpx-403-result.txt" | grep 200 > "$OUTPUT_DIR/httpx-403-result-200.txt"
 echo "Starting 403 Bypass scans...done!"
 
 
 # Vulnerabilities, CVEs, Exposures
 echo "Scanning for vulnerabilities, CVEs, and exposures..."
-nuclei -l scopes.txt \
+nuclei -l httpx.txt \
     -t ~/nuclei-templates/http/vulnerabilities/ \
     -t ~/nuclei-templates/http/cves/ \
     -t ~/nuclei-templates/http/exposures/ \
     -t ~/nuclei-templates/technologies/ \
-    -o "$OUTPUT_DIR/nuclei-scopes.txt"
+    -o "$OUTPUT_DIR/nuclei-httpx.txt"
 echo "Scanning for vulnerabilities, CVEs, and exposures...done!"
 
 echo "Phase Zero Assault completed. Results saved in $OUTPUT_DIR."

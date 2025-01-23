@@ -87,8 +87,9 @@ if [[ $LEVEL -eq 1 ]]; then
     
     # Subdomain enumeration
     gates.sh -s "$SCOPES" -oos "$OUT_OF_FSCOPES" # gates.txt
-    cat gates.txt | dnsx -resp -nc | tee doors-full.txt
-    cat doors-full.txt | awk '{print $1}' | sort -u | tee doors.txt
+    cat gates.txt | dnsx -silent -resp -nc | tee doors-full~
+    cat doors-full~ | awk '{print $1}' | sort -u | tee doors.txt
+    rm doors-full~
     
     # Httpx
     echo "Gathering httpx..."
@@ -99,11 +100,17 @@ if [[ $LEVEL -eq 1 ]]; then
     echo "Running Hosts FFF analysis..."
     fff.sh httpx.txt
 
+    # doors categorize
+    awk '{print $1}' httpx-full.txt | sed -E 's#https?://##' | cut -d'/' -f1 | sort -u > doors-httpx.txt
+    grep -Fvxf doors-httpx.txt doors.txt > posterns.txt
+    rm httpx-full.txt
+    rm doors-httpx.txt
+
     # Port recon
     mkdir nmaps
     echo "Running nmap on main domains..."
-    for door in $(cat doors.txt); do
-        nmap "$door" -o nmaps/"$door"
+    for postern in $(cat posterns.txt); do
+        nmap "$postern" -o nmaps/"$postern"
     done
 
     # Screenshot httpx
