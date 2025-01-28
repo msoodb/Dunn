@@ -26,6 +26,7 @@ shodan search Ssl.cert.subject.CN:”hackerone.com” 200 — fields ip_str | ht
 - "port: 53" Recursion: Enabled
 
 4. Network infrastructure
+- asn:"AS50810"
 - port:8291 os:"MikroTik RouterOS 6.45.9"
 
 5. Web servers

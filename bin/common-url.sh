@@ -1,63 +1,29 @@
+
 #!/bin/bash
 
-# ----------------------------------
-#   Common URLs Generate
-# ----------------------------------
+# Usage: ./common-url <base_url> <interesting_urls>
+# Example: ./common-url https://example.com interesting_urls.txt
 
-TARGET=$1
+if [ $# -ne 2 ]; then
+  echo "Usage: $0 <base_url> <interesting_urls>"
+  exit 1
+fi
 
-paths=(
-'/robots.txt'
-'/robots'
-'/sitemap.xml'
-'/admin'
-'/admin-authz.xml'
-'/admin.conf'
-'/admin.passwd'
-'/admin/*'
-'/admin/logon.jsp'
-'/admin/secure/logon.jsp'
-'/phpinfo'
-'/phpmyadmin/'
-'/phpMyAdmin/'
-'/mysqladmin/'
-'/MySQLadmin'
-'/MySQLAdmin'
-'/login.php'
-'/logon.php'
-'/xmlrpc.php'
-'/dbadmin'
-'/admin.dll'
-'/admin.exe'
-'/administrators.pwd'
-'/author.dll'
-'/author.exe'
-'/author.log'
-'/authors.pwd'
-'/cgi-bin'
-'/AdminCaptureRootCA'
-'/AdminClients'
-'/AdminConnections'
-'/AdminEvents'
-'/AdminJDBC'
-'/AdminLicense'
-'/AdminMain'
-'/AdminProps'
-'/AdminRealm'
-'/AdminThreads'
-'/wp-admin/'
-'/wp-admin/about.php'
-'/wp-admin/admin-ajax.php'
-'/wp-admin/admin-db.php'
-'/wp-admin/admin-footer.php'
-'/wp-admin/admin-functions.php'
-'/wp-admin/admin-header.php'
-'/mod'
-'/backups'
-)
+BASE_URL="$1"
+URL_LIST="$2"
+OUTPUT_FILE="common_urls.txt"
 
-pathslength=${#paths[@]};
-for i in $(seq 0 $pathslength)
-do
-echo -e "$TARGET${paths[$i]}"
-done
+# Check if the URL list file exists
+if [ ! -f "$URL_LIST" ]; then
+  echo "Error: File '$URL_LIST' not found."
+  exit 1
+fi
+
+# Generate URLs
+echo "Generating URLs for base URL: $BASE_URL"
+> "$OUTPUT_FILE" # Clear the output file before appending
+while IFS= read -r PATH; do
+  echo "$BASE_URL$PATH" >> "$OUTPUT_FILE"
+done < "$URL_LIST"
+
+echo "URLs have been saved to $OUTPUT_FILE."

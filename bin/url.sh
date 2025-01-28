@@ -10,13 +10,13 @@ process_target() {
 
     echo "Processing target: $TARGET"
 
-    # waybackurls
-    echo "$TARGET" | waybackurls | tee -a urls~
-    echo "waybackurls done for $TARGET!"
-
     # katana
     katana -u "$TARGET" -fs=fqdn | tee -a urls~
     echo "katana done for $TARGET!"
+
+    # waybackurls
+    #echo "$TARGET" | waybackurls | tee -a urls~
+    #echo "waybackurls done for $TARGET!"
 
     # Combine and deduplicate URLs
     cat urls~ | sort -u >> urls-all.txt && rm urls~

@@ -11,6 +11,13 @@ process_wildcard() {
 
     echo "Processing scope: $SCOPES"
 
+    # certspotter
+    # curl -s "https://api.certspotter.com/v1/issuances?domain=$SCOPES&include_subdomains=true&expand=dns_names" | jq .[].dns_names | grep -Po '(([\w.-]*)\.([\w]*)\.([A-z]))\w+' | sort -u | tee -a subdomains~
+    # curl -s "https://jldc.me/anubis/subdomains/$SCOPES" | grep -Po "((http|https):\/\/)?(([\w.-]*)\.([\w]*)\.([A-z]))\w+" | sort -u | tee -a subdomains~
+    # curl -s "https://crt.sh/?q=%25.$SCOPES&output=json" | jq -r '.[].name_value' | sed 's/\*\.//g' | sort -u | tee -a subdomains~
+    # curl -s "https://api.hackertarget.com/hostsearch/?q=$SCOPES" | sort -u | tee -a subdomains~
+    #curl -s "https://otx.alienvault.com/api/v1/indicators/domain/$SCOPES/url_list?limit=100&page=1" | grep -o '"hostname": *"[^"]*' | sed 's/"hostname": "//' | sort -u | tee -a subdomains~
+
     # crtsh
     echo "crtsh start for $SCOPES!"
     crtsh -d "$SCOPES" -r | tee -a subdomains~
