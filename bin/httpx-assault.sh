@@ -8,15 +8,17 @@ figlet HTTPX.scan
 
 
 # Infra Info
-whois
-waf
-dig.sh
-host
-nslookup
-cat host | awk '{print $4}' > ip.txt
 
-export IP=
+mkdir infra
 export DOMAIN=
+whois $DOMAIN
+wafw00f $DOMAIN 
+dig.sh $DOMAIN 
+host $DOMAIN 
+nslookup $DOMAIN 
+cat host | awk '{print $4}' > ip.txt
+export IP=
+
 firefox https://ipinfo.io/$IP
 firefox https://www.shodan.io/host/$IP
 
@@ -30,7 +32,7 @@ openssl s_client -connect $DOMAIN:443 -showcerts
 openssl s_client -connect $IP:443 -servername $DOMAIN
     : ' Check the Subject or Common Name (CN) in the certificate:
 
-        If it matches www.paloalto.com, it is likely the origin server.
+        If it matches $DOMAIN, it is likely the origin server.
         If it shows something like *.cloudfront.net or *.cloudflare.com, it is a WAF/CDN.'
 
 firefix https://ipinfo.io/$IP
@@ -57,6 +59,13 @@ nmap -Pn $IP
 
 # Check SSL
 file techniques/ssl.md 
+
+# Find pdf, image
+exiftool somefile.pdf
+
+# 
+ffuf -u https://$DOMAIN/FUZZ -w ~/opt/wordlists/discovery/directory_list_2.3_medium.txt | tee -a dirs.txt
+
 
 # Auto Scan
 nuclei -u $DOMAIN -o nuclei.scan

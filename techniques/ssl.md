@@ -55,3 +55,8 @@ TLSv1.0:
 |       64-bit block cipher IDEA vulnerable to SWEET32 attack
 
 https://sweet32.info/
+
+```sh
+nuclei -u $DOMAIN -t ssl/weak-cipher-suites.yaml
+nuclei -u $DOMAIN -t ssl/
+```

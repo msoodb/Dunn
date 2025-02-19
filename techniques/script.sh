@@ -17,14 +17,13 @@
             │ │   │        ││ │ ││ │     ││                    │
             └─└───┘────────└└─└─┘┘─└─────┘┘────────────────────┘
 
-                    Find all/httpx Doors,       Reconnaissance Wildcards
-                    Select one Door,            Analysis and Assessment
-                    Scan the Door,              Deep Reconnaissance and Scan
-                    Open the Door,              Engagement
 
-
-
-
+                    Reconnaissance              Find all gates
+                    Scanning and Enumeration
+                    Gaining Access
+                    Maintaining Access
+                    Covering Tracks
+                    
 
                     castle                  wildcard 
                     gates                   subdomains
@@ -38,7 +37,7 @@
 
 ## 1. Find all/httpx Doors
     : ' Reconnaissance '
-    recon.sh -l 1 -s scopes.txt -oos out-of-scopes.txt
+    recon.sh castle -l 1 -s scopes.txt -oos out-of-scopes.txt
     zero-assault.sh
 
 ## 2. Select one Door

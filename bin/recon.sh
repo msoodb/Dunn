@@ -96,8 +96,8 @@ function castle {
 
             # Subdomain enumeration
             gates.sh -s "$SCOPES" -oos "$OUT_OF_FSCOPES" # gates.txt
-            cat gates.txt | dnsx -silent -resp -nc | tee doors-full
-            cat doors-full | awk '{print $1}' | sort -u | tee doors.txt
+            cat gates.txt | dnsx -silent -resp -nc | tee doors-full.txt
+            cat doors-full.txt | awk '{print $1}' | sort -u | tee doors.txt
 
             # Httpx
             echo "Gathering httpx..."

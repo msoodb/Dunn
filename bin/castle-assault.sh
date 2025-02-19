@@ -12,7 +12,7 @@ for ip in ips:
 done
 
 # Auto Scan
-nuclei -l castles.txt -o nuclei.scastles.txt
+nuclei -l castles.txt -o nuclei.castles.txt
 
 # Subdomain Takeovers
 nuclei -l httpx.txt -t ~/nuclei-templates/http/takeovers/ -o nuclei-takeovers-httpx.txt
@@ -24,3 +24,6 @@ bypass-403-list.sh httpx-403.txt
 
 # Broken Link Hijacking (BLH)
 socialhunter -f httpx.txt -w 10 | tee socialhunter.httpx.txt
+
+#
+replace_fuzz.sh "https://www.mactag.com/case-studies?filter_from=FUZZ&filter_to=2015-10-31" ~/Projects/dunn/payloads/open-redirect.txt 
